@@ -92,13 +92,15 @@ body {
 
 /* ── Centre: Tumult track + banner ────────────────────────────── */
 .center-strip {
+  position: relative;
   flex: 1 1 auto; display: flex; flex-direction: row; align-items: center; justify-content: center;
   gap: 14px; padding: 4px 14px; min-height: 0;
   background: radial-gradient(600px 150px at 45% 50%, rgba(239, 125, 52, 0.06), transparent 70%);
 }
 /* Game info on the LEFT of the centre band: the Day title and the phase list,
-   with the current phase highlighted. */
-.game-info { flex: 0 0 150px; display: flex; flex-direction: column; gap: 12px; align-items: flex-start; align-self: center; padding-left: 4px; }
+   with the current phase highlighted. Taken out of flow so the track-stack stays
+   centred on the board (middle tumult card + middle mana orb align with the Hero). */
+.game-info { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); z-index: 5; width: 150px; display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
 .day-title { font-size: 1.35rem; font-weight: 800; letter-spacing: 0.02em; line-height: 1.1; }
 .phase-list { display: flex; flex-direction: column; gap: 5px; }
 .phase-item {
