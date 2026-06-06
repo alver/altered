@@ -1,5 +1,14 @@
 /* board.css — the two playmats, the shared Tumult track, and the sidebar. */
 
+/* Game background — the ice-sky landscape behind the whole board. Scoped to the
+   game page (deck selection has its own image). A dark scrim over the photo keeps
+   the slate panels and log text legible. */
+body {
+  background:
+    linear-gradient(rgba(8, 12, 20, 0.45), rgba(8, 12, 20, 0.62)),
+    url('../assets/background.jpg') center center / cover no-repeat fixed;
+}
+
 #board { display: flex; flex-direction: column; min-width: 0; height: 100vh; overflow: hidden; }
 
 /* ── Player areas ─────────────────────────────────────────────── */
