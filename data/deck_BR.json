@@ -1,0 +1,90 @@
+{
+ "id": "BR",
+ "name": "Bravos \u2014 Kojo & Booda",
+ "faction": "BR",
+ "factionName": "Bravos",
+ "hero": "ALT_CORE_B_BR_01_C",
+ "cover": "ALT_CORE_B_BR_01_C",
+ "cards": [
+  {
+   "id": "ALT_CORE_B_BR_04_C",
+   "count": 2
+  },
+  {
+   "id": "ALT_CORE_B_BR_04_R1",
+   "count": 1
+  },
+  {
+   "id": "ALT_CORE_B_BR_05_C",
+   "count": 3
+  },
+  {
+   "id": "ALT_CORE_B_BR_07_C",
+   "count": 2
+  },
+  {
+   "id": "ALT_CORE_B_BR_07_R1",
+   "count": 1
+  },
+  {
+   "id": "ALT_CORE_B_BR_08_C",
+   "count": 3
+  },
+  {
+   "id": "ALT_CORE_B_BR_09_C",
+   "count": 3
+  },
+  {
+   "id": "ALT_CORE_B_BR_15_C",
+   "count": 3
+  },
+  {
+   "id": "ALT_CORE_B_BR_17_C",
+   "count": 2
+  },
+  {
+   "id": "ALT_CORE_B_BR_17_R1",
+   "count": 1
+  },
+  {
+   "id": "ALT_CORE_B_BR_18_C",
+   "count": 2
+  },
+  {
+   "id": "ALT_CORE_B_BR_18_R1",
+   "count": 1
+  },
+  {
+   "id": "ALT_CORE_B_BR_13_C",
+   "count": 3
+  },
+  {
+   "id": "ALT_CORE_B_BR_20_C",
+   "count": 3
+  },
+  {
+   "id": "ALT_CORE_B_YZ_16_R1",
+   "count": 1
+  },
+  {
+   "id": "ALT_CORE_B_BR_22_R1",
+   "count": 1
+  },
+  {
+   "id": "ALT_CORE_B_BR_28_C",
+   "count": 3
+  },
+  {
+   "id": "ALT_CORE_A_BR_26_C",
+   "count": 2
+  },
+  {
+   "id": "ALT_CORE_B_BR_26_R1",
+   "count": 1
+  },
+  {
+   "id": "ALT_CORE_B_MU_30_R1",
+   "count": 1
+  }
+ ]
+}

@@ -1,0 +1,2514 @@
+{
+ "ALT_CORE_B_LY_18_C": {
+  "id": "ALT_CORE_B_LY_18_C",
+  "name": "The Hatter",
+  "type": "character",
+  "faction": "LY",
+  "factionName": "Lyra",
+  "rarity": "common",
+  "subtypes": [
+   "Citizen"
+  ],
+  "handCost": 4,
+  "reserveCost": 5,
+  "text": "",
+  "rawEffect": "",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_LY_18_C.jpg",
+  "forest": 5,
+  "mountain": 5,
+  "water": 0
+ },
+ "ALT_CORE_B_AX_30_R1": {
+  "id": "ALT_CORE_B_AX_30_R1",
+  "name": "Brassbug Hive",
+  "type": "permanent",
+  "faction": "AX",
+  "factionName": "Axiom",
+  "rarity": "rare",
+  "subtypes": [
+   "Landmark"
+  ],
+  "handCost": 6,
+  "reserveCost": 6,
+  "text": "\u27d0 Create a Brassbug 2/2/2 Robot token in target Expedition. At Noon \u2014 Create a Brassbug 2/2/2 Robot token in target Expedition. When a Robot joins your Expeditions \u2014 It gains 1 boost.",
+  "rawEffect": "{J} Create a [Brassbug 2/2/2] Robot token in target Expedition.  At Noon\u00a0\u2014 Create a [Brassbug 2/2/2] Robot token in target Expedition.  #When a Robot joins your Expeditions\u00a0\u2014 It gains 1 boost.#",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_AX_30_R1.jpg"
+ },
+ "ALT_CORE_B_LY_16_C": {
+  "id": "ALT_CORE_B_LY_16_C",
+  "name": "Lyra Chronicler",
+  "type": "character",
+  "faction": "LY",
+  "factionName": "Lyra",
+  "rarity": "common",
+  "subtypes": [
+   "Artist"
+  ],
+  "handCost": 3,
+  "reserveCost": 3,
+  "text": "",
+  "rawEffect": "",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_LY_16_C.jpg",
+  "forest": 4,
+  "mountain": 0,
+  "water": 4
+ },
+ "ALT_CORE_B_LY_07_C": {
+  "id": "ALT_CORE_B_LY_07_C",
+  "name": "Hathor",
+  "type": "character",
+  "faction": "LY",
+  "factionName": "Lyra",
+  "rarity": "common",
+  "subtypes": [
+   "Artist",
+   "Deity"
+  ],
+  "handCost": 2,
+  "reserveCost": 3,
+  "text": "",
+  "rawEffect": "",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_LY_07_C.jpg",
+  "forest": 3,
+  "mountain": 3,
+  "water": 0
+ },
+ "ALT_CORE_B_AX_07_C": {
+  "id": "ALT_CORE_B_AX_07_C",
+  "name": "Foundry Mechanic",
+  "type": "character",
+  "faction": "AX",
+  "factionName": "Axiom",
+  "rarity": "common",
+  "subtypes": [
+   "Engineer"
+  ],
+  "handCost": 1,
+  "reserveCost": 1,
+  "text": "",
+  "rawEffect": "",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_AX_07_C.jpg",
+  "forest": 0,
+  "mountain": 1,
+  "water": 1
+ },
+ "ALT_CORE_B_LY_14_C": {
+  "id": "ALT_CORE_B_LY_14_C",
+  "name": "Lyra Cloth Dancer",
+  "type": "character",
+  "faction": "LY",
+  "factionName": "Lyra",
+  "rarity": "common",
+  "subtypes": [
+   "Artist"
+  ],
+  "handCost": 3,
+  "reserveCost": 2,
+  "text": "\u270b You may have target Character gain Fleeting. (If it would be sent to Reserve, discard it instead.)",
+  "rawEffect": "{H} You may have target Character gain [[Fleeting]]. (If it would be sent to Reserve, discard it instead.)",
+  "ability": {},
+  "fleeting": true,
+  "image": "assets/cards/ALT_CORE_B_LY_14_C.jpg",
+  "forest": 0,
+  "mountain": 3,
+  "water": 2
+ },
+ "ALT_CORE_B_BR_20_C": {
+  "id": "ALT_CORE_B_BR_20_C",
+  "name": "Atlas",
+  "type": "character",
+  "faction": "BR",
+  "factionName": "Bravos",
+  "rarity": "common",
+  "subtypes": [
+   "Titan"
+  ],
+  "handCost": 5,
+  "reserveCost": 5,
+  "text": "Gigantic. (I am considered present in each of your Expeditions.)",
+  "rawEffect": "[Gigantic]. (I am considered present in each of your Expeditions.)",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_BR_20_C.jpg",
+  "keywords": {
+   "gigantic": true
+  },
+  "forest": 3,
+  "mountain": 3,
+  "water": 3
+ },
+ "ALT_CORE_B_LY_17_C": {
+  "id": "ALT_CORE_B_LY_17_C",
+  "name": "Ouroboros Croupier",
+  "type": "character",
+  "faction": "LY",
+  "factionName": "Lyra",
+  "rarity": "common",
+  "subtypes": [
+   "Citizen"
+  ],
+  "handCost": 4,
+  "reserveCost": 4,
+  "text": "\u270b Roll a die. On a 4+, draw a card. On a 1-3, Resupply. (Put the top card of your deck in Reserve.)",
+  "rawEffect": "{H} Roll a die. On a 4+, draw a card. On a 1-3, [Resupply]. (Put the top card of your deck in Reserve.)",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_LY_17_C.jpg",
+  "forest": 0,
+  "mountain": 4,
+  "water": 4
+ },
+ "ALT_CORE_B_OR_17_R1": {
+  "id": "ALT_CORE_B_OR_17_R1",
+  "name": "Jeanne d'Arc",
+  "type": "character",
+  "faction": "OR",
+  "factionName": "Ordis",
+  "rarity": "rare",
+  "subtypes": [
+   "Soldier"
+  ],
+  "handCost": 5,
+  "reserveCost": 5,
+  "text": "When I leave the Expedition zone \u2014 Create two Ordis Recruit 1/1/1 Soldier tokens in each of your Expeditions.",
+  "rawEffect": "When I leave the Expedition zone\u00a0\u2014 Create #two# [Ordis Recruit 1/1/1] Soldier tokens in each of your Expeditions.",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_OR_17_R1.jpg",
+  "forest": 2,
+  "mountain": 2,
+  "water": 2
+ },
+ "ALT_CORE_B_OR_07_C": {
+  "id": "ALT_CORE_B_OR_07_C",
+  "name": "Monolith Rune-Scribe",
+  "type": "character",
+  "faction": "OR",
+  "factionName": "Ordis",
+  "rarity": "common",
+  "subtypes": [
+   "Scholar"
+  ],
+  "handCost": 2,
+  "reserveCost": 2,
+  "text": "",
+  "rawEffect": "",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_OR_07_C.jpg",
+  "forest": 2,
+  "mountain": 2,
+  "water": 2
+ },
+ "ALT_CORE_A_MU_25_C": {
+  "id": "ALT_CORE_A_MU_25_C",
+  "name": "Meditation Training",
+  "type": "spell",
+  "faction": "MU",
+  "factionName": "Muna",
+  "rarity": "common",
+  "subtypes": [
+   "Boon"
+  ],
+  "handCost": 2,
+  "reserveCost": 3,
+  "text": "Target Character with Hand Cost \u27723\u2773 or less gains Anchored. (During Rest, it doesn't go to Reserve and it loses Anchored.)",
+  "rawEffect": "Target Character with Hand Cost\u00a0{3} or less gains [[Anchored]]. (During Rest, it doesn't go to Reserve and it loses Anchored.)",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_A_MU_25_C.jpg"
+ },
+ "ALT_CORE_B_AX_24_C": {
+  "id": "ALT_CORE_B_AX_24_C",
+  "name": "Brassbug Hub",
+  "type": "permanent",
+  "faction": "AX",
+  "factionName": "Axiom",
+  "rarity": "common",
+  "subtypes": [
+   "Landmark"
+  ],
+  "handCost": 3,
+  "reserveCost": 3,
+  "text": "\u27d0 I gain 3 Kelon counters. At Noon \u2014 You may pay \u27721\u2773 and spend 1 of my Kelon counters to create a Brassbug 2/2/2 Robot token in target Expedition.",
+  "rawEffect": "{J} I gain 3 Kelon counters.  At Noon\u00a0\u2014 You may pay {1} and spend 1 of my Kelon counters to create a [Brassbug 2/2/2] Robot token in target Expedition.",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_AX_24_C.jpg"
+ },
+ "ALT_CORE_B_BR_13_C": {
+  "id": "ALT_CORE_B_BR_13_C",
+  "name": "Kappa",
+  "type": "character",
+  "faction": "BR",
+  "factionName": "Bravos",
+  "rarity": "common",
+  "subtypes": [
+   "Trainer",
+   "Spirit"
+  ],
+  "handCost": 4,
+  "reserveCost": 4,
+  "text": "",
+  "rawEffect": "",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_BR_13_C.jpg",
+  "forest": 4,
+  "mountain": 4,
+  "water": 5
+ },
+ "ALT_CORE_B_OR_07_R1": {
+  "id": "ALT_CORE_B_OR_07_R1",
+  "name": "Monolith Rune-Scribe",
+  "type": "character",
+  "faction": "OR",
+  "factionName": "Ordis",
+  "rarity": "rare",
+  "subtypes": [
+   "Scholar"
+  ],
+  "handCost": 2,
+  "reserveCost": 2,
+  "text": "\u270b If you control a token, Resupply. (Put the top card of your deck in Reserve.)",
+  "rawEffect": "#{H} If you control a token, [Resupply].# (Put the top card of your deck in Reserve.)",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_OR_07_R1.jpg",
+  "forest": 1,
+  "mountain": 2,
+  "water": 2
+ },
+ "ALT_CORE_B_MU_18_R1": {
+  "id": "ALT_CORE_B_MU_18_R1",
+  "name": "Parvati",
+  "type": "character",
+  "faction": "MU",
+  "factionName": "Muna",
+  "rarity": "rare",
+  "subtypes": [
+   "Deity"
+  ],
+  "handCost": 4,
+  "reserveCost": 3,
+  "text": "\u27d0 Target Character gains Anchored. (During Rest, it doesn't go to Reserve and it loses Anchored.)",
+  "rawEffect": "#{J}# Target Character gains [[Anchored]]. (During Rest, it doesn't go to Reserve and it loses Anchored.)",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_MU_18_R1.jpg",
+  "forest": 3,
+  "mountain": 0,
+  "water": 3
+ },
+ "ALT_CORE_B_BR_26_R1": {
+  "id": "ALT_CORE_B_BR_26_R1",
+  "name": "Physical Training",
+  "type": "spell",
+  "faction": "BR",
+  "factionName": "Bravos",
+  "rarity": "rare",
+  "subtypes": [
+   "Boon"
+  ],
+  "handCost": 3,
+  "reserveCost": 3,
+  "text": "Target Character gains 3 boosts. (A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.) Draw a card.",
+  "rawEffect": "Target Character gains 3 boosts[]. (A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)  #Draw a card.#",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_BR_26_R1.jpg"
+ },
+ "ALT_CORE_B_BR_18_C": {
+  "id": "ALT_CORE_B_BR_18_C",
+  "name": "Sun Wukong",
+  "type": "character",
+  "faction": "BR",
+  "factionName": "Bravos",
+  "rarity": "common",
+  "subtypes": [
+   "Deity"
+  ],
+  "handCost": 3,
+  "reserveCost": 4,
+  "text": "\u267a I gain 2 boosts. (A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "rawEffect": "{R} I gain 2 boosts[]. (A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "ability": {
+   "reserve": {
+    "code": "gain_boost",
+    "n": 2
+   }
+  },
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_BR_18_C.jpg",
+  "forest": 2,
+  "mountain": 4,
+  "water": 2
+ },
+ "ALT_CORE_B_LY_01_C": {
+  "id": "ALT_CORE_B_LY_01_C",
+  "name": "Nevenka & Blotch",
+  "type": "hero",
+  "faction": "LY",
+  "factionName": "Lyra",
+  "rarity": "common",
+  "subtypes": [],
+  "handCost": 0,
+  "reserveCost": 0,
+  "text": "\u21bb : Target a Character you control, then roll a die. On a: \u2022 6+, it gains Anchored. (During Rest, it doesn't go to Reserve and it loses Anchored.) \u2022 2-5, it gains 1 boost. (A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.) \u2022 1, send it to Reserve.",
+  "rawEffect": "{T} : Target a Character you control, then roll a die. On\u00a0a:  \u2022 6+, it gains [[Anchored]]. (During Rest, it doesn't go to Reserve and it loses Anchored.)  \u2022 2-5, it gains 1 boost. (A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)  \u2022 1, send it to Reserve.",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_LY_01_C.jpg",
+  "reserveLimit": 2,
+  "landmarkLimit": 2
+ },
+ "ALT_CORE_B_MU_01_C": {
+  "id": "ALT_CORE_B_MU_01_C",
+  "name": "Teija & Nauraa",
+  "type": "hero",
+  "faction": "MU",
+  "factionName": "Muna",
+  "rarity": "common",
+  "subtypes": [],
+  "handCost": 0,
+  "reserveCost": 0,
+  "text": "The first Character you play each Afternoon gains 1 boost. (A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "rawEffect": "The first Character you play each Afternoon gains 1 boost[]. (A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "ability": {
+   "firstCharBoost": 1
+  },
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_MU_01_C.jpg",
+  "reserveLimit": 2,
+  "landmarkLimit": 2
+ },
+ "ALT_CORE_B_MU_20_C": {
+  "id": "ALT_CORE_B_MU_20_C",
+  "name": "Coniferal Coneman",
+  "type": "character",
+  "faction": "MU",
+  "factionName": "Muna",
+  "rarity": "common",
+  "subtypes": [
+   "Plant"
+  ],
+  "handCost": 5,
+  "reserveCost": 5,
+  "text": "\u27d0 I gain Anchored. (During Rest, I don't go to Reserve and I lose Anchored.)",
+  "rawEffect": "{J} I gain [[Anchored]]. (During Rest, I don't go to Reserve and I lose Anchored.)",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_MU_20_C.jpg",
+  "forest": 3,
+  "mountain": 3,
+  "water": 3
+ },
+ "ALT_CORE_B_LY_20_R1": {
+  "id": "ALT_CORE_B_LY_20_R1",
+  "name": "Asmodeus",
+  "type": "character",
+  "faction": "LY",
+  "factionName": "Lyra",
+  "rarity": "rare",
+  "subtypes": [
+   "Deity"
+  ],
+  "handCost": 5,
+  "reserveCost": 5,
+  "text": "\u27d0 Roll a die. On a 4+, I gain Anchored. On a 1-3, I gain 3 boosts. (During Rest, I don't go to Reserve and I lose Anchored. A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "rawEffect": "{J} Roll a die. On a 4+, I gain [[Anchored]]. On a 1-3, I\u00a0gain 3 boosts[]. (During Rest, I don't go to Reserve and I lose Anchored. A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_LY_20_R1.jpg",
+  "forest": 4,
+  "mountain": 4,
+  "water": 4
+ },
+ "ALT_CORE_B_YZ_18_C": {
+  "id": "ALT_CORE_B_YZ_18_C",
+  "name": "Sakarabru",
+  "type": "character",
+  "faction": "YZ",
+  "factionName": "Yzmir",
+  "rarity": "common",
+  "subtypes": [
+   "Deity"
+  ],
+  "handCost": 7,
+  "reserveCost": 4,
+  "text": "\u270b Your opponent's Expedition facing me moves backwards one region.",
+  "rawEffect": "{H} Your opponent's Expedition facing me moves backwards one region.",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_YZ_18_C.jpg",
+  "forest": 4,
+  "mountain": 4,
+  "water": 4
+ },
+ "ALT_CORE_B_OR_30_C": {
+  "id": "ALT_CORE_B_OR_30_C",
+  "name": "Ordis Carrier",
+  "type": "permanent",
+  "faction": "OR",
+  "factionName": "Ordis",
+  "rarity": "common",
+  "subtypes": [
+   "Landmark"
+  ],
+  "handCost": 3,
+  "reserveCost": 3,
+  "text": "At Noon \u2014 Create an Ordis Recruit 1/1/1 Soldier token in your Companion Expedition.",
+  "rawEffect": "At Noon\u00a0\u2014 Create an [Ordis Recruit 1/1/1] Soldier token in your Companion Expedition.",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_OR_30_C.jpg"
+ },
+ "ALT_CORE_B_OR_15_C": {
+  "id": "ALT_CORE_B_OR_15_C",
+  "name": "Kakoba, Legion Commander",
+  "type": "character",
+  "faction": "OR",
+  "factionName": "Ordis",
+  "rarity": "common",
+  "subtypes": [
+   "Noble",
+   "Soldier"
+  ],
+  "handCost": 3,
+  "reserveCost": 3,
+  "text": "\u27d0 If you control three or more other Characters, I gain 2 boosts. (Cards in Reserve are not controlled. A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "rawEffect": "{J} If you control three or more other Characters, I gain 2 boosts[]. (Cards in Reserve are not controlled. A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_OR_15_C.jpg",
+  "forest": 2,
+  "mountain": 2,
+  "water": 2
+ },
+ "ALT_CORE_A_BR_26_C": {
+  "id": "ALT_CORE_A_BR_26_C",
+  "name": "Physical Training",
+  "type": "spell",
+  "faction": "BR",
+  "factionName": "Bravos",
+  "rarity": "common",
+  "subtypes": [
+   "Boon"
+  ],
+  "handCost": 2,
+  "reserveCost": 3,
+  "text": "Target Character gains 3 boosts. (A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "rawEffect": "Target Character gains 3 boosts[]. (A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_A_BR_26_C.jpg"
+ },
+ "ALT_CORE_B_BR_18_R1": {
+  "id": "ALT_CORE_B_BR_18_R1",
+  "name": "Sun Wukong",
+  "type": "character",
+  "faction": "BR",
+  "factionName": "Bravos",
+  "rarity": "rare",
+  "subtypes": [
+   "Deity"
+  ],
+  "handCost": 3,
+  "reserveCost": 4,
+  "text": "\u267a I gain 2 boosts and lose Fleeting. (A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "rawEffect": "{R} I gain 2 boosts[] #and lose [[Fleeting]].# (A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "ability": {},
+  "fleeting": true,
+  "image": "assets/cards/ALT_CORE_B_BR_18_R1.jpg",
+  "forest": 2,
+  "mountain": 4,
+  "water": 2
+ },
+ "ALT_CORE_B_YZ_18_R1": {
+  "id": "ALT_CORE_B_YZ_18_R1",
+  "name": "Sakarabru",
+  "type": "character",
+  "faction": "YZ",
+  "factionName": "Yzmir",
+  "rarity": "rare",
+  "subtypes": [
+   "Deity"
+  ],
+  "handCost": 7,
+  "reserveCost": 4,
+  "text": "\u270b Your opponent's Expedition facing me moves backwards one region.",
+  "rawEffect": "{H} Your opponent's Expedition facing me moves backwards one region.",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_YZ_18_R1.jpg",
+  "forest": 5,
+  "mountain": 5,
+  "water": 5
+ },
+ "ALT_CORE_B_OR_26_R1": {
+  "id": "ALT_CORE_B_OR_26_R1",
+  "name": "Open the Gates",
+  "type": "spell",
+  "faction": "OR",
+  "factionName": "Ordis",
+  "rarity": "rare",
+  "subtypes": [
+   "Maneuver"
+  ],
+  "handCost": 5,
+  "reserveCost": 5,
+  "text": "Create four Ordis Recruit 1/1/1 Soldier tokens, distributed as you choose among any number of target Expeditions.",
+  "rawEffect": "Create #four# [Ordis Recruit 1/1/1] Soldier tokens, #distributed as you choose among any number of target Expeditions#.",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_OR_26_R1.jpg"
+ },
+ "ALT_CORE_B_BR_17_R1": {
+  "id": "ALT_CORE_B_BR_17_R1",
+  "name": "Haven Warrior",
+  "type": "character",
+  "faction": "BR",
+  "factionName": "Bravos",
+  "rarity": "rare",
+  "subtypes": [
+   "Soldier"
+  ],
+  "handCost": 3,
+  "reserveCost": 3,
+  "text": "",
+  "rawEffect": "",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_BR_17_R1.jpg",
+  "forest": 4,
+  "mountain": 4,
+  "water": 4
+ },
+ "ALT_CORE_B_YZ_09_C": {
+  "id": "ALT_CORE_B_YZ_09_C",
+  "name": "Lady of the Lake",
+  "type": "character",
+  "faction": "YZ",
+  "factionName": "Yzmir",
+  "rarity": "common",
+  "subtypes": [
+   "Fairy",
+   "Spirit"
+  ],
+  "handCost": 2,
+  "reserveCost": 2,
+  "text": "",
+  "rawEffect": "",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_YZ_09_C.jpg",
+  "forest": 1,
+  "mountain": 1,
+  "water": 3
+ },
+ "ALT_CORE_B_LY_26_R1": {
+  "id": "ALT_CORE_B_LY_26_R1",
+  "name": "Paint Prison",
+  "type": "spell",
+  "faction": "LY",
+  "factionName": "Lyra",
+  "rarity": "rare",
+  "subtypes": [
+   "Disruption"
+  ],
+  "handCost": 4,
+  "reserveCost": 4,
+  "text": "Fleeting. (Send me to Discard instead of Reserve after my effect resolves.) You may discard a card from your Reserve to reduce my cost by \u27721\u2773. Return target Character or Permanent to the top of its owner's deck.",
+  "rawEffect": "[[Fleeting]]. (Send me to Discard instead of Reserve after my effect resolves.)  You may discard a card from your Reserve to reduce my cost by #{1}#.  Return target Character or Permanent to the top of its owner's deck.",
+  "ability": {},
+  "fleeting": true,
+  "image": "assets/cards/ALT_CORE_B_LY_26_R1.jpg"
+ },
+ "ALT_CORE_B_YZ_11_C": {
+  "id": "ALT_CORE_B_YZ_11_C",
+  "name": "Baba Yaga",
+  "type": "character",
+  "faction": "YZ",
+  "factionName": "Yzmir",
+  "rarity": "common",
+  "subtypes": [
+   "Mage"
+  ],
+  "handCost": 3,
+  "reserveCost": 2,
+  "text": "\u270b Pesca una carta.",
+  "rawEffect": "{H} Pesca una carta.",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_YZ_11_C.jpg",
+  "forest": 2,
+  "mountain": 1,
+  "water": 2
+ },
+ "ALT_CORE_A_MU_25_R1": {
+  "id": "ALT_CORE_A_MU_25_R1",
+  "name": "Meditation Training",
+  "type": "spell",
+  "faction": "MU",
+  "factionName": "Muna",
+  "rarity": "rare",
+  "subtypes": [
+   "Boon"
+  ],
+  "handCost": 2,
+  "reserveCost": 2,
+  "text": "Target Character with Hand Cost \u27723\u2773 or less gains Anchored. (During Rest, it doesn't go to Reserve and it loses Anchored.)",
+  "rawEffect": "Target Character with Hand Cost\u00a0{3} or less gains [[Anchored]]. (During Rest, it doesn't go to Reserve and it loses Anchored.)",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_A_MU_25_R1.jpg"
+ },
+ "ALT_CORE_B_MU_10_C": {
+  "id": "ALT_CORE_B_MU_10_C",
+  "name": "Yong-Su, Verdant Weaver",
+  "type": "character",
+  "faction": "MU",
+  "factionName": "Muna",
+  "rarity": "common",
+  "subtypes": [
+   "Druid"
+  ],
+  "handCost": 3,
+  "reserveCost": 3,
+  "text": "\u27d0 If you control two or more Plants, I gain 2 boosts. (Cards in Reserve are not controlled. A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "rawEffect": "{J} If you control two or more Plants, I gain 2 boosts[]. (Cards in Reserve are not controlled. A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_MU_10_C.jpg",
+  "forest": 3,
+  "mountain": 3,
+  "water": 3
+ },
+ "ALT_CORE_B_OR_14_R1": {
+  "id": "ALT_CORE_B_OR_14_R1",
+  "name": "Ordis Spy",
+  "type": "character",
+  "faction": "OR",
+  "factionName": "Ordis",
+  "rarity": "rare",
+  "subtypes": [
+   "Citizen"
+  ],
+  "handCost": 3,
+  "reserveCost": 2,
+  "text": "\u270b Sabotage. (Discard up to one target card from a Reserve.) \u267a Create an Ordis Recruit 1/1/1 Soldier token in my Expedition.",
+  "rawEffect": "{H} [Sabotage]. (Discard up to one target card from a Reserve.)  #{R} Create an [Ordis Recruit 1/1/1] Soldier token in my Expedition.#",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_OR_14_R1.jpg",
+  "forest": 2,
+  "mountain": 2,
+  "water": 2
+ },
+ "ALT_CORE_B_OR_10_R1": {
+  "id": "ALT_CORE_B_OR_10_R1",
+  "name": "Monolith Archivist",
+  "type": "character",
+  "faction": "OR",
+  "factionName": "Ordis",
+  "rarity": "rare",
+  "subtypes": [
+   "Bureaucrat"
+  ],
+  "handCost": 2,
+  "reserveCost": 2,
+  "text": "I am Defender unless you control two or more other Bureaucrats. (My Expedition can't move forward during Dusk.)",
+  "rawEffect": "I am [Defender] #unless you control two or more other Bureaucrats.# (My Expedition can't move forward during Dusk.)",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_OR_10_R1.jpg",
+  "forest": 3,
+  "mountain": 3,
+  "water": 3
+ },
+ "ALT_CORE_B_LY_14_R1": {
+  "id": "ALT_CORE_B_LY_14_R1",
+  "name": "Lyra Cloth Dancer",
+  "type": "character",
+  "faction": "LY",
+  "factionName": "Lyra",
+  "rarity": "rare",
+  "subtypes": [
+   "Artist"
+  ],
+  "handCost": 3,
+  "reserveCost": 2,
+  "text": "\u270b Each Character controlled by target player gains Fleeting. (If it would be sent to Reserve, discard it instead.)",
+  "rawEffect": "{H} #Each Character controlled by target player# gains [[Fleeting]]. (If it would be sent to Reserve, discard it instead.)",
+  "ability": {},
+  "fleeting": true,
+  "image": "assets/cards/ALT_CORE_B_LY_14_R1.jpg",
+  "forest": 0,
+  "mountain": 2,
+  "water": 2
+ },
+ "ALT_CORE_B_MU_05_C": {
+  "id": "ALT_CORE_B_MU_05_C",
+  "name": "Kitsune",
+  "type": "character",
+  "faction": "MU",
+  "factionName": "Muna",
+  "rarity": "common",
+  "subtypes": [
+   "Spirit"
+  ],
+  "handCost": 2,
+  "reserveCost": 2,
+  "text": "\u270b Each player draws a card.",
+  "rawEffect": "{H} Each player draws a card.",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_MU_05_C.jpg",
+  "forest": 0,
+  "mountain": 3,
+  "water": 2
+ },
+ "ALT_CORE_B_BR_04_R1": {
+  "id": "ALT_CORE_B_BR_04_R1",
+  "name": "Ratatoskr",
+  "type": "character",
+  "faction": "BR",
+  "factionName": "Bravos",
+  "rarity": "rare",
+  "subtypes": [
+   "Messenger"
+  ],
+  "handCost": 1,
+  "reserveCost": 3,
+  "text": "\u267a I gain 3 boosts. (A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "rawEffect": "{R} I gain #3 boosts[]#. (A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "ability": {
+   "reserve": {
+    "code": "gain_boost",
+    "n": 3
+   }
+  },
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_BR_04_R1.jpg",
+  "forest": 1,
+  "mountain": 1,
+  "water": 1
+ },
+ "ALT_CORE_B_YZ_21_R1": {
+  "id": "ALT_CORE_B_YZ_21_R1",
+  "name": "Off You Go!",
+  "type": "spell",
+  "faction": "YZ",
+  "factionName": "Yzmir",
+  "rarity": "rare",
+  "subtypes": [
+   "Disruption"
+  ],
+  "handCost": 3,
+  "reserveCost": 4,
+  "text": "Send to Reserve target Character with Hand Cost \u27725\u2773 or less.",
+  "rawEffect": "Send to Reserve target Character with Hand Cost\u00a0#{5} or less#.",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_YZ_21_R1.jpg"
+ },
+ "ALT_CORE_B_AX_30_C": {
+  "id": "ALT_CORE_B_AX_30_C",
+  "name": "Brassbug Hive",
+  "type": "permanent",
+  "faction": "AX",
+  "factionName": "Axiom",
+  "rarity": "common",
+  "subtypes": [
+   "Landmark"
+  ],
+  "handCost": 5,
+  "reserveCost": 5,
+  "text": "\u27d0 Create a Brassbug 2/2/2 Robot token in target Expedition. At Noon \u2014 Create a Brassbug 2/2/2 Robot token in target Expedition.",
+  "rawEffect": "{J} Create a [Brassbug 2/2/2] Robot token in target Expedition.  At Noon\u00a0\u2014 Create a [Brassbug 2/2/2] Robot token in target Expedition.",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_AX_30_C.jpg"
+ },
+ "ALT_CORE_B_YZ_16_C": {
+  "id": "ALT_CORE_B_YZ_16_C",
+  "name": "Dorothy Gale",
+  "type": "character",
+  "faction": "YZ",
+  "factionName": "Yzmir",
+  "rarity": "common",
+  "subtypes": [
+   "Citizen"
+  ],
+  "handCost": 5,
+  "reserveCost": 3,
+  "text": "\u270b You may send target Character to Reserve.",
+  "rawEffect": "{H} You may send target Character to Reserve.",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_YZ_16_C.jpg",
+  "forest": 3,
+  "mountain": 2,
+  "water": 2
+ },
+ "ALT_CORE_B_MU_12_C": {
+  "id": "ALT_CORE_B_MU_12_C",
+  "name": "Daughter of Yggdrasil",
+  "type": "character",
+  "faction": "MU",
+  "factionName": "Muna",
+  "rarity": "common",
+  "subtypes": [
+   "Plant"
+  ],
+  "handCost": 3,
+  "reserveCost": 3,
+  "text": "\u270b Target opponent draws a card.",
+  "rawEffect": "{H} Target opponent draws a card.",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_MU_12_C.jpg",
+  "forest": 5,
+  "mountain": 5,
+  "water": 3
+ },
+ "ALT_CORE_B_YZ_12_R1": {
+  "id": "ALT_CORE_B_YZ_12_R1",
+  "name": "Kadigiran Alchemist",
+  "type": "character",
+  "faction": "YZ",
+  "factionName": "Yzmir",
+  "rarity": "rare",
+  "subtypes": [
+   "Scholar"
+  ],
+  "handCost": 3,
+  "reserveCost": 1,
+  "text": "\u270b I gain 3 boosts. (A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "rawEffect": "{H} I gain #3 boosts[]#. (A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "ability": {
+   "hand": {
+    "code": "gain_boost",
+    "n": 3
+   }
+  },
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_YZ_12_R1.jpg",
+  "forest": 1,
+  "mountain": 1,
+  "water": 1
+ },
+ "ALT_CORE_B_MU_11_C": {
+  "id": "ALT_CORE_B_MU_11_C",
+  "name": "Inari",
+  "type": "character",
+  "faction": "MU",
+  "factionName": "Muna",
+  "rarity": "common",
+  "subtypes": [
+   "Deity"
+  ],
+  "handCost": 3,
+  "reserveCost": 2,
+  "text": "",
+  "rawEffect": "",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_MU_11_C.jpg",
+  "forest": 3,
+  "mountain": 1,
+  "water": 3
+ },
+ "ALT_CORE_B_LY_06_C": {
+  "id": "ALT_CORE_B_LY_06_C",
+  "name": "Ouroboros Trickster",
+  "type": "character",
+  "faction": "LY",
+  "factionName": "Lyra",
+  "rarity": "common",
+  "subtypes": [
+   "Citizen"
+  ],
+  "handCost": 2,
+  "reserveCost": 1,
+  "text": "\u27d0 Roll a die. On a 4+, I gain 2 boosts. On a 1-3, I gain 1 boost. (A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "rawEffect": "{J} Roll a die. On a 4+, I gain 2 boosts. On a 1-3, I gain 1 boost[]. (A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_LY_06_C.jpg",
+  "forest": 0,
+  "mountain": 0,
+  "water": 0
+ },
+ "ALT_CORE_B_LY_26_C": {
+  "id": "ALT_CORE_B_LY_26_C",
+  "name": "Paint Prison",
+  "type": "spell",
+  "faction": "LY",
+  "factionName": "Lyra",
+  "rarity": "common",
+  "subtypes": [
+   "Disruption"
+  ],
+  "handCost": 5,
+  "reserveCost": 5,
+  "text": "Fleeting. (Send me to Discard instead of Reserve after my effect resolves.) You may discard a card from your Reserve to reduce my cost by \u27722\u2773. Return target Character or Permanent to the top of its owner's deck.",
+  "rawEffect": "[[Fleeting]]. (Send me to Discard instead of Reserve after my effect resolves.)  You may discard a card from your Reserve to reduce my cost by {2}.  Return target Character or Permanent to the top of its owner's deck.",
+  "ability": {},
+  "fleeting": true,
+  "image": "assets/cards/ALT_CORE_B_LY_26_C.jpg"
+ },
+ "ALT_CORE_B_OR_06_C": {
+  "id": "ALT_CORE_B_OR_06_C",
+  "name": "Ordis Cadets",
+  "type": "character",
+  "faction": "OR",
+  "factionName": "Ordis",
+  "rarity": "common",
+  "subtypes": [
+   "Apprentice",
+   "Soldier"
+  ],
+  "handCost": 2,
+  "reserveCost": 2,
+  "text": "\u27d0 Create an Ordis Recruit 1/1/1 Soldier token in my Expedition.",
+  "rawEffect": "{J} Create an [Ordis Recruit 1/1/1] Soldier token in my Expedition.",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_OR_06_C.jpg",
+  "forest": 1,
+  "mountain": 1,
+  "water": 0
+ },
+ "ALT_CORE_B_MU_06_C": {
+  "id": "ALT_CORE_B_MU_06_C",
+  "name": "Spindle Harvesters",
+  "type": "character",
+  "faction": "MU",
+  "factionName": "Muna",
+  "rarity": "common",
+  "subtypes": [
+   "Animal",
+   "Plant"
+  ],
+  "handCost": 1,
+  "reserveCost": 1,
+  "text": "\u27d0 I gain Anchored. (During Rest, I don't go to Reserve and I lose Anchored.)",
+  "rawEffect": "{J} I gain [[Anchored]]. (During Rest, I don't go to Reserve and I lose Anchored.)",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_MU_06_C.jpg",
+  "forest": 1,
+  "mountain": 0,
+  "water": 0
+ },
+ "ALT_CORE_B_OR_28_C": {
+  "id": "ALT_CORE_B_OR_28_C",
+  "name": "The Monolith, Ordis Bastion",
+  "type": "permanent",
+  "faction": "OR",
+  "factionName": "Ordis",
+  "rarity": "common",
+  "subtypes": [
+   "Landmark"
+  ],
+  "handCost": 5,
+  "reserveCost": 5,
+  "text": "When a Character joins your Expeditions \u2014 It gains 1 boost. (A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "rawEffect": "When a Character joins your Expeditions\u00a0\u2014 It gains 1 boost[]. (A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_OR_28_C.jpg"
+ },
+ "ALT_CORE_B_YZ_08_C": {
+  "id": "ALT_CORE_B_YZ_08_C",
+  "name": "Yzmir Stargazer",
+  "type": "character",
+  "faction": "YZ",
+  "factionName": "Yzmir",
+  "rarity": "common",
+  "subtypes": [
+   "Mage",
+   "Scholar"
+  ],
+  "handCost": 2,
+  "reserveCost": 1,
+  "text": "",
+  "rawEffect": "",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_YZ_08_C.jpg",
+  "forest": 1,
+  "mountain": 2,
+  "water": 1
+ },
+ "ALT_CORE_B_MU_28_C": {
+  "id": "ALT_CORE_B_MU_28_C",
+  "name": "Beauty Sleep",
+  "type": "spell",
+  "faction": "MU",
+  "factionName": "Muna",
+  "rarity": "common",
+  "subtypes": [
+   "Disruption"
+  ],
+  "handCost": 1,
+  "reserveCost": 3,
+  "text": "Target Character gains Asleep. (During Dusk, ignore its statistics. During Rest, it doesn't go to Reserve and it loses Asleep.)",
+  "rawEffect": "Target Character gains [[Asleep]]. (During Dusk, ignore its statistics. During Rest, it doesn't go to Reserve and it loses Asleep.)",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_MU_28_C.jpg"
+ },
+ "ALT_CORE_B_YZ_11_R1": {
+  "id": "ALT_CORE_B_YZ_11_R1",
+  "name": "Baba Yaga",
+  "type": "character",
+  "faction": "YZ",
+  "factionName": "Yzmir",
+  "rarity": "rare",
+  "subtypes": [
+   "Mage"
+  ],
+  "handCost": 3,
+  "reserveCost": 2,
+  "text": "\u270b Pesca una carta.",
+  "rawEffect": "{H} Pesca una carta.",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_YZ_11_R1.jpg",
+  "forest": 3,
+  "mountain": 2,
+  "water": 2
+ },
+ "ALT_CORE_B_YZ_12_C": {
+  "id": "ALT_CORE_B_YZ_12_C",
+  "name": "Kadigiran Alchemist",
+  "type": "character",
+  "faction": "YZ",
+  "factionName": "Yzmir",
+  "rarity": "common",
+  "subtypes": [
+   "Scholar"
+  ],
+  "handCost": 3,
+  "reserveCost": 1,
+  "text": "\u270b I gain 2 boosts. (A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "rawEffect": "{H} I gain 2 boosts[]. (A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "ability": {
+   "hand": {
+    "code": "gain_boost",
+    "n": 2
+   }
+  },
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_YZ_12_C.jpg",
+  "forest": 1,
+  "mountain": 1,
+  "water": 1
+ },
+ "ALT_CORE_B_AX_15_R1": {
+  "id": "ALT_CORE_B_AX_15_R1",
+  "name": "Axiom Scrambler",
+  "type": "character",
+  "faction": "AX",
+  "factionName": "Axiom",
+  "rarity": "rare",
+  "subtypes": [
+   "Engineer"
+  ],
+  "handCost": 3,
+  "reserveCost": 3,
+  "text": "\u270b Sabotage. (Discard up to one target card from a Reserve.)",
+  "rawEffect": "{H} [Sabotage]. (Discard up to one target card from a Reserve.)",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_AX_15_R1.jpg",
+  "forest": 2,
+  "mountain": 4,
+  "water": 2
+ },
+ "ALT_CORE_B_LY_11_C": {
+  "id": "ALT_CORE_B_LY_11_C",
+  "name": "Esmeralda",
+  "type": "character",
+  "faction": "LY",
+  "factionName": "Lyra",
+  "rarity": "common",
+  "subtypes": [
+   "Artist"
+  ],
+  "handCost": 2,
+  "reserveCost": 2,
+  "text": "\u270b Resupply. (Put the top card of your deck in Reserve.)",
+  "rawEffect": "{H} [Resupply]. (Put the top card of your deck in Reserve.)",
+  "ability": {
+   "hand": {
+    "code": "resupply"
+   }
+  },
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_LY_11_C.jpg",
+  "forest": 0,
+  "mountain": 2,
+  "water": 2
+ },
+ "ALT_CORE_B_YZ_26_C": {
+  "id": "ALT_CORE_B_YZ_26_C",
+  "name": "Kraken's Wrath",
+  "type": "spell",
+  "faction": "YZ",
+  "factionName": "Yzmir",
+  "rarity": "common",
+  "subtypes": [
+   "Disruption"
+  ],
+  "handCost": 5,
+  "reserveCost": 5,
+  "text": "Fleeting. (Send me to Discard instead of Reserve after my effect resolves.) Send to Reserve up to three target Characters with a total Hand Cost \u27725\u2773 or less.",
+  "rawEffect": "[[Fleeting]]. (Send me to Discard instead of Reserve after my effect resolves.)  Send to Reserve up to three target Characters with a total Hand Cost\u00a0{5} or less.",
+  "ability": {},
+  "fleeting": true,
+  "image": "assets/cards/ALT_CORE_B_YZ_26_C.jpg"
+ },
+ "ALT_CORE_B_BR_09_C": {
+  "id": "ALT_CORE_B_BR_09_C",
+  "name": "Haven Trainee",
+  "type": "character",
+  "faction": "BR",
+  "factionName": "Bravos",
+  "rarity": "common",
+  "subtypes": [
+   "Apprentice"
+  ],
+  "handCost": 2,
+  "reserveCost": 4,
+  "text": "\u267a I gain 2 boosts. (A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "rawEffect": "{R} I gain 2 boosts[]. (A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "ability": {
+   "reserve": {
+    "code": "gain_boost",
+    "n": 2
+   }
+  },
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_BR_09_C.jpg",
+  "forest": 3,
+  "mountain": 1,
+  "water": 1
+ },
+ "ALT_CORE_B_AX_12_C": {
+  "id": "ALT_CORE_B_AX_12_C",
+  "name": "Three Little Pigs",
+  "type": "character",
+  "faction": "AX",
+  "factionName": "Axiom",
+  "rarity": "common",
+  "subtypes": [
+   "Engineer"
+  ],
+  "handCost": 3,
+  "reserveCost": 3,
+  "text": "\u27d0 If you control two or more Landmarks, I gain 1 boost. (Cards in Reserve are not controlled. A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "rawEffect": "{J} If you control two or more Landmarks, I gain 1 boost[]. (Cards in Reserve are not controlled. A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_AX_12_C.jpg",
+  "forest": 3,
+  "mountain": 3,
+  "water": 3
+ },
+ "ALT_CORE_B_BR_07_R1": {
+  "id": "ALT_CORE_B_BR_07_R1",
+  "name": "Bravos Tracer",
+  "type": "character",
+  "faction": "BR",
+  "factionName": "Bravos",
+  "rarity": "rare",
+  "subtypes": [
+   "Adventurer"
+  ],
+  "handCost": 2,
+  "reserveCost": 2,
+  "text": "\u27d0 I gain Fleeting. (If I would be sent to Reserve, discard me instead.)",
+  "rawEffect": "{J} I gain [[Fleeting]]. (If I would be sent to Reserve, discard me instead.)",
+  "ability": {},
+  "fleeting": true,
+  "image": "assets/cards/ALT_CORE_B_BR_07_R1.jpg",
+  "forest": 4,
+  "mountain": 3,
+  "water": 4
+ },
+ "ALT_CORE_B_YZ_01_C": {
+  "id": "ALT_CORE_B_YZ_01_C",
+  "name": "Akesha & Taru",
+  "type": "hero",
+  "faction": "YZ",
+  "factionName": "Yzmir",
+  "rarity": "common",
+  "subtypes": [],
+  "handCost": 0,
+  "reserveCost": 0,
+  "text": "\u21bb : After You. You can only activate this if you are the first player. (End your turn as if you had played a card. You may still play cards later this Day.)",
+  "rawEffect": "{T} : [After You]. You can only activate this if you are the first player. (End your turn as if you had played a card. You may still play cards later this Day.)",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_YZ_01_C.jpg",
+  "reserveLimit": 2,
+  "landmarkLimit": 2
+ },
+ "ALT_CORE_B_OR_01_C": {
+  "id": "ALT_CORE_B_OR_01_C",
+  "name": "Sigismar & Wingspan",
+  "type": "hero",
+  "faction": "OR",
+  "factionName": "Ordis",
+  "rarity": "common",
+  "subtypes": [],
+  "handCost": 0,
+  "reserveCost": 0,
+  "text": "At Noon \u2014 Create an Ordis Recruit 1/1/1 Soldier token in your Hero Expedition. Ignore my ability during the first Day.",
+  "rawEffect": "At Noon\u00a0\u2014 Create an [Ordis Recruit 1/1/1] Soldier token in your Hero Expedition.  Ignore my ability during the first Day.",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_OR_01_C.jpg",
+  "reserveLimit": 2,
+  "landmarkLimit": 2
+ },
+ "ALT_CORE_B_AX_08_C": {
+  "id": "ALT_CORE_B_AX_08_C",
+  "name": "Axiom Salvager",
+  "type": "character",
+  "faction": "AX",
+  "factionName": "Axiom",
+  "rarity": "common",
+  "subtypes": [
+   "Engineer"
+  ],
+  "handCost": 1,
+  "reserveCost": 2,
+  "text": "\u267a Resupply. (Put the top card of your deck in Reserve.)",
+  "rawEffect": "{R} [Resupply]. (Put the top card of your deck in Reserve.)",
+  "ability": {
+   "reserve": {
+    "code": "resupply"
+   }
+  },
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_AX_08_C.jpg",
+  "forest": 1,
+  "mountain": 1,
+  "water": 1
+ },
+ "ALT_CORE_B_MU_10_R1": {
+  "id": "ALT_CORE_B_MU_10_R1",
+  "name": "Yong-Su, Verdant Weaver",
+  "type": "character",
+  "faction": "MU",
+  "factionName": "Muna",
+  "rarity": "rare",
+  "subtypes": [
+   "Druid"
+  ],
+  "handCost": 2,
+  "reserveCost": 2,
+  "text": "\u27d0 If you control two or more Plants, I gain 2 boosts. (Cards in Reserve are not controlled. A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "rawEffect": "{J} If you control two or more Plants, I gain 2 boosts[]. (Cards in Reserve are not controlled. A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_MU_10_R1.jpg",
+  "forest": 2,
+  "mountain": 2,
+  "water": 2
+ },
+ "ALT_CORE_B_MU_27_R1": {
+  "id": "ALT_CORE_B_MU_27_R1",
+  "name": "Nurture",
+  "type": "spell",
+  "faction": "MU",
+  "factionName": "Muna",
+  "rarity": "rare",
+  "subtypes": [
+   "Boon"
+  ],
+  "handCost": 3,
+  "reserveCost": 2,
+  "text": "Up to two target Characters each gain 2 boosts. (A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "rawEffect": "Up to two target Characters each gain #2\u00a0boosts[].# (A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_MU_27_R1.jpg"
+ },
+ "ALT_CORE_B_AX_23_C": {
+  "id": "ALT_CORE_B_AX_23_C",
+  "name": "Kelon Burst",
+  "type": "spell",
+  "faction": "AX",
+  "factionName": "Axiom",
+  "rarity": "common",
+  "subtypes": [
+   "Disruption"
+  ],
+  "handCost": 3,
+  "reserveCost": 3,
+  "text": "Fleeting. (Send me to Discard instead of Reserve after my effect resolves.) Choose one: \u2022 Send to Reserve target Character with Hand Cost \u27724\u2773 or less. \u2022 Discard target Permanent with Hand Cost \u27724\u2773 or less.",
+  "rawEffect": "[[Fleeting]]. (Send me to Discard instead of Reserve after my effect resolves.)  Choose one:  \u2022 Send to Reserve target Character with Hand Cost\u00a0{4} or less.  \u2022 Discard target Permanent with Hand Cost\u00a0{4} or less.",
+  "ability": {},
+  "fleeting": true,
+  "image": "assets/cards/ALT_CORE_B_AX_23_C.jpg"
+ },
+ "ALT_CORE_B_MU_14_C": {
+  "id": "ALT_CORE_B_MU_14_C",
+  "name": "Cernunnos",
+  "type": "character",
+  "faction": "MU",
+  "factionName": "Muna",
+  "rarity": "common",
+  "subtypes": [
+   "Druid",
+   "Deity"
+  ],
+  "handCost": 4,
+  "reserveCost": 3,
+  "text": "",
+  "rawEffect": "",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_MU_14_C.jpg",
+  "forest": 4,
+  "mountain": 4,
+  "water": 4
+ },
+ "ALT_CORE_B_AX_10_R1": {
+  "id": "ALT_CORE_B_AX_10_R1",
+  "name": "Jian, Assembly Overseer",
+  "type": "character",
+  "faction": "AX",
+  "factionName": "Axiom",
+  "rarity": "rare",
+  "subtypes": [
+   "Engineer"
+  ],
+  "handCost": 2,
+  "reserveCost": 2,
+  "text": "",
+  "rawEffect": "",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_AX_10_R1.jpg",
+  "forest": 3,
+  "mountain": 2,
+  "water": 0
+ },
+ "ALT_CORE_B_LY_20_C": {
+  "id": "ALT_CORE_B_LY_20_C",
+  "name": "Asmodeus",
+  "type": "character",
+  "faction": "LY",
+  "factionName": "Lyra",
+  "rarity": "common",
+  "subtypes": [
+   "Deity"
+  ],
+  "handCost": 6,
+  "reserveCost": 6,
+  "text": "\u27d0 Roll a die. On a 4+, I gain Anchored. On a 1-3, I gain 3 boosts. (During Rest, I don't go to Reserve and I lose Anchored. A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "rawEffect": "{J} Roll a die. On a 4+, I gain [[Anchored]]. On a 1-3, I\u00a0gain 3 boosts[]. (During Rest, I don't go to Reserve and I lose Anchored. A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_LY_20_C.jpg",
+  "forest": 5,
+  "mountain": 5,
+  "water": 5
+ },
+ "ALT_CORE_B_OR_25_C": {
+  "id": "ALT_CORE_B_OR_25_C",
+  "name": "Sticky Note Seals",
+  "type": "spell",
+  "faction": "OR",
+  "factionName": "Ordis",
+  "rarity": "common",
+  "subtypes": [
+   "Disruption"
+  ],
+  "handCost": 3,
+  "reserveCost": 3,
+  "text": "Fleeting. (Send me to Discard instead of Reserve after my effect resolves.) Choose one: \u2022 Send to Reserve target Character with Hand Cost \u27724\u2773 or more. \u2022 Discard target Permanent with Hand Cost \u27724\u2773 or more.",
+  "rawEffect": "[[Fleeting]]. (Send me to Discard instead of Reserve after my effect resolves.)  Choose one:  \u2022 Send to Reserve target Character with Hand Cost\u00a0{4} or more.  \u2022 Discard target Permanent with Hand Cost\u00a0{4} or more.",
+  "ability": {},
+  "fleeting": true,
+  "image": "assets/cards/ALT_CORE_B_OR_25_C.jpg"
+ },
+ "ALT_CORE_B_OR_14_C": {
+  "id": "ALT_CORE_B_OR_14_C",
+  "name": "Ordis Spy",
+  "type": "character",
+  "faction": "OR",
+  "factionName": "Ordis",
+  "rarity": "common",
+  "subtypes": [
+   "Citizen"
+  ],
+  "handCost": 3,
+  "reserveCost": 2,
+  "text": "\u270b Sabotage. (Discard up to one target card from a Reserve.)",
+  "rawEffect": "{H} [Sabotage]. (Discard up to one target card from a Reserve.)",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_OR_14_C.jpg",
+  "forest": 2,
+  "mountain": 2,
+  "water": 2
+ },
+ "ALT_CORE_B_YZ_07_R1": {
+  "id": "ALT_CORE_B_YZ_07_R1",
+  "name": "Kadigiran Mage-Dancer",
+  "type": "character",
+  "faction": "YZ",
+  "factionName": "Yzmir",
+  "rarity": "rare",
+  "subtypes": [
+   "Mage",
+   "Soldier"
+  ],
+  "handCost": 2,
+  "reserveCost": 1,
+  "text": "When you play a Spell \u2014 I gain 1 boost. At Dusk \u2014 If I have 3 or more boosts, draw a card.",
+  "rawEffect": "When you play a Spell\u00a0\u2014 I gain 1 boost.  #At Dusk\u00a0\u2014 If I have 3 or more boosts, draw a card.#",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_YZ_07_R1.jpg",
+  "forest": 1,
+  "mountain": 1,
+  "water": 1
+ },
+ "ALT_CORE_B_YZ_24_C": {
+  "id": "ALT_CORE_B_YZ_24_C",
+  "name": "Banishing Gate",
+  "type": "spell",
+  "faction": "YZ",
+  "factionName": "Yzmir",
+  "rarity": "common",
+  "subtypes": [
+   "Disruption"
+  ],
+  "handCost": 4,
+  "reserveCost": 4,
+  "text": "Fleeting. (Send me to Discard instead of Reserve after my effect resolves.) Discard target Character or Permanent.",
+  "rawEffect": "[[Fleeting]]. (Send me to Discard instead of Reserve after my effect resolves.)  Discard target Character or Permanent.",
+  "ability": {},
+  "fleeting": true,
+  "image": "assets/cards/ALT_CORE_B_YZ_24_C.jpg"
+ },
+ "ALT_CORE_B_MU_08_R1": {
+  "id": "ALT_CORE_B_MU_08_R1",
+  "name": "Sneezer Shroom",
+  "type": "character",
+  "faction": "MU",
+  "factionName": "Muna",
+  "rarity": "rare",
+  "subtypes": [
+   "Plant"
+  ],
+  "handCost": 2,
+  "reserveCost": 2,
+  "text": "\u27d0 I gain Anchored. (During Rest, I don't go to Reserve and I lose Anchored.) At Noon \u2014 I gain 1 boost. (A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "rawEffect": "{J} I gain [[Anchored]]. (During Rest, I don't go to Reserve and I lose Anchored.)  #At Noon\u00a0\u2014 I gain 1 boost[].# (A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_MU_08_R1.jpg",
+  "forest": 1,
+  "mountain": 1,
+  "water": 1
+ },
+ "ALT_CORE_B_AX_11_C": {
+  "id": "ALT_CORE_B_AX_11_C",
+  "name": "Amelia Earhart",
+  "type": "character",
+  "faction": "AX",
+  "factionName": "Axiom",
+  "rarity": "common",
+  "subtypes": [
+   "Adventurer"
+  ],
+  "handCost": 3,
+  "reserveCost": 1,
+  "text": "",
+  "rawEffect": "",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_AX_11_C.jpg",
+  "forest": 2,
+  "mountain": 2,
+  "water": 2
+ },
+ "ALT_CORE_B_YZ_06_R1": {
+  "id": "ALT_CORE_B_YZ_06_R1",
+  "name": "Tooth Fairy",
+  "type": "character",
+  "faction": "YZ",
+  "factionName": "Yzmir",
+  "rarity": "rare",
+  "subtypes": [
+   "Fairy"
+  ],
+  "handCost": 2,
+  "reserveCost": 1,
+  "text": "\u270b Sabotage. (Discard up to one target card from a Reserve.)",
+  "rawEffect": "{H} [Sabotage]. (Discard up to one target card from a Reserve.)",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_YZ_06_R1.jpg",
+  "forest": 1,
+  "mountain": 1,
+  "water": 1
+ },
+ "ALT_CORE_B_AX_25_C": {
+  "id": "ALT_CORE_B_AX_25_C",
+  "name": "Axiom Reprocessor",
+  "type": "permanent",
+  "faction": "AX",
+  "factionName": "Axiom",
+  "rarity": "common",
+  "subtypes": [
+   "Landmark"
+  ],
+  "handCost": 4,
+  "reserveCost": 4,
+  "text": "At Noon \u2014 Resupply. (Put the top card of your deck in Reserve.)",
+  "rawEffect": "At Noon\u00a0\u2014 [Resupply]. (Put the top card of your deck in Reserve.)",
+  "ability": {
+   "atNoon": {
+    "code": "resupply"
+   }
+  },
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_AX_25_C.jpg"
+ },
+ "ALT_CORE_B_MU_13_C": {
+  "id": "ALT_CORE_B_MU_13_C",
+  "name": "Muna Druid",
+  "type": "character",
+  "faction": "MU",
+  "factionName": "Muna",
+  "rarity": "common",
+  "subtypes": [
+   "Druid"
+  ],
+  "handCost": 3,
+  "reserveCost": 2,
+  "text": "",
+  "rawEffect": "",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_MU_13_C.jpg",
+  "forest": 3,
+  "mountain": 2,
+  "water": 2
+ },
+ "ALT_CORE_B_BR_05_C": {
+  "id": "ALT_CORE_B_BR_05_C",
+  "name": "Issun-b\u014dshi",
+  "type": "character",
+  "faction": "BR",
+  "factionName": "Bravos",
+  "rarity": "common",
+  "subtypes": [
+   "Adventurer"
+  ],
+  "handCost": 1,
+  "reserveCost": 1,
+  "text": "",
+  "rawEffect": "",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_BR_05_C.jpg",
+  "forest": 0,
+  "mountain": 0,
+  "water": 2
+ },
+ "ALT_CORE_B_BR_01_C": {
+  "id": "ALT_CORE_B_BR_01_C",
+  "name": "Kojo & Booda",
+  "type": "hero",
+  "faction": "BR",
+  "factionName": "Bravos",
+  "rarity": "common",
+  "subtypes": [],
+  "handCost": 0,
+  "reserveCost": 0,
+  "text": "At Noon \u2014 If you are the first player, create a Booda 2/2/2 Companion token in your Companion Expedition.",
+  "rawEffect": "At Noon\u00a0\u2014 If you are the first player, create a [Booda 2/2/2] Companion token in your Companion Expedition.",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_BR_01_C.jpg",
+  "reserveLimit": 2,
+  "landmarkLimit": 2
+ },
+ "ALT_CORE_B_LY_09_R1": {
+  "id": "ALT_CORE_B_LY_09_R1",
+  "name": "Tanuki",
+  "type": "character",
+  "faction": "LY",
+  "factionName": "Lyra",
+  "rarity": "rare",
+  "subtypes": [
+   "Spirit"
+  ],
+  "handCost": 3,
+  "reserveCost": 3,
+  "text": "\u270b Sabotage. (Discard up to one target card from a Reserve.) \u267a Roll a die. On a 4+, Sabotage.",
+  "rawEffect": "{H} [Sabotage]. (Discard up to one target card from a Reserve.)  #{R} Roll a die. On a 4+, [Sabotage].#",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_LY_09_R1.jpg",
+  "forest": 3,
+  "mountain": 3,
+  "water": 0
+ },
+ "ALT_CORE_B_LY_25_C": {
+  "id": "ALT_CORE_B_LY_25_C",
+  "name": "All In!",
+  "type": "spell",
+  "faction": "LY",
+  "factionName": "Lyra",
+  "rarity": "common",
+  "subtypes": [
+   "Boon"
+  ],
+  "handCost": 3,
+  "reserveCost": 3,
+  "text": "Roll a die. Target Character gains X boosts, where X is the result. (A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "rawEffect": "Roll a die. Target Character gains X boosts[], where X is the result. (A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_LY_25_C.jpg"
+ },
+ "ALT_CORE_B_YZ_21_C": {
+  "id": "ALT_CORE_B_YZ_21_C",
+  "name": "Off You Go!",
+  "type": "spell",
+  "faction": "YZ",
+  "factionName": "Yzmir",
+  "rarity": "common",
+  "subtypes": [
+   "Disruption"
+  ],
+  "handCost": 2,
+  "reserveCost": 4,
+  "text": "Send to Reserve target Character with Hand Cost \u27723\u2773 or less.",
+  "rawEffect": "Send to Reserve target Character with Hand Cost\u00a0{3} or less.",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_YZ_21_C.jpg"
+ },
+ "ALT_CORE_B_OR_17_C": {
+  "id": "ALT_CORE_B_OR_17_C",
+  "name": "Jeanne d'Arc",
+  "type": "character",
+  "faction": "OR",
+  "factionName": "Ordis",
+  "rarity": "common",
+  "subtypes": [
+   "Soldier"
+  ],
+  "handCost": 4,
+  "reserveCost": 4,
+  "text": "Quando lascio l'area delle spedizioni \u2014 Crea una pedina Soldato Ordis Recruit 1/1/1 in ciascuna delle tue spedizioni.",
+  "rawEffect": "Quando lascio l'area delle spedizioni\u00a0\u2014 Crea una pedina Soldato [Ordis Recruit 1/1/1] in ciascuna delle tue spedizioni.",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_OR_17_C.jpg",
+  "forest": 2,
+  "mountain": 2,
+  "water": 2
+ },
+ "ALT_CORE_B_BR_17_C": {
+  "id": "ALT_CORE_B_BR_17_C",
+  "name": "Haven Warrior",
+  "type": "character",
+  "faction": "BR",
+  "factionName": "Bravos",
+  "rarity": "common",
+  "subtypes": [
+   "Soldier"
+  ],
+  "handCost": 3,
+  "reserveCost": 3,
+  "text": "",
+  "rawEffect": "",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_BR_17_C.jpg",
+  "forest": 4,
+  "mountain": 2,
+  "water": 4
+ },
+ "ALT_CORE_B_BR_28_C": {
+  "id": "ALT_CORE_B_BR_28_C",
+  "name": "Intimidation",
+  "type": "spell",
+  "faction": "BR",
+  "factionName": "Bravos",
+  "rarity": "common",
+  "subtypes": [
+   "Disruption"
+  ],
+  "handCost": 2,
+  "reserveCost": 2,
+  "text": "Fleeting. (Send me to Discard instead of Reserve after my effect resolves.) Return target Character or Permanent with Hand Cost \u27724\u2773 or less to its owner's hand.",
+  "rawEffect": "[[Fleeting]]. (Send me to Discard instead of Reserve after my effect resolves.)  Return target Character or Permanent with Hand Cost\u00a0{4} or less to its owner's hand.",
+  "ability": {},
+  "fleeting": true,
+  "image": "assets/cards/ALT_CORE_B_BR_28_C.jpg"
+ },
+ "ALT_CORE_B_LY_09_C": {
+  "id": "ALT_CORE_B_LY_09_C",
+  "name": "Tanuki",
+  "type": "character",
+  "faction": "LY",
+  "factionName": "Lyra",
+  "rarity": "common",
+  "subtypes": [
+   "Spirit"
+  ],
+  "handCost": 3,
+  "reserveCost": 3,
+  "text": "\u270b Sabotage. (Discard up to one target card from a Reserve.)",
+  "rawEffect": "{H} [Sabotage]. (Discard up to one target card from a Reserve.)",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_LY_09_C.jpg",
+  "forest": 3,
+  "mountain": 3,
+  "water": 0
+ },
+ "ALT_CORE_B_BR_15_C": {
+  "id": "ALT_CORE_B_BR_15_C",
+  "name": "Haven Bouncer",
+  "type": "character",
+  "faction": "BR",
+  "factionName": "Bravos",
+  "rarity": "common",
+  "subtypes": [
+   "Soldier"
+  ],
+  "handCost": 3,
+  "reserveCost": 3,
+  "text": "\u270b Sabotage. (Discard up to one target card from a Reserve.) \u267a I gain 1 boost. (A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "rawEffect": "{H} [Sabotage]. (Discard up to one target card from a Reserve.)  {R} I gain 1 boost[]. (A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_BR_15_C.jpg",
+  "forest": 2,
+  "mountain": 2,
+  "water": 2
+ },
+ "ALT_CORE_B_AX_27_R1": {
+  "id": "ALT_CORE_B_AX_27_R1",
+  "name": "Kelonic Generator",
+  "type": "permanent",
+  "faction": "AX",
+  "factionName": "Axiom",
+  "rarity": "rare",
+  "subtypes": [
+   "Landmark"
+  ],
+  "handCost": 4,
+  "reserveCost": 4,
+  "text": "\u27721\u2773, \u21bb : Draw a card.",
+  "rawEffect": "#{1}#, {T} : Draw a card.",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_AX_27_R1.jpg"
+ },
+ "ALT_CORE_B_AX_04_C": {
+  "id": "ALT_CORE_B_AX_04_C",
+  "name": "Kelon Elemental",
+  "type": "character",
+  "faction": "AX",
+  "factionName": "Axiom",
+  "rarity": "common",
+  "subtypes": [
+   "Elemental"
+  ],
+  "handCost": 2,
+  "reserveCost": 2,
+  "text": "\u270b Put a card from your hand in Reserve.",
+  "rawEffect": "{H} Put a card from your hand in Reserve.",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_AX_04_C.jpg",
+  "forest": 1,
+  "mountain": 3,
+  "water": 3
+ },
+ "ALT_CORE_B_MU_28_R1": {
+  "id": "ALT_CORE_B_MU_28_R1",
+  "name": "Beauty Sleep",
+  "type": "spell",
+  "faction": "MU",
+  "factionName": "Muna",
+  "rarity": "rare",
+  "subtypes": [
+   "Disruption"
+  ],
+  "handCost": 1,
+  "reserveCost": 3,
+  "text": "Target Character gains Asleep. You may give it 2 boosts. (During Dusk, ignore its statistics. During Rest, it doesn't go to Reserve and it loses Asleep.)",
+  "rawEffect": "Target Character gains [[Asleep]]. #You may give it 2 boosts.# (During Dusk, ignore its statistics. During Rest, it doesn't go to Reserve and it loses Asleep.)",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_MU_28_R1.jpg"
+ },
+ "ALT_CORE_B_OR_09_C": {
+  "id": "ALT_CORE_B_OR_09_C",
+  "name": "The Frog Prince",
+  "type": "character",
+  "faction": "OR",
+  "factionName": "Ordis",
+  "rarity": "common",
+  "subtypes": [
+   "Bureaucrat",
+   "Noble"
+  ],
+  "handCost": 2,
+  "reserveCost": 2,
+  "text": "",
+  "rawEffect": "",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_OR_09_C.jpg",
+  "forest": 3,
+  "mountain": 0,
+  "water": 3
+ },
+ "ALT_CORE_B_MU_30_R1": {
+  "id": "ALT_CORE_B_MU_30_R1",
+  "name": "The Spindle, Muna Bastion",
+  "type": "permanent",
+  "faction": "MU",
+  "factionName": "Muna",
+  "rarity": "rare",
+  "subtypes": [
+   "Landmark"
+  ],
+  "handCost": 3,
+  "reserveCost": 3,
+  "text": "Characters you control are Tough 2. (Opponents must pay \u27722\u2773 to target them.) At Noon \u2014 Target Character you control gains 1 boost.",
+  "rawEffect": "Characters you control are [Tough\u00a02]. (Opponents must pay {2} to target them.)  #At Noon\u00a0\u2014 Target Character you control gains 1 boost.#",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_MU_30_R1.jpg"
+ },
+ "ALT_CORE_B_OR_13_C": {
+  "id": "ALT_CORE_B_OR_13_C",
+  "name": "Ordis Gatekeeper",
+  "type": "character",
+  "faction": "OR",
+  "factionName": "Ordis",
+  "rarity": "common",
+  "subtypes": [
+   "Soldier"
+  ],
+  "handCost": 3,
+  "reserveCost": 3,
+  "text": "\u27d0 Create an Ordis Recruit 1/1/1 Soldier token in your other Expedition.",
+  "rawEffect": "{J} Create an [Ordis Recruit 1/1/1] Soldier token in your other Expedition.",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_OR_13_C.jpg",
+  "forest": 1,
+  "mountain": 3,
+  "water": 1
+ },
+ "ALT_CORE_B_OR_05_R1": {
+  "id": "ALT_CORE_B_OR_05_R1",
+  "name": "Ordis Trooper",
+  "type": "character",
+  "faction": "OR",
+  "factionName": "Ordis",
+  "rarity": "rare",
+  "subtypes": [
+   "Soldier"
+  ],
+  "handCost": 1,
+  "reserveCost": 1,
+  "text": "",
+  "rawEffect": "",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_OR_05_R1.jpg",
+  "forest": 1,
+  "mountain": 2,
+  "water": 2
+ },
+ "ALT_CORE_B_YZ_22_C": {
+  "id": "ALT_CORE_B_YZ_22_C",
+  "name": "Spy Craft",
+  "type": "spell",
+  "faction": "YZ",
+  "factionName": "Yzmir",
+  "rarity": "common",
+  "subtypes": [
+   "Disruption"
+  ],
+  "handCost": 2,
+  "reserveCost": 2,
+  "text": "Fleeting. (Send me to Discard instead of Reserve after my effect resolves.) Sabotage, then Resupply. (Discard up to one target card from a Reserve. Put the top card of your deck in Reserve.)",
+  "rawEffect": "[[Fleeting]]. (Send me to Discard instead of Reserve after my effect resolves.)  [Sabotage], then [Resupply]. (Discard up to one target card from a Reserve. Put the top card of your deck in Reserve.)",
+  "ability": {},
+  "fleeting": true,
+  "image": "assets/cards/ALT_CORE_B_YZ_22_C.jpg"
+ },
+ "ALT_CORE_B_AX_01_C": {
+  "id": "ALT_CORE_B_AX_01_C",
+  "name": "Sierra & Oddball",
+  "type": "hero",
+  "faction": "AX",
+  "factionName": "Axiom",
+  "rarity": "common",
+  "subtypes": [],
+  "handCost": 0,
+  "reserveCost": 0,
+  "text": "When you play a Permanent with Hand Cost \u27723\u2773 or more \u2014 You may exhaust me (\u21bb) to create a Brassbug 2/2/2 Robot token in target Expedition.",
+  "rawEffect": "When you play a Permanent with Hand Cost {3} or more\u00a0\u2014 You may exhaust me ({T}) to create a [Brassbug 2/2/2] Robot token in target Expedition.",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_AX_01_C.jpg",
+  "reserveLimit": 2,
+  "landmarkLimit": 2
+ },
+ "ALT_CORE_B_MU_20_R1": {
+  "id": "ALT_CORE_B_MU_20_R1",
+  "name": "Coniferal Coneman",
+  "type": "character",
+  "faction": "MU",
+  "factionName": "Muna",
+  "rarity": "rare",
+  "subtypes": [
+   "Plant"
+  ],
+  "handCost": 4,
+  "reserveCost": 4,
+  "text": "\u27d0 I gain Anchored. (During Rest, I don't go to Reserve and I lose Anchored.)",
+  "rawEffect": "{J} I gain [[Anchored]]. (During Rest, I don't go to Reserve and I lose Anchored.)",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_MU_20_R1.jpg",
+  "forest": 3,
+  "mountain": 3,
+  "water": 3
+ },
+ "ALT_CORE_B_OR_09_R1": {
+  "id": "ALT_CORE_B_OR_09_R1",
+  "name": "The Frog Prince",
+  "type": "character",
+  "faction": "OR",
+  "factionName": "Ordis",
+  "rarity": "rare",
+  "subtypes": [
+   "Bureaucrat",
+   "Noble"
+  ],
+  "handCost": 1,
+  "reserveCost": 1,
+  "text": "",
+  "rawEffect": "",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_OR_09_R1.jpg",
+  "forest": 2,
+  "mountain": 0,
+  "water": 2
+ },
+ "ALT_CORE_B_OR_15_R1": {
+  "id": "ALT_CORE_B_OR_15_R1",
+  "name": "Kakoba, Legion Commander",
+  "type": "character",
+  "faction": "OR",
+  "factionName": "Ordis",
+  "rarity": "rare",
+  "subtypes": [
+   "Noble",
+   "Soldier"
+  ],
+  "handCost": 3,
+  "reserveCost": 3,
+  "text": "\u27d0 If you control three or more other Characters, I gain 3 boosts. (Cards in Reserve are not controlled. A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "rawEffect": "{J} If you control three or more other Characters, I gain #3 boosts[]#. (Cards in Reserve are not controlled. A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_OR_15_R1.jpg",
+  "forest": 2,
+  "mountain": 2,
+  "water": 2
+ },
+ "ALT_CORE_B_AX_10_C": {
+  "id": "ALT_CORE_B_AX_10_C",
+  "name": "Jian, Assembly Overseer",
+  "type": "character",
+  "faction": "AX",
+  "factionName": "Axiom",
+  "rarity": "common",
+  "subtypes": [
+   "Engineer"
+  ],
+  "handCost": 2,
+  "reserveCost": 2,
+  "text": "",
+  "rawEffect": "",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_AX_10_C.jpg",
+  "forest": 3,
+  "mountain": 2,
+  "water": 0
+ },
+ "ALT_CORE_B_AX_16_C": {
+  "id": "ALT_CORE_B_AX_16_C",
+  "name": "Foundry Armorer",
+  "type": "character",
+  "faction": "AX",
+  "factionName": "Axiom",
+  "rarity": "common",
+  "subtypes": [
+   "Engineer"
+  ],
+  "handCost": 3,
+  "reserveCost": 3,
+  "text": "\u267a Create a Brassbug 2/2/2 Robot token in target Expedition.",
+  "rawEffect": "{R} Create a [Brassbug 2/2/2] Robot token in target Expedition.",
+  "ability": {
+   "reserve": {
+    "code": "create_token",
+    "token": {
+     "name": "Brassbug",
+     "forest": 2,
+     "mountain": 2,
+     "water": 2,
+     "subtype": "Robot"
+    }
+   }
+  },
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_AX_16_C.jpg",
+  "forest": 2,
+  "mountain": 2,
+  "water": 2
+ },
+ "ALT_CORE_B_AX_07_R1": {
+  "id": "ALT_CORE_B_AX_07_R1",
+  "name": "Foundry Mechanic",
+  "type": "character",
+  "faction": "AX",
+  "factionName": "Axiom",
+  "rarity": "rare",
+  "subtypes": [
+   "Engineer"
+  ],
+  "handCost": 1,
+  "reserveCost": 1,
+  "text": "",
+  "rawEffect": "",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_AX_07_R1.jpg",
+  "forest": 1,
+  "mountain": 1,
+  "water": 2
+ },
+ "ALT_CORE_B_LY_30_R1": {
+  "id": "ALT_CORE_B_LY_30_R1",
+  "name": "The Ouroboros, Lyra Bastion",
+  "type": "permanent",
+  "faction": "LY",
+  "factionName": "Lyra",
+  "rarity": "rare",
+  "subtypes": [
+   "Landmark"
+  ],
+  "handCost": 3,
+  "reserveCost": 3,
+  "text": "If you would roll one or more dice, instead roll that many dice plus one and ignore the roll of your choice.",
+  "rawEffect": "If you would roll one or more dice, instead roll that many dice plus one and ignore the roll of your choice.",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_LY_30_R1.jpg"
+ },
+ "ALT_CORE_B_YZ_04_C": {
+  "id": "ALT_CORE_B_YZ_04_C",
+  "name": "Studious Disciple",
+  "type": "character",
+  "faction": "YZ",
+  "factionName": "Yzmir",
+  "rarity": "common",
+  "subtypes": [
+   "Apprentice",
+   "Mage"
+  ],
+  "handCost": 1,
+  "reserveCost": 1,
+  "text": "",
+  "rawEffect": "",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_YZ_04_C.jpg",
+  "forest": 0,
+  "mountain": 1,
+  "water": 1
+ },
+ "ALT_CORE_B_YZ_13_R1": {
+  "id": "ALT_CORE_B_YZ_13_R1",
+  "name": "Alice",
+  "type": "character",
+  "faction": "YZ",
+  "factionName": "Yzmir",
+  "rarity": "rare",
+  "subtypes": [
+   "Citizen"
+  ],
+  "handCost": 3,
+  "reserveCost": 3,
+  "text": "",
+  "rawEffect": "",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_YZ_13_R1.jpg",
+  "forest": 3,
+  "mountain": 3,
+  "water": 4
+ },
+ "ALT_CORE_B_AX_12_R1": {
+  "id": "ALT_CORE_B_AX_12_R1",
+  "name": "Three Little Pigs",
+  "type": "character",
+  "faction": "AX",
+  "factionName": "Axiom",
+  "rarity": "rare",
+  "subtypes": [
+   "Engineer"
+  ],
+  "handCost": 3,
+  "reserveCost": 3,
+  "text": "\u27d0 If you control two or more Landmarks, I gain 2 boosts. (Cards in Reserve are not controlled. A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "rawEffect": "{J} If you control two or more Landmarks, I gain #2 boosts[].# (Cards in Reserve are not controlled. A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_AX_12_R1.jpg",
+  "forest": 3,
+  "mountain": 3,
+  "water": 3
+ },
+ "ALT_CORE_B_BR_04_C": {
+  "id": "ALT_CORE_B_BR_04_C",
+  "name": "Ratatoskr",
+  "type": "character",
+  "faction": "BR",
+  "factionName": "Bravos",
+  "rarity": "common",
+  "subtypes": [
+   "Messenger"
+  ],
+  "handCost": 1,
+  "reserveCost": 3,
+  "text": "\u267a I gain 2 boosts. (A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "rawEffect": "{R} I gain 2 boosts[]. (A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "ability": {
+   "reserve": {
+    "code": "gain_boost",
+    "n": 2
+   }
+  },
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_BR_04_C.jpg",
+  "forest": 1,
+  "mountain": 1,
+  "water": 1
+ },
+ "ALT_CORE_B_OR_23_C": {
+  "id": "ALT_CORE_B_OR_23_C",
+  "name": "Charge!",
+  "type": "spell",
+  "faction": "OR",
+  "factionName": "Ordis",
+  "rarity": "common",
+  "subtypes": [
+   "Maneuver"
+  ],
+  "handCost": 2,
+  "reserveCost": 2,
+  "text": "Fleeting. (Send me to Discard instead of Reserve after my effect resolves.) Characters you control gain 1 boost. (Cards in Reserve are not controlled. A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "rawEffect": "[[Fleeting]]. (Send me to Discard instead of Reserve after my effect resolves.)  Characters you control gain 1 boost[]. (Cards in Reserve are not controlled. A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "ability": {},
+  "fleeting": true,
+  "image": "assets/cards/ALT_CORE_B_OR_23_C.jpg"
+ },
+ "ALT_CORE_B_MU_27_C": {
+  "id": "ALT_CORE_B_MU_27_C",
+  "name": "Nurture",
+  "type": "spell",
+  "faction": "MU",
+  "factionName": "Muna",
+  "rarity": "common",
+  "subtypes": [
+   "Boon"
+  ],
+  "handCost": 2,
+  "reserveCost": 1,
+  "text": "Up to two target Characters each gain 1 boost. (A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "rawEffect": "Up to two target Characters each gain 1\u00a0boost[]. (A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_MU_27_C.jpg"
+ },
+ "ALT_CORE_B_LY_11_R1": {
+  "id": "ALT_CORE_B_LY_11_R1",
+  "name": "Esmeralda",
+  "type": "character",
+  "faction": "LY",
+  "factionName": "Lyra",
+  "rarity": "rare",
+  "subtypes": [
+   "Artist"
+  ],
+  "handCost": 2,
+  "reserveCost": 3,
+  "text": "\u27d0 Resupply. (Put the top card of your deck in Reserve.)",
+  "rawEffect": "#{J}# [Resupply]. (Put the top card of your deck in Reserve.)",
+  "ability": {
+   "join": {
+    "code": "resupply"
+   }
+  },
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_LY_11_R1.jpg",
+  "forest": 0,
+  "mountain": 2,
+  "water": 2
+ },
+ "ALT_CORE_B_YZ_16_R1": {
+  "id": "ALT_CORE_B_YZ_16_R1",
+  "name": "Dorothy Gale",
+  "type": "character",
+  "faction": "YZ",
+  "factionName": "Yzmir",
+  "rarity": "rare",
+  "subtypes": [
+   "Citizen"
+  ],
+  "handCost": 5,
+  "reserveCost": 5,
+  "text": "\u27d0 You may send target Character to Reserve.",
+  "rawEffect": "#{J}# You may send target Character to Reserve.",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_YZ_16_R1.jpg",
+  "forest": 3,
+  "mountain": 2,
+  "water": 2
+ },
+ "ALT_CORE_B_AX_15_C": {
+  "id": "ALT_CORE_B_AX_15_C",
+  "name": "Axiom Scrambler",
+  "type": "character",
+  "faction": "AX",
+  "factionName": "Axiom",
+  "rarity": "common",
+  "subtypes": [
+   "Engineer"
+  ],
+  "handCost": 4,
+  "reserveCost": 3,
+  "text": "\u270b Sabotage. (Discard up to one target card from a Reserve.)",
+  "rawEffect": "{H} [Sabotage]. (Discard up to one target card from a Reserve.)",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_AX_15_C.jpg",
+  "forest": 2,
+  "mountain": 4,
+  "water": 2
+ },
+ "ALT_CORE_B_BR_22_R1": {
+  "id": "ALT_CORE_B_BR_22_R1",
+  "name": "Shenlong",
+  "type": "character",
+  "faction": "BR",
+  "factionName": "Bravos",
+  "rarity": "rare",
+  "subtypes": [
+   "Dragon",
+   "Deity"
+  ],
+  "handCost": 6,
+  "reserveCost": 6,
+  "text": "Tough 1. (Opponents must pay \u27721\u2773 to target me.)",
+  "rawEffect": "#[Tough\u00a01].# (Opponents must pay\u00a0{1} to target me.)",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_BR_22_R1.jpg",
+  "keywords": {
+   "tough": 1
+  },
+  "forest": 9,
+  "mountain": 9,
+  "water": 9
+ },
+ "ALT_CORE_B_MU_08_C": {
+  "id": "ALT_CORE_B_MU_08_C",
+  "name": "Sneezer Shroom",
+  "type": "character",
+  "faction": "MU",
+  "factionName": "Muna",
+  "rarity": "common",
+  "subtypes": [
+   "Plant"
+  ],
+  "handCost": 2,
+  "reserveCost": 2,
+  "text": "\u27d0 I gain Anchored. (During Rest, I don't go to Reserve and I lose Anchored.)",
+  "rawEffect": "{J} I gain [[Anchored]]. (During Rest, I don't go to Reserve and I lose Anchored.)",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_MU_08_C.jpg",
+  "forest": 1,
+  "mountain": 1,
+  "water": 1
+ },
+ "ALT_CORE_B_YZ_13_C": {
+  "id": "ALT_CORE_B_YZ_13_C",
+  "name": "Alice",
+  "type": "character",
+  "faction": "YZ",
+  "factionName": "Yzmir",
+  "rarity": "common",
+  "subtypes": [
+   "Citizen"
+  ],
+  "handCost": 3,
+  "reserveCost": 3,
+  "text": "",
+  "rawEffect": "",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_YZ_13_C.jpg",
+  "forest": 2,
+  "mountain": 2,
+  "water": 4
+ },
+ "ALT_CORE_B_BR_08_C": {
+  "id": "ALT_CORE_B_BR_08_C",
+  "name": "Bravos Pathfinder",
+  "type": "character",
+  "faction": "BR",
+  "factionName": "Bravos",
+  "rarity": "common",
+  "subtypes": [
+   "Adventurer"
+  ],
+  "handCost": 2,
+  "reserveCost": 2,
+  "text": "",
+  "rawEffect": "",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_BR_08_C.jpg",
+  "forest": 0,
+  "mountain": 3,
+  "water": 3
+ },
+ "ALT_CORE_B_LY_08_C": {
+  "id": "ALT_CORE_B_LY_08_C",
+  "name": "Lyra Skald",
+  "type": "character",
+  "faction": "LY",
+  "factionName": "Lyra",
+  "rarity": "common",
+  "subtypes": [
+   "Artist"
+  ],
+  "handCost": 2,
+  "reserveCost": 2,
+  "text": "",
+  "rawEffect": "",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_LY_08_C.jpg",
+  "forest": 3,
+  "mountain": 0,
+  "water": 2
+ },
+ "ALT_CORE_B_BR_07_C": {
+  "id": "ALT_CORE_B_BR_07_C",
+  "name": "Bravos Tracer",
+  "type": "character",
+  "faction": "BR",
+  "factionName": "Bravos",
+  "rarity": "common",
+  "subtypes": [
+   "Adventurer"
+  ],
+  "handCost": 2,
+  "reserveCost": 2,
+  "text": "\u27d0 I gain Fleeting. (If I would be sent to Reserve, discard me instead.)",
+  "rawEffect": "{J} I gain [[Fleeting]]. (If I would be sent to Reserve, discard me instead.)",
+  "ability": {},
+  "fleeting": true,
+  "image": "assets/cards/ALT_CORE_B_BR_07_C.jpg",
+  "forest": 3,
+  "mountain": 3,
+  "water": 3
+ },
+ "ALT_CORE_B_OR_05_C": {
+  "id": "ALT_CORE_B_OR_05_C",
+  "name": "Ordis Trooper",
+  "type": "character",
+  "faction": "OR",
+  "factionName": "Ordis",
+  "rarity": "common",
+  "subtypes": [
+   "Soldier"
+  ],
+  "handCost": 1,
+  "reserveCost": 1,
+  "text": "",
+  "rawEffect": "",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_OR_05_C.jpg",
+  "forest": 1,
+  "mountain": 1,
+  "water": 1
+ },
+ "ALT_CORE_B_LY_06_R1": {
+  "id": "ALT_CORE_B_LY_06_R1",
+  "name": "Ouroboros Trickster",
+  "type": "character",
+  "faction": "LY",
+  "factionName": "Lyra",
+  "rarity": "rare",
+  "subtypes": [
+   "Citizen"
+  ],
+  "handCost": 2,
+  "reserveCost": 2,
+  "text": "\u27d0 Roll a die. On a 4+, I gain 3 boosts. On a 1-3, I gain 1 boost. (A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "rawEffect": "{J} Roll a die. On a 4+, I gain #3 boosts#. On a 1-3, I gain 1 boost[]. (A boost is a +1/+1/+1 counter. Remove it when it leaves the Expedition zone.)",
+  "ability": {},
+  "fleeting": false,
+  "image": "assets/cards/ALT_CORE_B_LY_06_R1.jpg",
+  "forest": 0,
+  "mountain": 0,
+  "water": 0
+ }
+}

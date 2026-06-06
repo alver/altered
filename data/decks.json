@@ -1,0 +1,58 @@
+{
+ "decks": [
+  {
+   "id": "AX",
+   "name": "Axiom \u2014 Sierra & Oddball",
+   "faction": "AX",
+   "factionName": "Axiom",
+   "hero": "ALT_CORE_B_AX_01_C",
+   "cover": "ALT_CORE_B_AX_01_C",
+   "file": "data/deck_AX.json"
+  },
+  {
+   "id": "BR",
+   "name": "Bravos \u2014 Kojo & Booda",
+   "faction": "BR",
+   "factionName": "Bravos",
+   "hero": "ALT_CORE_B_BR_01_C",
+   "cover": "ALT_CORE_B_BR_01_C",
+   "file": "data/deck_BR.json"
+  },
+  {
+   "id": "LY",
+   "name": "Lyra \u2014 Nevenka & Blotch",
+   "faction": "LY",
+   "factionName": "Lyra",
+   "hero": "ALT_CORE_B_LY_01_C",
+   "cover": "ALT_CORE_B_LY_01_C",
+   "file": "data/deck_LY.json"
+  },
+  {
+   "id": "MU",
+   "name": "Muna \u2014 Teija & Nauraa",
+   "faction": "MU",
+   "factionName": "Muna",
+   "hero": "ALT_CORE_B_MU_01_C",
+   "cover": "ALT_CORE_B_MU_01_C",
+   "file": "data/deck_MU.json"
+  },
+  {
+   "id": "OR",
+   "name": "Ordis \u2014 Sigismar & Wingspan",
+   "faction": "OR",
+   "factionName": "Ordis",
+   "hero": "ALT_CORE_B_OR_01_C",
+   "cover": "ALT_CORE_B_OR_01_C",
+   "file": "data/deck_OR.json"
+  },
+  {
+   "id": "YZ",
+   "name": "Yzmir \u2014 Akesha & Taru",
+   "faction": "YZ",
+   "factionName": "Yzmir",
+   "hero": "ALT_CORE_B_YZ_01_C",
+   "cover": "ALT_CORE_B_YZ_01_C",
+   "file": "data/deck_YZ.json"
+  }
+ ]
+}

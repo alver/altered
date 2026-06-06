@@ -1,0 +1,90 @@
+{
+ "id": "MU",
+ "name": "Muna \u2014 Teija & Nauraa",
+ "faction": "MU",
+ "factionName": "Muna",
+ "hero": "ALT_CORE_B_MU_01_C",
+ "cover": "ALT_CORE_B_MU_01_C",
+ "cards": [
+  {
+   "id": "ALT_CORE_B_MU_10_R1",
+   "count": 1
+  },
+  {
+   "id": "ALT_CORE_B_MU_20_R1",
+   "count": 1
+  },
+  {
+   "id": "ALT_CORE_B_MU_06_C",
+   "count": 3
+  },
+  {
+   "id": "ALT_CORE_B_MU_05_C",
+   "count": 3
+  },
+  {
+   "id": "ALT_CORE_B_MU_08_C",
+   "count": 2
+  },
+  {
+   "id": "ALT_CORE_B_MU_08_R1",
+   "count": 1
+  },
+  {
+   "id": "ALT_CORE_B_LY_14_R1",
+   "count": 1
+  },
+  {
+   "id": "ALT_CORE_B_MU_10_C",
+   "count": 2
+  },
+  {
+   "id": "ALT_CORE_B_MU_11_C",
+   "count": 3
+  },
+  {
+   "id": "ALT_CORE_B_MU_12_C",
+   "count": 3
+  },
+  {
+   "id": "ALT_CORE_B_MU_13_C",
+   "count": 3
+  },
+  {
+   "id": "ALT_CORE_B_MU_14_C",
+   "count": 3
+  },
+  {
+   "id": "ALT_CORE_B_MU_18_R1",
+   "count": 1
+  },
+  {
+   "id": "ALT_CORE_B_MU_20_C",
+   "count": 2
+  },
+  {
+   "id": "ALT_CORE_B_MU_27_R1",
+   "count": 1
+  },
+  {
+   "id": "ALT_CORE_B_MU_28_C",
+   "count": 3
+  },
+  {
+   "id": "ALT_CORE_B_BR_26_R1",
+   "count": 1
+  },
+  {
+   "id": "ALT_CORE_A_MU_25_C",
+   "count": 2
+  },
+  {
+   "id": "ALT_CORE_A_MU_25_R1",
+   "count": 1
+  },
+  {
+   "id": "ALT_CORE_B_MU_27_C",
+   "count": 2
+  }
+ ]
+}

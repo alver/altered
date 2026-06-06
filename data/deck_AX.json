@@ -1,0 +1,90 @@
+{
+ "id": "AX",
+ "name": "Axiom \u2014 Sierra & Oddball",
+ "faction": "AX",
+ "factionName": "Axiom",
+ "hero": "ALT_CORE_B_AX_01_C",
+ "cover": "ALT_CORE_B_AX_01_C",
+ "cards": [
+  {
+   "id": "ALT_CORE_B_AX_15_C",
+   "count": 2
+  },
+  {
+   "id": "ALT_CORE_B_AX_15_R1",
+   "count": 1
+  },
+  {
+   "id": "ALT_CORE_B_AX_07_C",
+   "count": 2
+  },
+  {
+   "id": "ALT_CORE_B_AX_07_R1",
+   "count": 1
+  },
+  {
+   "id": "ALT_CORE_B_AX_08_C",
+   "count": 3
+  },
+  {
+   "id": "ALT_CORE_B_AX_04_C",
+   "count": 3
+  },
+  {
+   "id": "ALT_CORE_B_AX_10_C",
+   "count": 2
+  },
+  {
+   "id": "ALT_CORE_B_AX_10_R1",
+   "count": 1
+  },
+  {
+   "id": "ALT_CORE_B_OR_09_R1",
+   "count": 1
+  },
+  {
+   "id": "ALT_CORE_B_AX_11_C",
+   "count": 3
+  },
+  {
+   "id": "ALT_CORE_B_AX_12_C",
+   "count": 2
+  },
+  {
+   "id": "ALT_CORE_B_AX_12_R1",
+   "count": 1
+  },
+  {
+   "id": "ALT_CORE_B_AX_16_C",
+   "count": 3
+  },
+  {
+   "id": "ALT_CORE_B_AX_23_C",
+   "count": 3
+  },
+  {
+   "id": "ALT_CORE_B_LY_30_R1",
+   "count": 1
+  },
+  {
+   "id": "ALT_CORE_B_AX_27_R1",
+   "count": 1
+  },
+  {
+   "id": "ALT_CORE_B_AX_30_R1",
+   "count": 1
+  },
+  {
+   "id": "ALT_CORE_B_AX_30_C",
+   "count": 2
+  },
+  {
+   "id": "ALT_CORE_B_AX_24_C",
+   "count": 3
+  },
+  {
+   "id": "ALT_CORE_B_AX_25_C",
+   "count": 3
+  }
+ ]
+}

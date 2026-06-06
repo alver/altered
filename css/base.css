@@ -1,0 +1,56 @@
+/* base.css — design tokens, reset, page shell. Dark slate with the playmat's
+   warm orange accent. */
+:root {
+  --bg-0: #0c0d10;
+  --bg-1: #15171c;
+  --bg-2: #1d2026;
+  --bg-3: #282c34;
+  --line: #3a3f4b;
+  --ink: #e9e6df;
+  --muted: #9aa0ac;
+  --accent: #ef7d34;          /* playmat orange */
+  --accent-soft: #f4a266;
+  --good: #5fcf80;
+  --bad: #ff6b6b;
+  --forest: #4aa758;
+  --mountain: #d98a3a;
+  --water: #4a9fd8;
+  --you: #46b3e6;
+  --opp: #e8634a;
+  --card-radius: 7px;
+  --shadow: 0 5px 16px rgba(0, 0, 0, 0.5);
+  /* Faction hues */
+  --AX: #8c6a3a; --BR: #b8463a; --LY: #c45c93; --MU: #4f9a55; --OR: #3f74b0; --YZ: #7d5bb0;
+  font-size: 14px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(900px 500px at 50% -8%, #2a2118 0%, transparent 60%),
+    linear-gradient(160deg, var(--bg-0), var(--bg-1));
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+h1, h2, h3 { font-weight: 700; letter-spacing: 0.01em; }
+
+#layout { display: grid; grid-template-columns: 1fr 290px; height: 100vh; }
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: var(--bg-3); border-radius: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+
+button {
+  cursor: pointer; font-family: inherit; color: var(--ink);
+  background: var(--bg-3); border: 1px solid var(--line); border-radius: 7px;
+  padding: 7px 14px; font-size: 0.92rem; transition: background 0.12s, border-color 0.12s;
+}
+button:hover:not(:disabled) { background: #333945; border-color: var(--accent); }
+button:disabled { cursor: not-allowed; opacity: 0.4; }
+.primary-btn { background: var(--accent); border-color: var(--accent); color: #1a0f06; font-weight: 700; }
+.primary-btn:hover:not(:disabled) { background: var(--accent-soft); }
+.ghost-btn { background: transparent; }

@@ -1,0 +1,90 @@
+{
+ "id": "LY",
+ "name": "Lyra \u2014 Nevenka & Blotch",
+ "faction": "LY",
+ "factionName": "Lyra",
+ "hero": "ALT_CORE_B_LY_01_C",
+ "cover": "ALT_CORE_B_LY_01_C",
+ "cards": [
+  {
+   "id": "ALT_CORE_B_LY_06_C",
+   "count": 2
+  },
+  {
+   "id": "ALT_CORE_B_LY_06_R1",
+   "count": 1
+  },
+  {
+   "id": "ALT_CORE_B_LY_11_C",
+   "count": 2
+  },
+  {
+   "id": "ALT_CORE_B_LY_11_R1",
+   "count": 1
+  },
+  {
+   "id": "ALT_CORE_B_LY_08_C",
+   "count": 3
+  },
+  {
+   "id": "ALT_CORE_B_LY_07_C",
+   "count": 3
+  },
+  {
+   "id": "ALT_CORE_B_LY_14_C",
+   "count": 3
+  },
+  {
+   "id": "ALT_CORE_B_LY_16_C",
+   "count": 3
+  },
+  {
+   "id": "ALT_CORE_B_LY_09_C",
+   "count": 2
+  },
+  {
+   "id": "ALT_CORE_B_LY_09_R1",
+   "count": 1
+  },
+  {
+   "id": "ALT_CORE_B_LY_17_C",
+   "count": 3
+  },
+  {
+   "id": "ALT_CORE_B_LY_18_C",
+   "count": 3
+  },
+  {
+   "id": "ALT_CORE_B_LY_20_C",
+   "count": 2
+  },
+  {
+   "id": "ALT_CORE_B_LY_20_R1",
+   "count": 1
+  },
+  {
+   "id": "ALT_CORE_B_YZ_07_R1",
+   "count": 1
+  },
+  {
+   "id": "ALT_CORE_B_LY_25_C",
+   "count": 3
+  },
+  {
+   "id": "ALT_CORE_B_LY_26_C",
+   "count": 2
+  },
+  {
+   "id": "ALT_CORE_B_LY_26_R1",
+   "count": 1
+  },
+  {
+   "id": "ALT_CORE_B_YZ_21_R1",
+   "count": 1
+  },
+  {
+   "id": "ALT_CORE_B_LY_30_R1",
+   "count": 1
+  }
+ ]
+}

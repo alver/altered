@@ -1,0 +1,90 @@
+{
+ "id": "YZ",
+ "name": "Yzmir \u2014 Akesha & Taru",
+ "faction": "YZ",
+ "factionName": "Yzmir",
+ "hero": "ALT_CORE_B_YZ_01_C",
+ "cover": "ALT_CORE_B_YZ_01_C",
+ "cards": [
+  {
+   "id": "ALT_CORE_B_YZ_04_C",
+   "count": 3
+  },
+  {
+   "id": "ALT_CORE_B_YZ_08_C",
+   "count": 3
+  },
+  {
+   "id": "ALT_CORE_B_YZ_09_C",
+   "count": 3
+  },
+  {
+   "id": "ALT_CORE_B_YZ_11_C",
+   "count": 2
+  },
+  {
+   "id": "ALT_CORE_B_YZ_11_R1",
+   "count": 1
+  },
+  {
+   "id": "ALT_CORE_B_YZ_13_C",
+   "count": 2
+  },
+  {
+   "id": "ALT_CORE_B_YZ_13_R1",
+   "count": 1
+  },
+  {
+   "id": "ALT_CORE_B_YZ_06_R1",
+   "count": 1
+  },
+  {
+   "id": "ALT_CORE_B_OR_10_R1",
+   "count": 1
+  },
+  {
+   "id": "ALT_CORE_B_YZ_12_C",
+   "count": 2
+  },
+  {
+   "id": "ALT_CORE_B_YZ_12_R1",
+   "count": 1
+  },
+  {
+   "id": "ALT_CORE_B_YZ_16_C",
+   "count": 2
+  },
+  {
+   "id": "ALT_CORE_B_YZ_16_R1",
+   "count": 1
+  },
+  {
+   "id": "ALT_CORE_B_YZ_18_C",
+   "count": 2
+  },
+  {
+   "id": "ALT_CORE_B_YZ_18_R1",
+   "count": 1
+  },
+  {
+   "id": "ALT_CORE_B_MU_28_R1",
+   "count": 1
+  },
+  {
+   "id": "ALT_CORE_B_YZ_21_C",
+   "count": 3
+  },
+  {
+   "id": "ALT_CORE_B_YZ_22_C",
+   "count": 3
+  },
+  {
+   "id": "ALT_CORE_B_YZ_24_C",
+   "count": 3
+  },
+  {
+   "id": "ALT_CORE_B_YZ_26_C",
+   "count": 3
+  }
+ ]
+}

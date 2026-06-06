@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Altered TCG</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/board.css">
+  <link rel="stylesheet" href="css/cards.css">
+  <link rel="stylesheet" href="css/overlays.css">
+  <script src="js/version.js"></script>
+</head>
+<body>
+<div id="layout">
+  <div id="board">
+    <!-- ════════ OPPONENT ════════ -->
+    <section class="player-area opp-area">
+      <div class="res-band">
+        <div class="zone reserve" id="opp-reserve"><span class="zone-label">Reserve</span></div>
+        <div class="zone landmarks" id="opp-landmarks"><span class="zone-label">Landmarks</span></div>
+        <div class="zone mana"><span class="zone-label">Mana</span><div class="mana-orbs" id="opp-mana"></div></div>
+        <div class="zone piles">
+          <div class="pile" id="opp-deck"><span>Deck</span><span class="pile-count" id="opp-deck-count">0</span></div>
+          <div class="pile info-pile" id="opp-hand-pile"><span>Hand</span><span class="pile-count" id="opp-hand-count">0</span></div>
+          <div class="pile" id="opp-discard"><span>Discard</span><span class="pile-count" id="opp-discard-count">0</span></div>
+        </div>
+      </div>
+      <div class="exp-band">
+        <div class="zone expedition" id="opp-hero-exp" data-exp="hero"><span class="zone-label">Expedition · Hero</span></div>
+        <div class="hero-slot" id="opp-hero"></div>
+        <div class="zone expedition" id="opp-comp-exp" data-exp="companion"><span class="zone-label">Expedition · Companion</span></div>
+      </div>
+    </section>
+
+    <!-- ════════ CENTRE: TUMULT TRACK ════════ -->
+    <section class="center-strip">
+      <div class="track" id="track"></div>
+      <div class="center-controls">
+        <span class="turn-banner" id="turn-banner">—</span>
+        <span class="phase-label" id="phase-label"></span>
+        <button id="btn-pass" disabled>Pass</button>
+        <button id="btn-afteryou" style="display:none" title="Yield your turn to your opponent without passing (Hero, once per Day)">After You</button>
+        <div id="quick-actions"></div>
+      </div>
+    </section>
+
+    <!-- ════════ YOU ════════ -->
+    <section class="player-area you-area">
+      <div class="exp-band">
+        <div class="zone expedition" id="you-hero-exp" data-exp="hero"><span class="zone-label">Expedition · Hero</span></div>
+        <div class="hero-slot" id="you-hero"></div>
+        <div class="zone expedition" id="you-comp-exp" data-exp="companion"><span class="zone-label">Expedition · Companion</span></div>
+      </div>
+      <div class="res-band">
+        <div class="zone reserve" id="you-reserve"><span class="zone-label">Reserve</span></div>
+        <div class="zone landmarks" id="you-landmarks"><span class="zone-label">Landmarks</span></div>
+        <div class="zone mana"><span class="zone-label">Mana</span><div class="mana-orbs" id="you-mana"></div></div>
+        <div class="zone piles">
+          <div class="pile" id="you-deck"><span>Deck</span><span class="pile-count" id="you-deck-count">0</span></div>
+          <div class="pile info-pile" id="you-hand-pile"><span>Hand</span><span class="pile-count" id="you-hand-count">0</span></div>
+          <div class="pile" id="you-discard"><span>Discard</span><span class="pile-count" id="you-discard-count">0</span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="hand-zone" id="you-hand"></div>
+  </div>
+
+  <!-- ════════ SIDEBAR ════════ -->
+  <aside id="sidebar">
+    <div class="log-head"><span>Game Log</span><button id="btn-quit" title="Change decks">Decks</button></div>
+    <div id="log"></div>
+    <div class="legend">
+      <div><b>How to play</b></div>
+      <div>• Each <b>Day</b>: Morning (draw + Mana) → Afternoon (play cards) → Dusk → Night.</div>
+      <div>• In the Afternoon, play <b>one card per turn</b> or Pass.</div>
+      <div>• Characters join your <b>Hero</b> or <b>Companion</b> Expedition.</div>
+      <div>• At <b>Dusk</b>, beat the facing Expedition in one of your region's terrains to advance.</div>
+      <div>• Win when your two markers <b>meet</b> on the track.</div>
+    </div>
+  </aside>
+</div>
+
+<!-- Floating menu / banner / preview -->
+<div id="context-menu"></div>
+<div id="target-banner"><span class="tb-text" id="target-text"></span><button id="target-cancel" class="ghost-btn">Cancel</button></div>
+<div id="card-preview"></div>
+<div id="dice-overlay"><div class="dice-box" id="dice-box"></div></div>
+
+<!-- ════════ MODALS ════════ -->
+<div class="modal-overlay dock-left" id="pick-modal">
+  <div class="modal">
+    <h2 id="pick-title">Choose</h2>
+    <p id="pick-prompt"></p>
+    <div class="card-grid" id="pick-grid"></div>
+    <div class="modal-actions">
+      <span class="pick-count" id="pick-count"></span>
+      <button class="primary-btn" id="pick-confirm">Confirm</button>
+      <button class="ghost-btn" id="pick-skip">Skip</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="exp-modal">
+  <div class="modal narrow center">
+    <h2 id="exp-title">Choose an Expedition</h2>
+    <p id="exp-prompt"></p>
+    <div class="exp-choice">
+      <button id="exp-hero">Hero<span class="sub" id="exp-hero-sub"></span></button>
+      <button id="exp-comp">Companion<span class="sub" id="exp-comp-sub"></span></button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="choice-modal">
+  <div class="modal narrow center">
+    <h2 id="choice-title">Choose</h2>
+    <p id="choice-prompt"></p>
+    <div class="choice-actions" id="choice-actions"></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="gameover">
+  <div class="modal narrow center">
+    <h1 id="gameover-title"></h1>
+    <p id="gameover-sub"></p>
+    <div class="modal-actions">
+      <button class="primary-btn" id="gameover-again">Play again</button>
+      <button class="ghost-btn" id="gameover-change">Change decks</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay dock-left" id="discard-viewer">
+  <div class="modal">
+    <button id="discard-close" class="modal-close" aria-label="Close">×</button>
+    <h2 id="discard-title" style="margin-bottom:12px;">Discard</h2>
+    <div class="card-grid" id="discard-grid"></div>
+  </div>
+</div>
+
+<script src="js/cards.js"></script>
+<script src="js/scripts.js"></script>
+<script src="js/game.js"></script>
+<script src="js/bot.js"></script>
+<script src="js/ui.js"></script>
+</body>
+</html>

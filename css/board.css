@@ -1,0 +1,116 @@
+/* board.css — the two playmats, the shared Tumult track, and the sidebar. */
+
+#board { display: flex; flex-direction: column; min-width: 0; height: 100vh; overflow: hidden; }
+
+/* ── Player areas ─────────────────────────────────────────────── */
+/* opponent = [resources, expeditions]; you = [expeditions, resources] — the
+   Expedition band always hugs the centre. Mana / Reserve / distances / First
+   Player are all read directly off the board, so there is no HUD bar. */
+.player-area { display: flex; flex-direction: column; gap: 4px; padding: 4px 12px; flex: 0 0 auto; }
+
+/* ── Zones ────────────────────────────────────────────────────── */
+.zone { position: relative; border: 1px solid var(--line); border-radius: 9px; background: rgba(255, 255, 255, 0.015); }
+.zone-label {
+  position: absolute; top: 4px; left: 9px; z-index: 2;
+  font-size: 0.6rem; letter-spacing: 0.14em; color: var(--muted); text-transform: uppercase; pointer-events: none;
+}
+
+.exp-band { display: grid; grid-template-columns: 1fr 102px 1fr; gap: 8px; }
+.expedition { display: flex; gap: 5px; padding: 17px 8px 7px; min-height: 134px; align-items: center; overflow-x: auto; }
+.expedition.drop-ok { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.hero-slot { display: flex; align-items: center; justify-content: center; padding: 4px; position: relative; }
+.hero-slot.empty::after { content: 'HERO'; color: var(--muted); font-size: 0.7rem; letter-spacing: 0.1em; }
+/* First Player marker pinned to the top-left corner of that player's Hero card */
+.fp-on-hero { position: absolute; top: -7px; left: -7px; width: 42px; height: 42px; z-index: 5; filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.75)); pointer-events: none; }
+
+.res-band { display: flex; gap: 8px; align-items: stretch; min-height: 96px; }
+.res-band .zone { display: flex; gap: 5px; padding: 17px 8px 7px; align-items: center; overflow-x: auto; }
+.zone.reserve { flex: 1 1 0; }
+.zone.landmarks { flex: 1 1 0; }
+.zone.mana { flex: 0.8 1 0; }                 /* narrower — the freed space feeds the 3-pile row */
+.zone.piles { flex: 0 0 auto; gap: 7px; }
+
+/* Mana orbs — fill the zone width and wrap onto extra rows when one row is full */
+.mana-orbs { flex: 1 1 auto; display: flex; flex-wrap: wrap; gap: 4px; align-content: center; max-height: 100%; }
+.orb {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #6fd0ff, #2b6da0);
+  border: 1px solid #18415f; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+.orb.spent { background: radial-gradient(circle at 35% 30%, #555, #2a2d33); border-color: #1a1c20; transform: rotate(28deg); }
+
+/* Deck / discard piles */
+.pile {
+  width: 64px; height: 90px; border-radius: var(--card-radius); border: 1px dashed var(--line);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  color: var(--muted); font-size: 0.66rem; letter-spacing: 0.08em; gap: 3px; position: relative;
+}
+.pile.has-cards { border-style: solid; background: linear-gradient(160deg, #2a2f3a, #20242c); color: var(--ink); cursor: pointer; }
+.pile.info-pile, .pile.info-pile.has-cards { cursor: default; }   /* Hand count is display-only */
+.pile .pile-count { font-size: 1.1rem; font-weight: 700; }
+
+.empty-hint { color: var(--muted); font-size: 0.68rem; opacity: 0.6; margin: auto; }
+
+/* ── Centre: Tumult track + banner ────────────────────────────── */
+.center-strip {
+  flex: 1 1 auto; display: flex; flex-direction: row; align-items: center; justify-content: center;
+  gap: 14px; padding: 4px 14px; min-height: 0;
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  background: radial-gradient(600px 150px at 45% 50%, rgba(239, 125, 52, 0.06), transparent 70%);
+}
+/* Turn / phase / Pass stacked on the right, freeing the band for a taller track. */
+.center-controls { flex: 0 0 142px; display: flex; flex-direction: column; align-items: stretch; gap: 10px; text-align: center; }
+.turn-banner { font-size: 0.98rem; font-weight: 700; line-height: 1.25; }
+.phase-label {
+  align-self: center; font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-soft);
+  border: 1px solid var(--line); border-radius: 20px; padding: 4px 12px;
+}
+#btn-pass { width: 100%; padding: 11px; background: var(--accent); border-color: var(--accent); color: #1a0f06; font-weight: 700; }
+#btn-pass:disabled { background: var(--bg-3); color: var(--ink); }
+#btn-afteryou { width: 100%; padding: 9px; font-weight: 700; background: var(--bg-2); border-color: var(--accent-soft); color: var(--accent-soft); }
+#btn-afteryou:hover { background: var(--accent-soft); color: #160c04; }
+
+/* Quick-action bar (exhaust / support abilities before play-or-pass) */
+#quick-actions { display: flex; flex-direction: column; gap: 6px; }
+#quick-actions:empty { display: none; }
+.qa-btn { width: 100%; padding: 8px 10px; font-size: 0.78rem; font-weight: 600; line-height: 1.2; background: var(--bg-2); border-color: var(--accent-soft); color: var(--accent-soft); }
+.qa-btn:hover:not(:disabled) { background: var(--accent); color: #160c04; }
+
+/* Adventure line: real landscape Hero / Tumult / Companion cards, all one size.
+   Expedition markers rest ON the cards; terrain chips sit at the top of each region. */
+.track { position: relative; display: flex; justify-content: center; flex: 1 1 auto; min-width: 0; }
+.adv-line { display: inline-flex; gap: 6px; align-items: center; margin: 4px 0; }
+.adv-card { position: relative; width: 194px; height: 138px; border-radius: 7px; overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow); flex: 0 0 auto; }
+.adv-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.adv-card.flip img { transform: rotate(180deg); }   /* flipped Tumult: icons match the assigned half order */
+
+.marker-layer { position: absolute; inset: 0; pointer-events: none; }
+.trk-marker {
+  position: absolute; transform: translate(-50%, -50%); width: 34px; height: 34px; border-radius: 50%;
+  border: 2px solid; background: #0c0d10; overflow: hidden; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7); z-index: 3;
+}
+.trk-marker img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 50%; }
+.trk-marker.you { border-color: var(--you); }
+.trk-marker.opp { border-color: var(--opp); }
+.trk-marker.meet { box-shadow: 0 0 0 2px #fff, 0 0 11px var(--accent); }
+
+/* ── Hand ─────────────────────────────────────────────────────── */
+.hand-zone {
+  flex: 0 0 auto; display: flex; gap: 6px; justify-content: center; align-items: flex-end;
+  padding: 6px 12px 10px; min-height: 150px; overflow-x: auto;
+}
+
+/* ── Sidebar ──────────────────────────────────────────────────── */
+#sidebar { background: var(--bg-1); border-left: 1px solid var(--line); display: flex; flex-direction: column; height: 100vh; }
+.log-head { padding: 10px 14px; font-weight: 700; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; }
+.log-head button { padding: 3px 9px; font-size: 0.75rem; }
+#log { flex: 1 1 auto; overflow-y: auto; padding: 8px 12px; display: flex; flex-direction: column; gap: 3px; font-size: 0.82rem; }
+.log-entry { line-height: 1.3; color: var(--muted); }
+.log-phase { color: var(--accent-soft); font-weight: 700; margin-top: 4px; }
+.log-system { color: #c9b489; font-style: italic; }
+.log-dusk { color: var(--good); }
+.log-play, .log-draw, .log-mana, .log-action { color: var(--ink); }
+.legend { padding: 10px 14px; border-top: 1px solid var(--line); font-size: 0.74rem; color: var(--muted); display: flex; flex-direction: column; gap: 3px; }
+.legend b { color: var(--ink); }
+
+#board.locked .expedition, #board.locked .hand-zone { /* hint only; gating is in JS */ }
