@@ -126,8 +126,10 @@ body {
 }
 
 /* ── Sidebar ──────────────────────────────────────────────────── */
-#sidebar { background: var(--bg-1); border-left: 1px solid var(--line); display: flex; flex-direction: column; height: 100vh; }
-.log-head { padding: 10px 14px; font-weight: 700; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; }
+/* The board background extends behind the log; a light scrim keeps text legible.
+   Dividers are 2px white lines (matching the playmat zone borders). */
+#sidebar { background: rgba(8, 12, 20, 0.4); border-left: 2px solid rgba(255, 255, 255, 0.75); display: flex; flex-direction: column; height: 100vh; }
+.log-head { padding: 10px 14px; font-weight: 700; border-bottom: 2px solid rgba(255, 255, 255, 0.75); display: flex; justify-content: space-between; align-items: center; }
 .log-head button { padding: 3px 9px; font-size: 0.75rem; }
 #log { flex: 1 1 auto; overflow-y: auto; padding: 8px 12px; display: flex; flex-direction: column; gap: 3px; font-size: 0.82rem; }
 .log-entry { line-height: 1.3; color: var(--muted); }
