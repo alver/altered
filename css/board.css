@@ -9,7 +9,7 @@ body {
     url('../assets/background.jpg') center center / cover no-repeat fixed;
 }
 
-#board { display: flex; flex-direction: column; min-width: 0; height: 100vh; overflow: hidden; }
+#board { position: relative; display: flex; flex-direction: column; min-width: 0; height: 100vh; overflow: hidden; }
 
 /* ── Player areas ─────────────────────────────────────────────── */
 /* opponent = [resources, expeditions]; you = [expeditions, resources] — the
@@ -96,12 +96,21 @@ body {
   gap: 14px; padding: 4px 14px; min-height: 0;
   background: radial-gradient(600px 150px at 45% 50%, rgba(239, 125, 52, 0.06), transparent 70%);
 }
-/* Turn / phase / Pass stacked on the right, freeing the band for a taller track. */
-.center-controls { flex: 0 0 142px; display: flex; flex-direction: column; align-items: stretch; gap: 10px; text-align: center; }
-.turn-banner { font-size: 0.98rem; font-weight: 700; line-height: 1.25; }
-.phase-label {
-  align-self: center; font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-soft);
-  border: 1px solid var(--line); border-radius: 20px; padding: 4px 12px;
+/* Game info on the LEFT of the centre band: the Day title and the phase list,
+   with the current phase highlighted. */
+.game-info { flex: 0 0 150px; display: flex; flex-direction: column; gap: 12px; align-items: flex-start; align-self: center; padding-left: 4px; }
+.day-title { font-size: 1.35rem; font-weight: 800; letter-spacing: 0.02em; line-height: 1.1; }
+.phase-list { display: flex; flex-direction: column; gap: 5px; }
+.phase-item {
+  font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--muted); opacity: 0.55; transition: color 0.15s, opacity 0.15s;
+}
+.phase-item.active { color: var(--accent-soft); opacity: 1; font-weight: 700; }
+
+/* Player action buttons — bottom-right corner, near the hand. */
+#player-controls {
+  position: absolute; right: 16px; bottom: 14px; z-index: 20;
+  width: 150px; display: flex; flex-direction: column; align-items: stretch; gap: 8px;
 }
 #btn-pass { width: 100%; padding: 11px; background: var(--accent); border-color: var(--accent); color: #1a0f06; font-weight: 700; }
 #btn-pass:disabled { background: var(--bg-3); color: var(--ink); }

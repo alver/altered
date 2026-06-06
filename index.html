@@ -35,17 +35,19 @@
 
     <!-- ════════ CENTRE: TUMULT TRACK ════════ -->
     <section class="center-strip">
+      <div class="game-info">
+        <span class="day-title" id="turn-banner">—</span>
+        <div class="phase-list" id="phase-list">
+          <span class="phase-item" data-phase="morning">Morning</span>
+          <span class="phase-item" data-phase="noon">Noon</span>
+          <span class="phase-item" data-phase="afternoon">Afternoon</span>
+          <span class="phase-item" data-phase="dusk">Dusk</span>
+        </div>
+      </div>
       <div class="track-stack">
         <div class="center-mana opp" id="opp-mana"></div>
         <div class="track" id="track"></div>
         <div class="center-mana you" id="you-mana"></div>
-      </div>
-      <div class="center-controls">
-        <span class="turn-banner" id="turn-banner">—</span>
-        <span class="phase-label" id="phase-label"></span>
-        <button id="btn-pass" disabled>Pass</button>
-        <button id="btn-afteryou" style="display:none" title="Yield your turn to your opponent without passing (Hero, once per Day)">After You</button>
-        <div id="quick-actions"></div>
       </div>
     </section>
 
@@ -68,6 +70,11 @@
     </section>
 
     <div class="hand-zone" id="you-hand"></div>
+    <div id="player-controls">
+      <div id="quick-actions"></div>
+      <button id="btn-afteryou" style="display:none" title="Yield your turn to your opponent without passing (Hero, once per Day)">After You</button>
+      <button id="btn-pass" disabled>Pass</button>
+    </div>
   </div>
 
   <!-- ════════ SIDEBAR ════════ -->

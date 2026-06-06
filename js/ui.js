@@ -61,9 +61,9 @@ const UI = (() => {
     renderQuickActions(myTurn);
     renderTrack();
 
-    $('turn-banner').textContent = state.winner ? 'Game Over'
-      : `Day ${state.day} — ${state.current === you ? 'Your turn' : (state.current === opp ? opp.name + "'s turn" : '—')}`;
-    $('phase-label').textContent = state.busy && state.phase === 'afternoon' ? 'Resolving…' : phaseName();
+    $('turn-banner').textContent = state.winner ? 'Game Over' : `Day ${state.day}`;
+    document.querySelectorAll('#phase-list .phase-item').forEach(it =>
+      it.classList.toggle('active', it.dataset.phase === state.phase));
     $('btn-pass').disabled = !myTurn;
     $('btn-afteryou').style.display = (myTurn && E.canAfterYou()) ? '' : 'none';
 
@@ -111,9 +111,6 @@ const UI = (() => {
     }, 950);
   }
 
-  function phaseName() {
-    return ({ setup: 'Setup', morning: 'Morning', noon: 'Noon', afternoon: 'Afternoon', dusk: 'Dusk', night: 'Night', game_over: 'Game Over' })[state.phase] || '';
-  }
 
   // ─── ZONE RENDERERS ─────────────────────────────────────────────
   function renderHero(side, p) {
