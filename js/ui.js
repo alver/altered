@@ -7,6 +7,7 @@ const UI = (() => {
   let pending = null;      // active board-target request {candidates, resolve, ...}
   let acting = false;      // guards against overlapping human actions
   let autoPassTimer = null;
+  let logFont = 0.82;      // rem; adjusted by the +/- steppers in the log header
 
   const $ = (id) => document.getElementById(id);
   const esc = (s) => (s || '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -52,6 +53,7 @@ const UI = (() => {
     renderExp('you-comp-exp', you.compExp, you, myTurn, you.heroExp.filter(gig));
     renderExp('opp-hero-exp', opp.heroExp, opp, false, opp.compExp.filter(gig));
     renderExp('opp-comp-exp', opp.compExp, opp, false, opp.heroExp.filter(gig));
+    renderTotals('you', you); renderTotals('opp', opp);
     renderReserve('you', you, myTurn); renderReserve('opp', opp, false);
     renderLandmarks('you', you); renderLandmarks('opp', opp);
     renderMana('you', you); renderMana('opp', opp);
@@ -124,12 +126,23 @@ const UI = (() => {
       + (ghosts || []).map(cs => charFace(cs, ownerP, true)).join('');
   }
 
+  // Terrain totals (Forest / Mountain / Water) beside each Expedition lane.
+  // Matches expeditionTotals() at Dusk, including Gigantic echoes from the other lane.
+  function renderTotals(side, p) {
+    for (const which of ['hero', 'comp']) {
+      const el = $(`${side}-${which}-totals`); if (!el) continue;
+      const tot = E.expeditionTotals(p, which === 'comp' ? 'companion' : 'hero');
+      el.innerHTML = T.map(t => {
+        const v = tot[t];
+        return `<div class="tt-row"><img src="assets/markers/${t}.png" alt="${t}"><span class="tt-num ${v ? '' : 'zero'}">${v}</span></div>`;
+      }).join('');
+    }
+  }
+
   function charFace(cs, ownerP, ghost) {
     const c = cs.card;
-    const stats = T.map(t => {
-      const v = CM.stat(cs, t);
-      return `<span class="stat ${t} ${cs.boosts ? 'boosted' : ''}">${v}</span>`;
-    }).join('');
+    // Per-card terrain stats are intentionally not shown — the per-Expedition
+    // totals beside each lane already report the sum. Tokens/badges stay on the card.
     const badges = [];
     if (cs.boosts) {
       const tok = cs.boosts >= 2 ? 'boost2' : 'boost1';
@@ -150,7 +163,7 @@ const UI = (() => {
       ? `<img src="${c.image}" alt="${esc(c.name)}" draggable="false">`
       : `<div class="tk-name">${esc(c.name)}</div>`;
     return `<div class="${cls.join(' ')} ${c.image ? '' : 'tokenless'}" data-uid="${c.uid}" data-id="${c.id}">
-      ${inner}<div class="stats">${stats}</div>${badges.join('')}</div>`;
+      ${inner}${badges.join('')}</div>`;
   }
 
   function renderReserve(side, p, interactive) {
@@ -174,9 +187,12 @@ const UI = (() => {
   }
 
   function renderMana(side, p) {
-    $(`${side}-mana`).innerHTML = p.mana.length
-      ? p.mana.map(o => `<span class="orb ${o.exhausted ? 'spent' : ''}"></span>`).join('')
-      : `<span class="empty-hint">no mana</span>`;
+    $(`${side}-mana`).innerHTML = p.mana.map(o => {
+      const ready = !o.exhausted;
+      const art = ready ? 'mana_full' : 'mana_empty';
+      const title = ready ? 'Ready mana' : 'Spent mana';
+      return `<span class="orb ${ready ? 'full' : 'empty'}" title="${title}"><img src="assets/markers/${art}.png" alt="${title}"></span>`;
+    }).join('');
   }
 
   function renderPiles(side, p) {
@@ -286,6 +302,10 @@ const UI = (() => {
     $('discard-close').addEventListener('click', () => hide('discard-viewer'));
     $('target-cancel').addEventListener('click', cancelTarget);
     $('btn-quit').addEventListener('click', () => { localStorage.removeItem(STORAGE_KEY); location.replace('deck_select.html'); });
+    $('btn-howto').addEventListener('click', () => show('howto-modal'));
+    $('howto-close').addEventListener('click', () => hide('howto-modal'));
+    $('log-font-inc').addEventListener('click', () => setLogFont(logFont + 0.08));
+    $('log-font-dec').addEventListener('click', () => setLogFont(logFont - 0.08));
     $('gameover-again').addEventListener('click', () => location.reload());
     $('gameover-change').addEventListener('click', () => { localStorage.removeItem(STORAGE_KEY); location.replace('deck_select.html'); });
     document.addEventListener('click', (e) => { if (!e.target.closest('#context-menu') && !e.target.closest('.card')) closeMenu(); });
@@ -486,6 +506,10 @@ const UI = (() => {
     div.textContent = entry.message;
     log.appendChild(div);
     log.scrollTop = log.scrollHeight;
+  }
+  function setLogFont(rem) {
+    logFont = Math.max(0.6, Math.min(1.3, Math.round(rem * 100) / 100));
+    $('log').style.fontSize = `${logFont}rem`;
   }
   function show(id) { $(id).style.display = 'flex'; }
   function hide(id) { $(id).style.display = 'none'; $('card-preview').style.display = 'none'; }

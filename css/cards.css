@@ -31,16 +31,6 @@
 }
 .cost.reserve-cost { background: var(--accent); color: #160c04; }
 
-/* Character stat overlay (Forest / Mountain / Water down the left edge) */
-.stats { position: absolute; top: 4px; left: 4px; display: flex; flex-direction: column; gap: 2px; z-index: 3; }
-.stat {
-  width: 19px; height: 19px; border-radius: 4px; font-size: 0.7rem; font-weight: 800;
-  display: flex; align-items: center; justify-content: center; color: #0c0d10;
-  border: 1px solid rgba(0, 0, 0, 0.45); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-}
-.stat.forest { background: var(--forest); } .stat.mountain { background: var(--mountain); } .stat.water { background: var(--water); }
-.stat.boosted { outline: 1px solid var(--accent-soft); }
-
 /* Badges */
 .badge {
   position: absolute; z-index: 5; min-width: 18px; height: 18px; padding: 0 4px; border-radius: 9px;

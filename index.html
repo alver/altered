@@ -20,7 +20,6 @@
       <div class="res-band">
         <div class="zone reserve" id="opp-reserve"><span class="zone-label">Reserve</span></div>
         <div class="zone landmarks" id="opp-landmarks"><span class="zone-label">Landmarks</span></div>
-        <div class="zone mana"><span class="zone-label">Mana</span><div class="mana-orbs" id="opp-mana"></div></div>
         <div class="zone piles">
           <div class="pile" id="opp-deck"><span>Deck</span><span class="pile-count" id="opp-deck-count">0</span></div>
           <div class="pile info-pile" id="opp-hand-pile"><span>Hand</span><span class="pile-count" id="opp-hand-count">0</span></div>
@@ -28,15 +27,21 @@
         </div>
       </div>
       <div class="exp-band">
+        <div class="terrain-totals hero" id="opp-hero-totals"></div>
         <div class="zone expedition" id="opp-hero-exp" data-exp="hero"><span class="zone-label">Expedition · Hero</span></div>
         <div class="hero-slot" id="opp-hero"></div>
         <div class="zone expedition" id="opp-comp-exp" data-exp="companion"><span class="zone-label">Expedition · Companion</span></div>
+        <div class="terrain-totals comp" id="opp-comp-totals"></div>
       </div>
     </section>
 
     <!-- ════════ CENTRE: TUMULT TRACK ════════ -->
     <section class="center-strip">
-      <div class="track" id="track"></div>
+      <div class="track-stack">
+        <div class="center-mana opp" id="opp-mana"></div>
+        <div class="track" id="track"></div>
+        <div class="center-mana you" id="you-mana"></div>
+      </div>
       <div class="center-controls">
         <span class="turn-banner" id="turn-banner">—</span>
         <span class="phase-label" id="phase-label"></span>
@@ -49,14 +54,15 @@
     <!-- ════════ YOU ════════ -->
     <section class="player-area you-area">
       <div class="exp-band">
+        <div class="terrain-totals hero" id="you-hero-totals"></div>
         <div class="zone expedition" id="you-hero-exp" data-exp="hero"><span class="zone-label">Expedition · Hero</span></div>
         <div class="hero-slot" id="you-hero"></div>
         <div class="zone expedition" id="you-comp-exp" data-exp="companion"><span class="zone-label">Expedition · Companion</span></div>
+        <div class="terrain-totals comp" id="you-comp-totals"></div>
       </div>
       <div class="res-band">
         <div class="zone reserve" id="you-reserve"><span class="zone-label">Reserve</span></div>
         <div class="zone landmarks" id="you-landmarks"><span class="zone-label">Landmarks</span></div>
-        <div class="zone mana"><span class="zone-label">Mana</span><div class="mana-orbs" id="you-mana"></div></div>
         <div class="zone piles">
           <div class="pile" id="you-deck"><span>Deck</span><span class="pile-count" id="you-deck-count">0</span></div>
           <div class="pile info-pile" id="you-hand-pile"><span>Hand</span><span class="pile-count" id="you-hand-count">0</span></div>
@@ -70,15 +76,17 @@
 
   <!-- ════════ SIDEBAR ════════ -->
   <aside id="sidebar">
-    <div class="log-head"><span>Game Log</span><button id="btn-quit" title="Change decks">Decks</button></div>
+    <div class="log-head">
+      <span>Game Log</span>
+      <div class="log-zoom">
+        <button id="log-font-dec" title="Smaller log text">−</button>
+        <button id="log-font-inc" title="Larger log text">+</button>
+      </div>
+    </div>
     <div id="log"></div>
-    <div class="legend">
-      <div><b>How to play</b></div>
-      <div>• Each <b>Day</b>: Morning (draw + Mana) → Afternoon (play cards) → Dusk → Night.</div>
-      <div>• In the Afternoon, play <b>one card per turn</b> or Pass.</div>
-      <div>• Characters join your <b>Hero</b> or <b>Companion</b> Expedition.</div>
-      <div>• At <b>Dusk</b>, beat the facing Expedition in one of your region's terrains to advance.</div>
-      <div>• Win when your two markers <b>meet</b> on the track.</div>
+    <div class="log-foot">
+      <button id="btn-howto">How to play</button>
+      <button id="btn-quit" title="Change decks">Decks</button>
     </div>
   </aside>
 </div>
@@ -130,6 +138,20 @@
       <button class="primary-btn" id="gameover-again">Play again</button>
       <button class="ghost-btn" id="gameover-change">Change decks</button>
     </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="howto-modal">
+  <div class="modal narrow">
+    <button id="howto-close" class="modal-close" aria-label="Close">×</button>
+    <h2>How to play</h2>
+    <ul class="howto-list">
+      <li>Each <b>Day</b>: Morning (draw + Mana) → Afternoon (play cards) → Dusk → Night.</li>
+      <li>In the Afternoon, play <b>one card per turn</b> or Pass.</li>
+      <li>Characters join your <b>Hero</b> or <b>Companion</b> Expedition.</li>
+      <li>At <b>Dusk</b>, beat the facing Expedition in one of your region's terrains to advance.</li>
+      <li>Win when your two markers <b>meet</b> on the track.</li>
+    </ul>
   </div>
 </div>
 
