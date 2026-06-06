@@ -68,9 +68,17 @@ const UI = (() => {
     $('btn-pass').disabled = !myTurn;
     $('btn-afteryou').style.display = (myTurn && E.canAfterYou()) ? '' : 'none';
 
+    sizeZoneFrames();
     applyTargetHighlights();
     $('board').classList.toggle('locked', !myTurn && !pending);
     maybeAutoPass(myTurn);
+  }
+
+  // The bracket frame leaves a gap for the label; tell CSS how wide each label is.
+  function sizeZoneFrames() {
+    document.querySelectorAll('#board .zone.framed > .zone-label').forEach(lbl => {
+      lbl.parentElement.style.setProperty('--lw', `${Math.round(lbl.getBoundingClientRect().width)}px`);
+    });
   }
 
   // The quick-action bar: exhaust/support abilities the human may take before

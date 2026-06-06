@@ -18,11 +18,25 @@ body {
 .player-area { display: flex; flex-direction: column; gap: 4px; padding: 4px 12px; flex: 0 0 auto; }
 
 /* ── Zones ────────────────────────────────────────────────────── */
-.zone { position: relative; border: 1px solid var(--line); border-radius: 9px; background: rgba(255, 255, 255, 0.015); }
+.zone { position: relative; border-radius: 9px; }
 .zone-label {
-  position: absolute; top: 4px; left: 9px; z-index: 2;
-  font-size: 0.6rem; letter-spacing: 0.14em; color: var(--muted); text-transform: uppercase; pointer-events: none;
+  position: absolute; top: 2px; left: 9px; z-index: 2;
+  font-size: 0.6rem; letter-spacing: 0.14em; color: var(--ink); text-transform: uppercase; pointer-events: none;
 }
+.zone.label-right .zone-label { left: auto; right: 9px; }
+
+/* Playmat-style "bracket" frame: a top line whose ends turn down at the corners
+   (no sides or bottom), interrupted by the label. Two pseudo-elements draw the
+   short corner stub on the label's side and the long line on the other side;
+   --lw (the label's measured width, set in ui.js) places the gap. */
+.zone.framed::before, .zone.framed::after {
+  content: ''; position: absolute; top: 0; height: 17px; pointer-events: none;
+  border: 2px solid var(--frame); border-bottom: none;
+}
+.zone.framed::before { left: 0; width: 6px; border-right: none; border-radius: 9px 0 0 0; }
+.zone.framed::after  { right: 0; left: calc(var(--lw, 64px) + 21px); border-left: none; border-radius: 0 9px 0 0; }
+.zone.framed.label-right::before { left: 0; right: calc(var(--lw, 64px) + 21px); width: auto; border-right: none; border-radius: 9px 0 0 0; }
+.zone.framed.label-right::after  { left: auto; right: 0; width: 6px; border-left: none; border-radius: 0 9px 0 0; }
 
 .exp-band { display: grid; grid-template-columns: auto 1fr 102px 1fr auto; gap: 8px; }
 .expedition { display: flex; gap: 5px; padding: 17px 8px 7px; min-height: 134px; align-items: center; overflow-x: auto; }
