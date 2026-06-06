@@ -38,6 +38,18 @@ body {
 .zone.framed.label-right::before { left: 0; right: calc(var(--lw, 64px) + 21px); width: auto; border-right: none; border-radius: 9px 0 0 0; }
 .zone.framed.label-right::after  { left: auto; right: 0; width: 6px; border-left: none; border-radius: 0 9px 0 0; }
 
+/* Bot side: mirror the frames vertically — the line sits on the BOTTOM edge with
+   the corners turning up, reflecting the player's layout across the centre. The
+   label moves to the bottom too but keeps its normal (upright) text orientation. */
+.opp-area .zone.framed::before, .opp-area .zone.framed::after {
+  top: auto; bottom: 0; border-top: none; border-bottom: 2px solid var(--frame);
+}
+.opp-area .zone.framed::before { border-radius: 0 0 0 9px; }
+.opp-area .zone.framed::after  { border-radius: 0 0 9px 0; }
+.opp-area .zone.framed .zone-label { top: auto; bottom: 2px; }
+.opp-area .expedition { padding: 7px 8px 17px; }
+.opp-area .res-band .zone.framed { padding: 7px 8px 17px; }
+
 .exp-band { display: grid; grid-template-columns: 1fr 102px 1fr; gap: 8px; }
 .expedition { display: flex; gap: 5px; padding: 17px 8px 7px; min-height: 134px; align-items: center; overflow-x: auto; }
 .expedition.drop-ok { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
