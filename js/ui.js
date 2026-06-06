@@ -53,7 +53,6 @@ const UI = (() => {
     renderExp('you-comp-exp', you.compExp, you, myTurn, you.heroExp.filter(gig));
     renderExp('opp-hero-exp', opp.heroExp, opp, false, opp.compExp.filter(gig));
     renderExp('opp-comp-exp', opp.compExp, opp, false, opp.heroExp.filter(gig));
-    renderTotals('you', you); renderTotals('opp', opp);
     renderReserve('you', you, myTurn); renderReserve('opp', opp, false);
     renderLandmarks('you', you); renderLandmarks('opp', opp);
     renderMana('you', you); renderMana('opp', opp);
@@ -130,21 +129,24 @@ const UI = (() => {
   function renderExp(id, list, ownerP, interactive, ghosts) {
     const el = $(id);
     const label = el.querySelector('.zone-label').outerHTML;
-    el.innerHTML = label + list.map(cs => charFace(cs, ownerP)).join('')
+    const which = el.dataset.exp === 'companion' ? 'companion' : 'hero';
+    const cards = list.map(cs => charFace(cs, ownerP)).join('')
       + (ghosts || []).map(cs => charFace(cs, ownerP, true)).join('');
+    // Terrain totals live inside the framed lane, hugging its OUTER edge
+    // (companion lane = right). So the frame's corner wraps past the sums.
+    const totals = totalsHTML(ownerP, which);
+    el.innerHTML = label + (which === 'companion' ? cards + totals : totals + cards);
   }
 
-  // Terrain totals (Forest / Mountain / Water) beside each Expedition lane.
-  // Matches expeditionTotals() at Dusk, including Gigantic echoes from the other lane.
-  function renderTotals(side, p) {
-    for (const which of ['hero', 'comp']) {
-      const el = $(`${side}-${which}-totals`); if (!el) continue;
-      const tot = E.expeditionTotals(p, which === 'comp' ? 'companion' : 'hero');
-      el.innerHTML = T.map(t => {
-        const v = tot[t];
-        return `<div class="tt-row"><img src="assets/markers/${t}.png" alt="${t}"><span class="tt-num ${v ? '' : 'zero'}">${v}</span></div>`;
-      }).join('');
-    }
+  // Terrain totals (Forest / Mountain / Water) for one Expedition lane.
+  // Matches expeditionTotals() at Dusk (incl. Gigantic echoes from the other lane).
+  function totalsHTML(p, which) {
+    const tot = E.expeditionTotals(p, which);
+    const rows = T.map(t => {
+      const v = tot[t];
+      return `<div class="tt-row"><img src="assets/markers/${t}.png" alt="${t}"><span class="tt-num ${v ? '' : 'zero'}">${v}</span></div>`;
+    }).join('');
+    return `<div class="terrain-totals ${which === 'companion' ? 'comp' : 'hero'}">${rows}</div>`;
   }
 
   function charFace(cs, ownerP, ghost) {

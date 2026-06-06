@@ -38,18 +38,19 @@ body {
 .zone.framed.label-right::before { left: 0; right: calc(var(--lw, 64px) + 21px); width: auto; border-right: none; border-radius: 9px 0 0 0; }
 .zone.framed.label-right::after  { left: auto; right: 0; width: 6px; border-left: none; border-radius: 0 9px 0 0; }
 
-.exp-band { display: grid; grid-template-columns: auto 1fr 102px 1fr auto; gap: 8px; }
+.exp-band { display: grid; grid-template-columns: 1fr 102px 1fr; gap: 8px; }
 .expedition { display: flex; gap: 5px; padding: 17px 8px 7px; min-height: 134px; align-items: center; overflow-x: auto; }
 .expedition.drop-ok { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
-/* Characters fan out from the central Hero toward the outer edges. */
-#you-hero-exp, #opp-hero-exp { justify-content: flex-end; }
-#you-comp-exp, #opp-comp-exp { justify-content: flex-start; }
 
-/* ── Expedition terrain totals (F / M / W) on the outer edge of each lane ── */
-/* Icons always hug the outer screen edge; numbers sit toward the centre.
+/* ── Expedition terrain totals (F / M / W), inside each framed lane ── */
+/* The totals hug the lane's OUTER edge (icons toward the screen edge, numbers
+   inward) and the cards are pushed to the inner edge via the auto margin, so the
+   bracket frame wraps around the sums too.
    Hero lane: icon → number.  Companion lane: number → icon (row-reverse).
    Both players keep F / M / W top-to-bottom so totals line up for comparison. */
-.terrain-totals { display: flex; flex-direction: column; justify-content: center; gap: 7px; align-self: center; padding: 0 2px; }
+.terrain-totals { display: flex; flex-direction: column; justify-content: center; gap: 7px; align-self: center; padding: 0 4px; }
+.expedition .terrain-totals { margin-right: auto; }                 /* hero lane: totals left, cards right */
+.expedition.label-right .terrain-totals { margin-right: 0; margin-left: auto; } /* companion lane: totals right */
 .tt-row { display: flex; align-items: center; gap: 7px; }
 .terrain-totals.comp .tt-row { flex-direction: row-reverse; }
 .tt-row img { width: 30px; height: 30px; object-fit: contain; display: block; filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5)); }
