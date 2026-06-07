@@ -223,9 +223,12 @@ const UI = (() => {
   // The bot's hand has no visible count any more; show one face-down card back per
   // card so its hand size stays readable. (The human reads their own hand directly.)
   function renderOppHand(p) {
-    $('opp-hand').innerHTML = p.hand.map(() =>
-      `<div class="card face cardback" title="Hidden card"><img src="assets/cards/cardback.jpg" alt="" draggable="false"></div>`
-    ).join('');
+    const n = p.hand.length, mid = (n - 1) / 2;
+    const step = mid > 0 ? Math.min(9, 26 / mid) : 0;   // degrees between cards; capped so big hands don't over-rotate
+    $('opp-hand').innerHTML = p.hand.map((_, i) => {
+      const rot = Math.round((i - mid) * step * 10) / 10;
+      return `<div class="card face cardback" style="transform:rotate(${rot}deg)" title="Hidden card"><img src="assets/cards/cardback.jpg" alt="" draggable="false"></div>`;
+    }).join('');
   }
 
   function renderHand(p, myTurn, manaPick) {

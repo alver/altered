@@ -164,15 +164,17 @@ body {
   flex: 0 0 auto; display: flex; gap: 6px; justify-content: center; align-items: flex-end;
   padding: 6px 12px 10px; min-height: 150px; overflow-x: auto;
 }
-/* Opponent's hand: face-down card backs peeking from the top edge. Absolutely placed
-   over the board so it costs no layout height; the board's overflow:hidden clips the
-   tops at the screen edge (only the lower part of each back shows). */
+/* Opponent's hand: face-down card backs fanned out and peeking from the top edge.
+   Absolutely placed over the board (no layout height); the board's overflow:hidden
+   clips the tops. Centred over the right side — ~2/3 across the Landmark area — and
+   fanned via a per-card rotation (set in renderOppHand) about the bottom pivot. */
 .opp-hand {
-  position: absolute; top: -102px; left: 0; right: 0; z-index: 3;
-  display: flex; gap: 6px; justify-content: center; align-items: flex-start;
+  position: absolute; top: -70px; left: 76%; transform: translateX(-50%); z-index: 3;
+  display: flex; align-items: flex-start;
   pointer-events: none;
 }
-.card.cardback { width: 96px; height: 134px; flex: 0 0 auto; }
+.card.cardback { width: 96px; height: 134px; flex: 0 0 auto; transform-origin: 50% 100%; }
+.card.cardback + .card.cardback { margin-left: -46px; }   /* overlap into a fan */
 
 /* ── Sidebar ──────────────────────────────────────────────────── */
 /* The board background extends behind the log; a light scrim keeps text legible.
