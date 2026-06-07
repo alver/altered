@@ -175,7 +175,6 @@ webgame/
 └── tools/
     ├── generate_data.py     # rebuilds data/ + assets/cards/ from ../cards
     ├── extract_adventure.py # pulls Hero/Tumult/Companion art from the P&P PDF
-    ├── extract_markers.py   # pulls Expedition / First Player chips from the PunchBoard PDF
     └── sim.js               # headless bot-vs-bot smoke test
 ```
 
