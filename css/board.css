@@ -49,6 +49,8 @@ body {
 .opp-area .zone.framed .zone-label { top: auto; bottom: 2px; }
 /* Bot cards hug the bottom (their frame line); player cards hug the top. */
 .opp-area .expedition, .opp-area .res-band .zone { align-items: flex-end; }
+/* Bot Reserve/Landmarks: label sits at the bottom, so clear it there. */
+.opp-area .res-band .zone.framed { padding: 6px 8px 16px; }
 
 .exp-band { display: grid; grid-template-columns: 1fr 102px 1fr; gap: 8px; }
 /* overflow:clip (not auto) so a boosted card's badge can poke past the lane edge
@@ -77,6 +79,9 @@ body {
 
 .res-band { display: flex; gap: 8px; align-items: stretch; min-height: 96px; }
 .res-band .zone { display: flex; gap: 5px; padding: 4px 8px; align-items: flex-start; overflow-x: auto; }
+/* Reserve/Landmarks have no terrain totals to offset the label, so the cards need
+   room on the label side (top for the player) to clear it instead of sliding under. */
+.res-band .zone.framed { padding: 16px 8px 6px; }
 .zone.reserve { flex: 1 1 0; }
 .zone.landmarks { flex: 1 1 0; }
 .zone.piles { flex: 0 0 auto; gap: 7px; }
