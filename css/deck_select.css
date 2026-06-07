@@ -61,7 +61,7 @@ body { background: #07090d; }
 .brand-by {
   display: inline-flex; align-items: center; gap: 10px;
   padding: 7px 18px 7px 19px; border-radius: 999px;
-  background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(3px);
+  background: rgba(255, 255, 255, 0.92);
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.35);
 }
 .brand-by span {
@@ -78,7 +78,7 @@ body { background: #07090d; }
 .deck-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; flex: 1 1 auto; align-content: center; }
 .deck-tile {
   position: relative; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 14px; overflow: hidden; cursor: pointer;
-  background: rgba(18, 20, 26, 0.62); backdrop-filter: blur(10px) saturate(120%);
+  background: rgba(16, 18, 24, 0.84);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
   transition: transform 0.13s, border-color 0.13s, box-shadow 0.13s; display: flex; flex-direction: column;
 }
@@ -99,7 +99,7 @@ body { background: #07090d; }
 footer {
   display: flex; justify-content: space-between; align-items: center; margin-top: 18px;
   padding: 12px 16px; border-radius: 12px;
-  background: rgba(18, 20, 26, 0.55); backdrop-filter: blur(10px);
+  background: rgba(16, 18, 24, 0.82);
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 .chosen { color: var(--muted); }
