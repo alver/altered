@@ -13,8 +13,10 @@
 .card.hand:not(.playable) { filter: brightness(0.82); }
 /* Play-area cards sit permanently at the (former hover) size — no grow on hover. */
 .card.char { width: 92px; height: 129px; }
-.card.reserve { width: 69px; height: 97px; }
-.card.landmark { width: 74px; height: 103px; }
+/* Reserve & Landmark cards share the in-play character size so the resource band
+   (Reserve | Hero | Landmarks) reads uniformly with the Expedition row above. */
+.card.reserve { width: 92px; height: 129px; }
+.card.landmark { width: 92px; height: 129px; }
 .card.hero { width: 96px; height: 134px; }
 .card.mini { width: 60px; height: 84px; }
 
