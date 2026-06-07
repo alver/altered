@@ -328,7 +328,9 @@ const UI = (() => {
     $('you-deck').addEventListener('click', () => {});
     $('you-discard').addEventListener('click', () => showDiscard(state.you));
     $('opp-discard').addEventListener('click', () => showDiscard(state.opp));
-    $('discard-close').addEventListener('click', () => hide('discard-viewer'));
+    // The Discard viewer is read-only: a click anywhere (backdrop or cards) closes
+    // it. Hovering still shows the big preview and the grid can be scrolled.
+    $('discard-viewer').addEventListener('click', () => hide('discard-viewer'));
     $('target-cancel').addEventListener('click', cancelTarget);
     $('btn-quit').addEventListener('click', () => { localStorage.removeItem(STORAGE_KEY); location.replace('deck_select.html'); });
     $('btn-howto').addEventListener('click', () => show('howto-modal'));

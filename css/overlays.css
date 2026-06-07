@@ -24,6 +24,13 @@
   background: transparent; border: none; color: var(--ink);
 }
 .modal-overlay.dock-left .modal { max-width: min(1040px, calc(100vw - 740px)); }
+/* Small "click anywhere to close" hint, pinned to the dialog's bottom-right and kept
+   visible while the card grid scrolls (text-shadow keeps it legible over cards). */
+.modal-hint {
+  position: sticky; bottom: 0; margin-top: 10px; text-align: right;
+  font-size: 0.7rem; color: var(--muted); pointer-events: none;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+}
 .modal.narrow { max-width: 420px; }
 .modal.center { text-align: center; }
 .modal h1, .modal h2 { margin-bottom: 8px; }
