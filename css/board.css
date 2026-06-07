@@ -78,8 +78,18 @@ body {
 .hero-slot { display: flex; align-items: center; justify-content: center; padding: 4px; position: relative; }
 .hero-slot.empty { min-width: 96px; }
 .hero-slot.empty::after { content: 'HERO'; color: var(--muted); font-size: 0.7rem; letter-spacing: 0.1em; }
-/* First Player marker pinned to the top-left corner of that player's Hero card */
-.fp-on-hero { position: absolute; top: -7px; left: -7px; width: 42px; height: 42px; z-index: 5; filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.75)); pointer-events: none; }
+/* First Player indicator: a glowing blue-gold frame that wraps the Hero card.
+   The PNG's transparent window is the central ~74%×80%, so the overlay is sized
+   a touch larger than the 96×134 card and centred on it, letting the window line
+   up with the card edges and the swirl medallion peek at the top like a badge.
+   Centred on the slot (= on the card) so it stays just inside the board even for
+   the opponent's Hero, which sits flush against the top edge. */
+.fp-frame {
+  position: absolute; left: 50%; top: 50%; width: 122px; height: 156px;
+  transform: translate(-50%, -50%);
+  z-index: 5; pointer-events: none;
+  filter: drop-shadow(0 0 5px rgba(90, 170, 255, 0.6)) drop-shadow(0 2px 3px rgba(0, 0, 0, 0.5));
+}
 
 /* Mana orbs — punch-board chips above (opponent) and below (you) the Tumult track.
    Ready = mana_full art with a white ring; spent = mana_empty art with a grey ring. */

@@ -125,9 +125,9 @@ const UI = (() => {
     const el = $(`${side}-hero`);
     if (!p.hero) { el.classList.add('empty'); el.innerHTML = ''; return; }
     el.classList.remove('empty');
-    // The First Player marker rides on that player's Hero card.
+    // First Player is shown as a glowing blue frame around that player's Hero card.
     const fp = state.firstPlayer === p
-      ? `<img class="fp-on-hero" src="assets/markers/first_player.png" alt="First Player" title="First Player">` : '';
+      ? `<img class="fp-frame" src="assets/markers/first_player_frame.png" alt="First Player" title="First Player">` : '';
     el.innerHTML = cardImg(p.hero, p.heroExhausted ? 'hero hero-spent' : 'hero') + fp;
   }
 
