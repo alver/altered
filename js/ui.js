@@ -68,9 +68,17 @@ const UI = (() => {
     $('turn-banner').textContent = state.winner ? 'Game Over' : `Day ${state.day}`;
     document.querySelectorAll('#phase-list .phase-item').forEach(it =>
       it.classList.toggle('active', it.dataset.phase === state.phase));
-    // During the Morning "add a Mana Orb" step the Pass button becomes Skip.
-    $('btn-pass').textContent = manaPick ? 'Skip' : 'Pass';
-    $('btn-pass').disabled = !myTurn && !manaPick;
+    // In-board Mana pick: the Pass button becomes Skip (Morning's optional add) or
+    // Confirm N/count (Setup's mandatory pick, enabled only when exactly N chosen).
+    if (manaPick && pendingMana.optional) {
+      $('btn-pass').textContent = 'Skip'; $('btn-pass').disabled = false;
+    } else if (manaPick) {
+      const n = pendingMana.selected.size;
+      $('btn-pass').textContent = `Confirm (${n}/${pendingMana.count})`;
+      $('btn-pass').disabled = n !== pendingMana.count;
+    } else {
+      $('btn-pass').textContent = 'Pass'; $('btn-pass').disabled = !myTurn;
+    }
     $('btn-afteryou').style.display = (myTurn && E.canAfterYou()) ? '' : 'none';
 
     applyTargetHighlights();
@@ -215,8 +223,9 @@ const UI = (() => {
 
   function renderHand(p, myTurn, manaPick) {
     $('you-hand').innerHTML = p.hand.map(c => {
-      // Morning Mana pick: any hand card may be buried as a Mana Orb.
-      if (manaPick) return cardImg(c, 'hand', { playable: true, actionable: true, kind: 'mana' });
+      // In-board Mana pick (Setup or Morning): every hand card is selectable; Setup's
+      // multi-select shows the chosen cards with a 'picked' ring.
+      if (manaPick) return cardImg(c, 'hand', { playable: true, actionable: true, kind: 'mana', picked: pendingMana.selected.has(c.uid) });
       const playable = myTurn && E.canAfford(c, p, false);
       return cardImg(c, 'hand', { playable, actionable: playable, kind: 'hand' });
     }).join('');
@@ -226,6 +235,7 @@ const UI = (() => {
     const cls = ['card', 'face', sizeCls];
     if (opts.playable) cls.push('playable');
     if (opts.actionable) cls.push('actionable');
+    if (opts.picked) cls.push('picked');
     const cost = opts.reserveCost ? card.reserveCost : card.handCost;
     const costCls = opts.reserveCost ? 'cost reserve-cost' : 'cost';
     const showCost = sizeCls === 'hand' || opts.reserveCost;
@@ -297,7 +307,12 @@ const UI = (() => {
   function wireHandlers() {
     $('btn-pass').addEventListener('click', () => {
       if (acting) return;
-      if (pendingMana) { resolveMana([]); return; }   // Skip the Morning Mana add
+      if (pendingMana) {
+        if (pendingMana.optional) { resolveMana([]); return; }                 // Morning: Skip
+        if (pendingMana.selected.size === pendingMana.count)                   // Setup: Confirm N picks
+          resolveMana(pendingMana.hand.filter(c => pendingMana.selected.has(c.uid)));
+        return;
+      }
       E.playerPass();
     });
     $('btn-afteryou').addEventListener('click', () => { if (!acting) E.playerAfterYou(); });
@@ -345,10 +360,15 @@ const UI = (() => {
 
   function onBoardClick(e) {
     const cardEl = e.target.closest('.card');
-    if (pendingMana) {                   // Morning: click a hand card to bury it as Mana
+    if (pendingMana) {                   // in-board Mana pick: click hand cards
       if (!cardEl) return;
       const card = pendingMana.hand.find(c => c.uid === +cardEl.dataset.uid);
-      if (card) resolveMana([card]);
+      if (!card) return;
+      if (pendingMana.optional) { resolveMana([card]); return; }   // Morning: one click buries it
+      const sel = pendingMana.selected;                            // Setup: toggle, up to count
+      if (sel.has(card.uid)) sel.delete(card.uid);
+      else if (sel.size < pendingMana.count) sel.add(card.uid);
+      render();
       return;
     }
     if (pending) {                       // resolving a target request
@@ -401,23 +421,18 @@ const UI = (() => {
   // ─── HUMAN AGENT ────────────────────────────────────────────────
   const humanAgent = {
     chooseManaCards({ hand, count, optional, prompt }) {
-      // Morning's optional "add one Mana Orb" plays out on the board itself: the
-      // usual play area stays visible and the human clicks any hand card to bury
-      // it (or hits Skip). Setup's mandatory 3-card pick still uses the dialog.
-      if (optional) {
-        return new Promise(resolve => {
-          pendingMana = { hand, resolve };
-          $('target-text').textContent = `${prompt || 'You may add a Mana Orb.'} Click a card, or Skip.`;
-          $('target-cancel').style.display = 'none';
-          $('target-banner').style.display = 'flex';
-          render();
-        });
-      }
-      return new Promise(resolve => openPick({
-        title: 'Set up your Mana',
-        prompt, cards: [...hand], count, exact: !optional, optional,
-        resolve: (picks) => resolve(picks),
-      }));
+      // Both Mana picks play out on the board (no modal): Setup's mandatory N-of-6
+      // and Morning's optional add. The play area stays visible and the human clicks
+      // hand cards. Morning (optional, 1 card) resolves on a single click; Setup
+      // selects exactly N cards and Confirms via the bottom button.
+      return new Promise(resolve => {
+        pendingMana = { hand, resolve, count, optional, selected: new Set() };
+        const base = prompt || (optional ? 'You may add a Mana Orb.' : 'Choose your Mana Orbs.');
+        $('target-text').textContent = optional ? `${base} Click a card, or Skip.` : base;
+        $('target-cancel').style.display = 'none';
+        $('target-banner').style.display = 'flex';
+        render();
+      });
     },
     chooseDiscards({ cards, count, prompt, zone }) {
       return new Promise(resolve => openPick({

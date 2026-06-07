@@ -21,6 +21,8 @@
 .card.mini { width: 60px; height: 84px; }
 
 .card.actionable { cursor: pointer; box-shadow: 0 0 0 2px var(--good), var(--shadow); }
+/* Selected in an in-board pick (Setup's 3-of-6 Mana choice): accent ring + glow. */
+.card.picked { outline: 3px solid var(--accent); outline-offset: 2px; box-shadow: 0 0 18px var(--accent); }
 /* No lift/scale on hover for cards in play; the hover preview shows the big image. */
 .card.exhausted { transform: rotate(86deg); }
 .card.fleeting-c { box-shadow: 0 0 0 2px var(--accent), var(--shadow); }
