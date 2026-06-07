@@ -168,7 +168,7 @@ body {
    over the board so it costs no layout height; the board's overflow:hidden clips the
    tops at the screen edge (only the lower part of each back shows). */
 .opp-hand {
-  position: absolute; top: -70px; left: 0; right: 0; z-index: 3;
+  position: absolute; top: -102px; left: 0; right: 0; z-index: 3;
   display: flex; gap: 6px; justify-content: center; align-items: flex-start;
   pointer-events: none;
 }
