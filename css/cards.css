@@ -11,16 +11,16 @@
 .card.hand.playable { cursor: pointer; }
 .card.hand.playable:hover { transform: translateY(-14px) scale(1.05); box-shadow: 0 14px 24px rgba(0, 0, 0, 0.6); z-index: 6; }
 .card.hand:not(.playable) { filter: brightness(0.82); }
-.card.char { width: 88px; height: 123px; }
-.card.reserve { width: 66px; height: 92px; }
-.card.landmark { width: 70px; height: 98px; }
+/* Play-area cards sit permanently at the (former hover) size — no grow on hover. */
+.card.char { width: 92px; height: 129px; }
+.card.reserve { width: 69px; height: 97px; }
+.card.landmark { width: 74px; height: 103px; }
 .card.hero { width: 96px; height: 134px; }
 .card.mini { width: 60px; height: 84px; }
 
 .card.actionable { cursor: pointer; box-shadow: 0 0 0 2px var(--good), var(--shadow); }
-.card.char:hover, .card.reserve:hover, .card.landmark:hover, .card.hero:hover { transform: translateY(-7px) scale(1.05); z-index: 7; }
+/* No lift/scale on hover for cards in play; the hover preview shows the big image. */
 .card.exhausted { transform: rotate(86deg); }
-.card.exhausted:hover { transform: rotate(86deg) scale(1.04); }
 .card.fleeting-c { box-shadow: 0 0 0 2px var(--accent), var(--shadow); }
 
 /* Cost badge */
