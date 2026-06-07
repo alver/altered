@@ -157,8 +157,8 @@ const UI = (() => {
       badges.push(`<span class="badge boost-tok" title="${cs.boosts} boost (+${cs.boosts}/+${cs.boosts}/+${cs.boosts})">${cnt}<img src="assets/markers/${tok}.png" alt="+${cs.boosts}"></span>`);
     }
     if (cs.fleeting) badges.push(`<span class="badge fleeting" title="Fleeting — discarded instead of going to Reserve"><img src="assets/markers/fleeting.png" alt="Fleeting"></span>`);
-    if (cs.anchored) badges.push(`<span class="badge anchored" title="Anchored">⚓</span>`);
-    if (cs.asleep) badges.push(`<span class="badge asleep" title="Asleep">☾</span>`);
+    if (cs.anchored) badges.push(`<span class="badge anchored" title="Anchored"><img src="assets/markers/anchored.png" alt="Anchored"></span>`);
+    if (cs.asleep) badges.push(`<span class="badge asleep" title="Asleep"><img src="assets/markers/asleep.png" alt="Asleep"></span>`);
     if (E.isDefender(cs, ownerP)) badges.push(`<span class="badge defender" title="Defender — this Expedition can’t move forward at Dusk">D</span>`);
     if (E.isGigantic(c)) badges.push(`<span class="badge gigantic" title="Gigantic — present in both Expeditions">G</span>`);
     const tough = E.toughOf(c, ownerP);
