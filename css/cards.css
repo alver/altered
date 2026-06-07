@@ -9,7 +9,7 @@
 /* Sizes per zone */
 .card.hand { width: 96px; height: 134px; transition: transform 0.13s, box-shadow 0.13s; }
 .card.hand.playable { cursor: pointer; }
-.card.hand.playable:hover { transform: translateY(-14px) scale(1.05); box-shadow: 0 14px 24px rgba(0, 0, 0, 0.6); z-index: 6; }
+.card.hand.playable:hover { box-shadow: 0 6px 18px rgba(0, 0, 0, 0.55); z-index: 6; }
 .card.hand:not(.playable) { filter: brightness(0.82); }
 /* Play-area cards sit permanently at the (former hover) size — no grow on hover. */
 .card.char { width: 92px; height: 129px; }
