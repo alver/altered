@@ -173,8 +173,8 @@ body {
   display: flex; align-items: flex-start;
   pointer-events: none;
 }
-.card.cardback { width: 96px; height: 134px; flex: 0 0 auto; transform-origin: 50% 100%; }
-.card.cardback + .card.cardback { margin-left: -46px; }   /* overlap into a fan */
+.card.cardback { width: 96px; height: 134px; flex: 0 0 auto; transform-origin: 50% 0%; }
+.card.cardback + .card.cardback { margin-left: -46px; }   /* overlap into a fan (pivots at the top) */
 
 /* ── Sidebar ──────────────────────────────────────────────────── */
 /* The board background extends behind the log; a light scrim keeps text legible.
