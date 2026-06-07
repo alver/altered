@@ -35,7 +35,10 @@ body {
 .zone .card { z-index: 1; }
 
 /* ── Expedition row: [Hero lane] [central terrain totals] [Companion lane] ── */
-.exp-band { display: grid; grid-template-columns: 1fr auto 1fr; gap: 10px; align-items: stretch; }
+/* Fixed centre column (must match .res-band) so the Expedition boxes line up
+   vertically with the Reserve / Landmark boxes below. 120px fits the spaced
+   terrain totals; the Hero card centres in the same width on the row below. */
+.exp-band { display: grid; grid-template-columns: 1fr 120px 1fr; gap: 10px; align-items: stretch; }
 /* overflow:clip (not auto) so a boosted card's badge can poke past the lane edge
    without triggering a scrollbar; the clip-margin keeps all badges fully visible. */
 .expedition { display: flex; gap: 6px; padding: 6px 10px; min-height: 138px; align-items: flex-start; overflow: clip; overflow-clip-margin: 16px; }
@@ -61,7 +64,7 @@ body {
 .tc-num.zero { opacity: 0.3; }
 
 /* ── Resource row: [Reserve] [Hero card] [Landmarks + piles] ────── */
-.res-band { display: grid; grid-template-columns: 1fr auto 1fr; gap: 10px; align-items: stretch; min-height: 142px; }
+.res-band { display: grid; grid-template-columns: 1fr 120px 1fr; gap: 10px; align-items: stretch; min-height: 142px; }
 .res-band .zone { display: flex; gap: 6px; padding: 8px 10px; align-items: flex-start; overflow: clip; overflow-clip-margin: 16px; }
 .opp-area .res-band .zone { align-items: flex-end; }
 /* Reserve (left of Hero) packs right, Landmarks (right of Hero) packs left — both
