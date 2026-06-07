@@ -164,6 +164,15 @@ body {
   flex: 0 0 auto; display: flex; gap: 6px; justify-content: center; align-items: flex-end;
   padding: 6px 12px 10px; min-height: 150px; overflow-x: auto;
 }
+/* Opponent's hand: face-down card backs peeking from the top edge. Absolutely placed
+   over the board so it costs no layout height; the board's overflow:hidden clips the
+   tops at the screen edge (only the lower part of each back shows). */
+.opp-hand {
+  position: absolute; top: -70px; left: 0; right: 0; z-index: 3;
+  display: flex; gap: 6px; justify-content: center; align-items: flex-start;
+  pointer-events: none;
+}
+.card.cardback { width: 96px; height: 134px; flex: 0 0 auto; }
 
 /* ── Sidebar ──────────────────────────────────────────────────── */
 /* The board background extends behind the log; a light scrim keeps text legible.

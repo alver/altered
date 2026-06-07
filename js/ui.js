@@ -62,6 +62,7 @@ const UI = (() => {
     renderPiles('you', you); renderPiles('opp', opp);
     const manaPick = !!pendingMana;
     renderHand(you, myTurn, manaPick);
+    renderOppHand(opp);
     renderQuickActions(myTurn);
     renderTrack();
 
@@ -212,13 +213,19 @@ const UI = (() => {
   }
 
   function renderPiles(side, p) {
-    const deck = $(`${side}-deck`), disc = $(`${side}-discard`), handPile = $(`${side}-hand-pile`);
+    const deck = $(`${side}-deck`), disc = $(`${side}-discard`);
     $(`${side}-deck-count`).textContent = p.deck.length;
-    $(`${side}-hand-count`).textContent = p.hand.length;
     $(`${side}-discard-count`).textContent = p.discard.length;
     deck.classList.toggle('has-cards', p.deck.length > 0);
-    handPile.classList.toggle('has-cards', p.hand.length > 0);
     disc.classList.toggle('has-cards', p.discard.length > 0);
+  }
+
+  // The bot's hand has no visible count any more; show one face-down card back per
+  // card so its hand size stays readable. (The human reads their own hand directly.)
+  function renderOppHand(p) {
+    $('opp-hand').innerHTML = p.hand.map(() =>
+      `<div class="card face cardback" title="Hidden card"><img src="assets/cards/cardback.jpg" alt="" draggable="false"></div>`
+    ).join('');
   }
 
   function renderHand(p, myTurn, manaPick) {
