@@ -11,9 +11,14 @@
   <script src="js/version.js"></script>
 </head>
 <body>
+  <div id="bg-stage" aria-hidden="true"></div>
+  <div id="bg-scrim" aria-hidden="true"></div>
   <div id="select-screen">
     <header>
-      <h1>ALTERED</h1>
+      <div class="brand">
+        <img class="brand-logo" src="assets/logos/altered-logo-color.png" alt="Altered">
+        <div class="brand-by"><span>by</span><img src="assets/logos/equinox-logo-black.png" alt="Equinox"></div>
+      </div>
       <p class="tagline">Lead two Expeditions across the peninsula of Asgartha. Be the first to make them meet.</p>
       <p class="step" id="step-label">Choose <b>your</b> faction</p>
     </header>
@@ -27,6 +32,7 @@
     </footer>
   </div>
   <div id="card-preview"></div>
+  <script src="js/bg_slideshow.js"></script>
   <script src="js/cards.js"></script>
   <script src="js/deck_select.js"></script>
 </body>
