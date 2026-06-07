@@ -94,7 +94,7 @@ const UI = (() => {
     const el = $('quick-actions'); if (!el) return;
     if (!myTurn) { el.innerHTML = ''; return; }
     const acts = E.availableQuickActions(state.you).filter(a => a.canRun);
-    el.innerHTML = acts.map(a => `<button class="qa-btn" data-uid="${a.sourceUid}" data-i="${a.index}">${esc(a.label)}</button>`).join('');
+    el.innerHTML = acts.map(a => `<button class="qa-btn qa-${a.kind || 'exhaust'}" data-uid="${a.sourceUid}" data-i="${a.index}">${esc(a.label)}</button>`).join('');
     el.querySelectorAll('button').forEach(b => b.onclick = async () => {
       if (acting) return;
       acting = true;

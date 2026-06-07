@@ -81,6 +81,15 @@ Two layers resolve card text:
    - **Interactive quick actions** — exhaust/support abilities taken before the
      play-or-pass step (`availableQuickActions` / `playerQuickAction`; a
      `quickActions(ctx)` script hook). The Hero can exhaust (`p.heroExhausted`).
+   - **Support abilities** (`{D}`) — a card script's `support(ctx) => { label,
+     canRun, effect, endsTurn? }` hook. `availableQuickActions` scans the **Reserve**
+     for these; the engine pays the cost (discard the card from Reserve → Discard)
+     before running `effect`. Most are quick actions (don't end the turn); Alice's
+     **After You** sets `endsTurn` so `playerQuickAction` yields the turn (not a pass).
+     "Next card you play this turn costs/boosts …" Supports push a one-shot entry
+     onto `p.pendingMods` (`{ kind:'cost'|'boost', match, amount }`) that
+     `minPlayCost`/`playCard` fold in and consume on the matching play; leftovers are
+     cleared at the player's turn end.
    - **Counters** — on char/landmark state (`self.counters`).
    - **Keywords** (`card.keywords` from the generator): **Gigantic** (counts in
      both Expeditions — `expeditionTotals` adds the other lane; UI shows a faded
@@ -140,10 +149,9 @@ Gates**' four-token distribution), the **Ordis Recruit 1/1/1** token, **The Mono
 (boosts every joining Character), **Kakoba** (3+ other Characters → boosts),
 **Charge!**'s mass boost, **Jeanne d'Arc**'s `onLeave` muster, Rune-Scribe's
 token-gated Resupply, Ordis Spy's Sabotage, and **Sticky Note Seals** (choose-one
-removal of a Hand Cost ≥4 Character/Permanent). The lone exception is the
-cross-faction **Foundry Mechanic**, whose support ability (`{D}`: next Permanent
-costs 1 less) needs the unbuilt Reserve-support-quick-action + transient-cost
-subsystem, so it stays a vanilla 1/1/2 body.
+removal of a Hand Cost ≥4 Character/Permanent). The cross-faction **Foundry
+Mechanic** now resolves its Support ability (`{D}`: next Permanent costs 1 less)
+through the `support`/`pendingMods` subsystem.
 YZMIR (Akesha & Taru — the control / disruption deck): the Hero's **After You**
 tempo, **Defender** (Monolith Archivist pins its lane), **Sakarabru**'s
 backwards-movement, **Banishing Gate**'s hard discard, **Kraken's Wrath**'s
@@ -199,6 +207,7 @@ webgame/
 ```bash
 node tools/sim.js 40        # 40 full bot-vs-bot games — expect 0 errors
 node tools/sim.js 1 -v      # one game with the full phase log
+node tools/test_support.js  # unit-tests every Support ability ({D}) — the bot never fires them
 # Real-browser self-test (needs the server running):
 #   open index.html?you=AX&bot=BR&auto=1  — plays itself to the game-over screen
 #   open index.html?you=LY&bot=LY&auto=1  — exercises the dice popup / The Ouroboros
@@ -206,6 +215,8 @@ node tools/sim.js 1 -v      # one game with the full phase log
 #   open index.html?you=OR&bot=OR&auto=1  — exercises Recruit tokens, Jeanne's onLeave, The Monolith
 #   open index.html?you=YZ&bot=AX        — pilot Yzmir to use the Hero's "After You" button
 #     (the bot never uses After You / Defender, so play YZ by hand to exercise them)
+#   Support abilities ({D}) are human-only: play any deck, let a Support card reach your
+#     Reserve (Night Rest, or play a Spell), then click its blue "(discard)" quick-action.
 ```
 
 ## Limitations / TODO
@@ -213,12 +224,15 @@ node tools/sim.js 1 -v      # one game with the full phase log
 - **All six starter decks are fully scripted.** New cards/sets can be added by
   scripting them in `js/scripts.js` (or relying on the auto-detected safe subset).
 - Keyword `Seasoned` is not modelled yet. Gigantic, Tough N, **Defender**, the
-  **dice** subsystem (with The Ouroboros), Asleep, and the **`onLeave`** trigger are
-  implemented.
-- Support abilities (discard-from-Reserve quick actions) are plumbed but not yet
-  surfaced as quick actions; ORDIS's cross-faction **Foundry Mechanic** (`{D}`: next
-  Permanent costs 1 less) is the first real consumer and remains unimplemented (a
-  vanilla 1/1/2 body) pending that subsystem + a transient per-turn cost modifier.
+  **dice** subsystem (with The Ouroboros), Asleep, the **`onLeave`** trigger, and
+  **Support abilities** (`{D}`, discard-from-Reserve quick actions) are implemented.
+- **Support abilities** are fully surfaced (Reserve quick actions via the `support`
+  hook + `pendingMods` transient-cost subsystem): Foundry Mechanic, Studious Disciple
+  (cost cuts), Issun-bōshi / Haven Warrior / Meditation Training (boost next
+  Character), The Hatter / Muna Druid (Anchor a target), Hathor (return a Reserve
+  card to hand), Sakarabru (draw), Alice (After You), and Jian (re-fire a Permanent's
+  join). The **bot ignores Support abilities** (it never plays from Reserve), so they
+  are a human-facing tool — see `node tools/test_support.js` for engine coverage.
 - Token-makers target only the controller's own Expeditions (no enemy seeding).
 - Arena tiebreaker not implemented.
 - Bot is still simple: develops its strongest character, builds Landmarks, makes

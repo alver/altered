@@ -16,6 +16,7 @@
   "ability": {},
   "fleeting": false,
   "image": "assets/cards/ALT_CORE_B_LY_18_C.jpg",
+  "supportText": "{D} : Target Character with Hand Cost \u27723\u2773 or less gains Anchored.",
   "forest": 5,
   "mountain": 5,
   "water": 0
@@ -77,6 +78,7 @@
   "ability": {},
   "fleeting": false,
   "image": "assets/cards/ALT_CORE_B_LY_07_C.jpg",
+  "supportText": "{D} : Return another card from your Reserve to your hand.",
   "forest": 3,
   "mountain": 3,
   "water": 0
@@ -98,6 +100,7 @@
   "ability": {},
   "fleeting": false,
   "image": "assets/cards/ALT_CORE_B_AX_07_C.jpg",
+  "supportText": "{D} : The next Permanent you play this turn costs \u27721\u2773 less. (Discard me from Reserve to do this.)",
   "forest": 0,
   "mountain": 1,
   "water": 1
@@ -551,6 +554,7 @@
   "ability": {},
   "fleeting": false,
   "image": "assets/cards/ALT_CORE_B_YZ_18_R1.jpg",
+  "supportText": "{D} : Draw a card. (Discard me from Reserve to do this.)",
   "forest": 5,
   "mountain": 5,
   "water": 5
@@ -590,6 +594,7 @@
   "ability": {},
   "fleeting": false,
   "image": "assets/cards/ALT_CORE_B_BR_17_R1.jpg",
+  "supportText": "{D} : The next Character you play this turn gains 1 boost. (Discard me from Reserve to do this.)",
   "forest": 4,
   "mountain": 4,
   "water": 4
@@ -671,7 +676,8 @@
   "rawEffect": "Target Character with Hand Cost\u00a0{3} or less gains [[Anchored]]. (During Rest, it doesn't go to Reserve and it loses Anchored.)",
   "ability": {},
   "fleeting": false,
-  "image": "assets/cards/ALT_CORE_A_MU_25_R1.jpg"
+  "image": "assets/cards/ALT_CORE_A_MU_25_R1.jpg",
+  "supportText": "{D} : The next Character you play this turn gains 1 boost. (Discard me from Reserve to do this.)"
  },
  "ALT_CORE_B_MU_10_C": {
   "id": "ALT_CORE_B_MU_10_C",
@@ -1406,6 +1412,7 @@
   "ability": {},
   "fleeting": false,
   "image": "assets/cards/ALT_CORE_B_AX_10_R1.jpg",
+  "supportText": "{D} : Activate the \u27d0 abilities of target Permanent you control. (Discard me from Reserve to do this.)",
   "forest": 3,
   "mountain": 2,
   "water": 0
@@ -1612,6 +1619,7 @@
   "ability": {},
   "fleeting": false,
   "image": "assets/cards/ALT_CORE_B_MU_13_C.jpg",
+  "supportText": "{D} : Target Character with Hand Cost \u27723\u2773 or less gains Anchored.",
   "forest": 3,
   "mountain": 2,
   "water": 2
@@ -1633,6 +1641,7 @@
   "ability": {},
   "fleeting": false,
   "image": "assets/cards/ALT_CORE_B_BR_05_C.jpg",
+  "supportText": "{D} : The next Character you play this turn gains 1 boost. (Discard me from Reserve to do this.)",
   "forest": 0,
   "mountain": 0,
   "water": 2
@@ -2124,6 +2133,7 @@
   "ability": {},
   "fleeting": false,
   "image": "assets/cards/ALT_CORE_B_AX_07_R1.jpg",
+  "supportText": "{D} : The next Permanent you play this turn costs \u27721\u2773 less. (Discard me from Reserve to do this.)",
   "forest": 1,
   "mountain": 1,
   "water": 2
@@ -2164,6 +2174,7 @@
   "ability": {},
   "fleeting": false,
   "image": "assets/cards/ALT_CORE_B_YZ_04_C.jpg",
+  "supportText": "{D} : The next Spell you play this turn costs \u27721\u2773 less. (Discard me from Reserve to do this.)",
   "forest": 0,
   "mountain": 1,
   "water": 1
@@ -2185,6 +2196,7 @@
   "ability": {},
   "fleeting": false,
   "image": "assets/cards/ALT_CORE_B_YZ_13_R1.jpg",
+  "supportText": "{D} : After You. (Discard me from Reserve to end your turn as if you had played a card.)",
   "forest": 3,
   "mountain": 3,
   "water": 4
@@ -2402,6 +2414,7 @@
   "ability": {},
   "fleeting": false,
   "image": "assets/cards/ALT_CORE_B_YZ_13_C.jpg",
+  "supportText": "{D} : After You. (Discard me from Reserve to end your turn as if you had played a card.)",
   "forest": 2,
   "mountain": 2,
   "water": 4

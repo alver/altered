@@ -33,6 +33,10 @@ const GameEngine = (() => {
       heroExp: [], compExp: [], mana: [],
       heroDist: 0, compDist: 0, passed: false, heroExhausted: false,
       reserveLimit: 2, landmarkLimit: 2, playedCharThisAfternoon: false,
+      // Transient "next card you play this turn …" Support modifiers (cost cuts,
+      // boosts). Set by a Reserve Support ability; consumed on the matching play;
+      // any leftover is cleared at the end of the player's turn.
+      pendingMods: [],
     };
   }
 
@@ -276,6 +280,13 @@ const GameEngine = (() => {
         const i = p.hand.indexOf(card);
         if (i !== -1) { p.hand.splice(i, 1); p.reserve.push(card); }
       },
+      // Return a card from a Reserve to its owner's hand (Hathor's Support).
+      returnReserveToHand(p, card) {
+        const i = p.reserve.indexOf(card);
+        if (i !== -1) { p.reserve.splice(i, 1); p.hand.push(card); }
+      },
+      // Re-fire a Permanent's join ({J}) trigger (Jian's Support).
+      async activateJoin(stateObj, p) { await runCardTrigger('join', stateObj, p); },
       // Return a Character or Permanent to its owner's hand (token → removed).
       async returnToHand(t) {
         const owner = t.owner;
@@ -397,11 +408,33 @@ const GameEngine = (() => {
   // Exhaust/support quick actions available to player p right now.
   function availableQuickActions(p) {
     const out = [];
+    // Exhaust abilities on the Hero and Landmarks (the card stays in play).
     for (const src of [heroState(p), ...p.landmarks]) {
       const sc = CardScripts.get(src.card.id);
       if (!sc || !sc.quickActions) continue;
       const acts = sc.quickActions(ctxFor(src.card, src, p, null)) || [];
       acts.forEach((a, i) => out.push({ sourceUid: src.card.uid, index: i, label: a.label, kind: a.kind, canRun: !!a.canRun, run: a.run }));
+    }
+    // Support abilities on cards in the Reserve. The script's support(ctx) returns
+    // { label, canRun, effect, endsTurn? }; the engine pays the cost (discard the
+    // card from Reserve) before running the effect. Some Supports (Alice's After You)
+    // also end the turn — flagged via endsTurn for playerQuickAction to honour.
+    for (const card of p.reserve) {
+      const sc = CardScripts.get(card.id);
+      if (!sc || !sc.support) continue;
+      const a = sc.support(ctxFor(card, { card, zone: 'reserve' }, p, null));
+      if (!a) continue;
+      out.push({
+        sourceUid: card.uid, index: 0, label: a.label, kind: 'support',
+        canRun: !!a.canRun, endsTurn: !!a.endsTurn,
+        run: async () => {
+          const i = p.reserve.indexOf(card);
+          if (i === -1) return;                                  // already gone
+          p.reserve.splice(i, 1); p.discard.push(card);
+          addLog(`${verb(p, 'discard')} ${card.name} from Reserve (Support).`, 'action');
+          await a.effect();
+        },
+      });
     }
     return out;
   }
@@ -503,6 +536,7 @@ const GameEngine = (() => {
         try { await BotAI.takeAfternoonTurn(state, PUBLIC); }
         catch (e) { reportAbilityError(null, e); notify(); }
       }
+      p.pendingMods = [];                  // Support "this turn" mods don't carry to the next turn
       state.current = opponentOf(p);
     }
     addLog('Both players pass. Afternoon ends.', 'phase');
@@ -653,10 +687,19 @@ const GameEngine = (() => {
     const sc = CardScripts.get(card.id);
     return sc && sc.costReduction ? sc.costReduction : null;
   }
+  // Transient "next <card> you play this turn costs N less" Support modifiers
+  // (Foundry Mechanic → next Permanent, Studious Disciple → next Spell). They sit
+  // in p.pendingMods and stack onto the matching play.
+  function transientCostDiscount(card, p) {
+    let d = 0;
+    for (const m of p.pendingMods) if (m.kind === 'cost' && m.match(card)) d += m.amount;
+    return d;
+  }
   // Best-case cost: a card with a Reserve-discount can pay less by discarding from
   // Reserve, so affordability must account for the maximum available discount.
   function minPlayCost(card, p, fromReserve) {
     let cost = CM.playCost(card, fromReserve);
+    cost = Math.max(0, cost - transientCostDiscount(card, p));     // Support "next … costs less"
     const cr = scriptCostReduction(card);
     if (cr) {
       const poolSize = (fromReserve ? p.reserve.length - 1 : p.reserve.length);   // the card itself isn't a source
@@ -703,6 +746,8 @@ const GameEngine = (() => {
     if (why) return { error: why };
     remove(fromReserve ? p.reserve : p.hand, card);          // pull the card out first (so its own Reserve copy isn't a discount source)
     let cost = CM.playCost(card, fromReserve);
+    cost = Math.max(0, cost - transientCostDiscount(card, p)); // Support "next … costs less"
+    p.pendingMods = p.pendingMods.filter(m => !(m.kind === 'cost' && m.match(card)));   // consume cost mods
     const cr = scriptCostReduction(card);
     if (cr) cost = await applyCostReduction(p, card, cost, cr);
     CM.spendMana(p, cost);
@@ -719,6 +764,15 @@ const GameEngine = (() => {
         const n = (p.hero && p.hero.ability && p.hero.ability.firstCharBoost) || 0;
         if (n > 0) { cs.boosts += n; addLog(`${p.hero.name}: ${card.name} gains ${n} boost.`, 'action'); }
       }
+      // Transient "next Character gains N boost" Support modifiers (Issun-bōshi,
+      // Haven Warrior, Meditation Training) — applied then consumed.
+      for (const m of p.pendingMods) {
+        if (m.kind === 'boost' && m.match(card)) {
+          cs.boosts += m.amount;
+          addLog(`${m.label}: ${card.name} gains ${m.amount} boost${m.amount > 1 ? 's' : ''}.`, 'action');
+        }
+      }
+      p.pendingMods = p.pendingMods.filter(m => !(m.kind === 'boost' && m.match(card)));
       await fireTriggers(card, async () => {
         await emit({ type: 'play', player: p, card, charState: cs });
         await firePlay(card, p, cs, fromReserve, true);
@@ -794,6 +848,8 @@ const GameEngine = (() => {
       if (!a || !a.canRun) return { error: 'Action unavailable.' };
       try { await a.run(); } catch (e) { reportAbilityError(null, e); }
       notify();
+      // A Support like Alice's After You ends the turn (yields without passing).
+      if (a.endsTurn) resolveHuman();
       return { ok: true };
     },
     playerPass() {

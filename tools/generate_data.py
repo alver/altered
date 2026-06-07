@@ -142,6 +142,7 @@ def load_cards():
             continue
         el = d.get('elements', {}) or {}
         raw = (el.get('MAIN_EFFECT') or '').strip()
+        echo = (el.get('ECHO_EFFECT') or '').strip()      # Support ability ({D}: discard from Reserve)
         ability, fleeting = detect_ability(raw)
         card = {
             'id': ref, 'name': d.get('name'), 'type': TYPE_MAP[ctype],
@@ -165,6 +166,11 @@ def load_cards():
             kw['tough'] = int(mtough.group(1))
         if kw:
             card['keywords'] = kw
+        # Support ability text (printed at the bottom of the card). Resolved by a
+        # js/scripts.js `support` handler keyed by reference id; kept here for
+        # faithful data / future display. Only set when the card actually has one.
+        if echo:
+            card['supportText'] = render_text(echo)
         if ctype == 'CHARACTER':
             card['forest'] = to_int(el.get('FOREST_POWER'))
             card['mountain'] = to_int(el.get('MOUNTAIN_POWER'))

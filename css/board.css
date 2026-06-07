@@ -152,6 +152,9 @@ body {
 #quick-actions:empty { display: none; }
 .qa-btn { width: 100%; padding: 8px 10px; font-size: 0.78rem; font-weight: 600; line-height: 1.2; background: var(--bg-2); border-color: var(--accent-soft); color: var(--accent-soft); }
 .qa-btn:hover:not(:disabled) { background: var(--accent); color: #160c04; }
+/* Support abilities (discard-from-Reserve quick actions) read in a cooler hue. */
+.qa-support { border-color: #6fa8dc; color: #9ec9ee; }
+.qa-support:hover:not(:disabled) { background: #6fa8dc; color: #0b1422; }
 
 /* Adventure line: real landscape Hero / Tumult / Companion cards, all one size.
    Expedition markers rest ON the cards; terrain chips sit at the top of each region. */

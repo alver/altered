@@ -47,6 +47,53 @@ const CardScripts = (() => {
     ctx.api.log(`${ctx.card.name} sabotages ${t.card.name} from a Reserve.`, 'action');
   }
 
+  // ─── Support ability helpers ───────────────────────────────────
+  // A Support ability ({D}) is a quick action usable only while the card is in
+  // your Reserve: you discard it as the cost (the engine pays that — see
+  // availableQuickActions in game.js), then resolve the effect. A script's
+  // support(ctx) returns { label, canRun, effect, endsTurn? }.
+  const TYPE_PERMANENT = (c) => c.type === 'permanent' || c.type === 'landmark';
+  const TYPE_SPELL = (c) => c.type === 'spell';
+  const TYPE_CHARACTER = (c) => c.type === 'character';
+
+  // "The next <type> you play this turn costs 1 less" — a transient cost mod.
+  const supNextCostsLess = (name, typeLabel, match) => (ctx) => ({
+    label: `${name} — next ${typeLabel} costs 1 less (discard)`,
+    canRun: true,
+    effect: async () => {
+      ctx.controller.pendingMods.push({ kind: 'cost', match, amount: 1, label: name });
+      ctx.api.log(`${name}: your next ${typeLabel} this turn costs 1 less.`, 'action');
+    },
+  });
+
+  // "The next Character you play this turn gains N boost" — a transient boost mod.
+  const supBoostNextChar = (name, n) => (ctx) => ({
+    label: `${name} — next Character gains ${n} boost (discard)`,
+    canRun: true,
+    effect: async () => {
+      ctx.controller.pendingMods.push({ kind: 'boost', match: TYPE_CHARACTER, amount: n, label: name });
+      ctx.api.log(`${name}: your next Character this turn gains ${n} boost${n > 1 ? 's' : ''}.`, 'action');
+    },
+  });
+
+  // "Target Character with Hand Cost ≤3 gains Anchored." (The Hatter, Muna Druid)
+  const supAnchorTarget = (name) => (ctx) => {
+    const cand = ctx.api.targets({ controller: ctx.controller, side: 'any', kind: 'character', maxHandCost: 3, payable: true });
+    return {
+      label: `${name} — Anchor a Character cost ≤3 (discard)`,
+      canRun: cand.length > 0,
+      effect: async () => {
+        const t = await ctx.api.resolveTarget({
+          agent: ctx.controller.agent, requester: ctx.controller, candidates: cand,
+          optional: true, intent: 'buff', prompt: 'Give Anchored to which Character (Hand Cost ≤3)?',
+        });
+        if (!t) return;
+        t.charState.anchored = true;
+        ctx.api.log(`${name}: ${t.card.name} gains Anchored.`, 'action');
+      },
+    };
+  };
+
   // ─── Hero: Sierra & Oddball ────────────────────────────────────
   // "When you play a Permanent with Hand Cost 3+ — you may exhaust me to
   //  create a Brassbug 2/2/2 Robot token in target Expedition."
@@ -536,6 +583,8 @@ const CardScripts = (() => {
       t.charState.anchored = true;
       ctx.api.log(`${ctx.card.name}: ${t.card.name} gains Anchored.`, 'action');
     },
+    // Support: the next Character you play this turn gains 1 boost.
+    support: supBoostNextChar('Meditation Training', 1),
   };
   def('ALT_CORE_A_MU_25_C', meditation);
   def('ALT_CORE_A_MU_25_R1', meditation);
@@ -737,6 +786,15 @@ const CardScripts = (() => {
       if (moved) ctx.api.log(`${ctx.card.name}: ${ctx.api.who(ctx.opponent)}'s ${which} Expedition retreats one region.`, 'action');
       else ctx.api.log(`${ctx.card.name}: ${ctx.api.who(ctx.opponent)}'s ${which} Expedition is already at its start.`, 'system');
     },
+    // Support: draw a card.
+    support: (ctx) => ({
+      label: 'Sakarabru — draw a card (discard)',
+      canRun: true,
+      effect: async () => {
+        const d = ctx.api.draw(ctx.controller, 1);
+        if (d.length) ctx.api.log(`Sakarabru: ${ctx.controller.isHuman ? 'you draw' : 'draws'} a card.`, 'draw');
+      },
+    }),
   };
   def('ALT_CORE_B_YZ_18_C', sakarabru);
   def('ALT_CORE_B_YZ_18_R1', sakarabru);
@@ -811,6 +869,83 @@ const CardScripts = (() => {
       }
     },
   });
+
+  // ══════════════════════ SUPPORT-ONLY CARDS ══════════════════════
+  // These commons/rares carry no in-play ability — their only printed text is a
+  // Support ability ({D}: discard from Reserve). (Sakarabru & Meditation Training
+  // carry their Support inline above, alongside their main effect.)
+
+  // AXIOM — Foundry Mechanic: next Permanent you play this turn costs 1 less.
+  const foundryMechanic = { support: supNextCostsLess('Foundry Mechanic', 'Permanent', TYPE_PERMANENT) };
+  def('ALT_CORE_B_AX_07_C', foundryMechanic);
+  def('ALT_CORE_B_AX_07_R1', foundryMechanic);
+
+  // AXIOM (rare) — Jian, Assembly Overseer: re-activate the join ({J}) abilities
+  // of a target Permanent you control.
+  def('ALT_CORE_B_AX_10_R1', {
+    support(ctx) {
+      const cand = ctx.api.targets({ controller: ctx.controller, side: 'me', kind: 'permanent' });
+      return {
+        label: 'Jian — re-trigger a Permanent’s join ability (discard)',
+        canRun: cand.length > 0,
+        effect: async () => {
+          const t = await ctx.api.resolveTarget({
+            agent: ctx.controller.agent, requester: ctx.controller, candidates: cand,
+            optional: true, intent: 'buff', prompt: 'Re-activate which Permanent’s join ability?',
+          });
+          if (!t) return;
+          ctx.api.log(`Jian: re-activates ${t.card.name}'s join ability.`, 'action');
+          await ctx.api.activateJoin(t.landmarkState, ctx.controller);
+        },
+      };
+    },
+  });
+
+  // BRAVOS — Issun-bōshi / Haven Warrior (rare): next Character gains 1 boost.
+  def('ALT_CORE_B_BR_05_C', { support: supBoostNextChar('Issun-bōshi', 1) });
+  def('ALT_CORE_B_BR_17_R1', { support: supBoostNextChar('Haven Warrior', 1) });
+
+  // LYRA — Hathor: return another card from your Reserve to your hand.
+  def('ALT_CORE_B_LY_07_C', {
+    support(ctx) {
+      const p = ctx.controller;
+      return {
+        label: 'Hathor — return another Reserve card to hand (discard)',
+        canRun: p.reserve.length >= 2,                 // Hathor + at least one other card
+        effect: async () => {
+          const pool = p.reserve.filter(c => c !== ctx.card);   // Hathor is already discarded by the engine
+          if (!pool.length) return;
+          const picks = await p.agent.chooseCards({
+            player: p, cards: pool, min: 1, max: 1, purpose: 'returnToHand',
+            prompt: 'Return which card from your Reserve to your hand?',
+          });
+          const card = (picks && picks[0]) || pool[0];
+          ctx.api.returnReserveToHand(p, card);
+          ctx.api.log(`Hathor: ${card.name} returns from Reserve to your hand.`, 'action');
+        },
+      };
+    },
+  });
+
+  // LYRA — The Hatter / MUNA — Muna Druid: Anchor a target Character (cost ≤3).
+  def('ALT_CORE_B_LY_18_C', { support: supAnchorTarget('The Hatter') });
+  def('ALT_CORE_B_MU_13_C', { support: supAnchorTarget('Muna Druid') });
+
+  // YZMIR — Studious Disciple: next Spell you play this turn costs 1 less.
+  def('ALT_CORE_B_YZ_04_C', { support: supNextCostsLess('Studious Disciple', 'Spell', TYPE_SPELL) });
+
+  // YZMIR — Alice: After You (end your turn as if you played a card, without
+  // passing). Usable only as First Player while your opponent hasn't passed.
+  const aliceAfterYou = (ctx) => ({
+    label: 'Alice — After You (discard)',
+    canRun: ctx.state.firstPlayer === ctx.controller && !ctx.opponent.passed,
+    endsTurn: true,
+    effect: async () => {
+      ctx.api.log('Alice: After You — you let your opponent act first.', 'phase');
+    },
+  });
+  def('ALT_CORE_B_YZ_13_C', { support: aliceAfterYou });
+  def('ALT_CORE_B_YZ_13_R1', { support: aliceAfterYou });
 
   return {
     def,
