@@ -169,7 +169,7 @@ body {
    clips the tops. Centred over the right side — ~2/3 across the Landmark area — and
    fanned via a per-card rotation (set in renderOppHand) about the bottom pivot. */
 .opp-hand {
-  position: absolute; top: -70px; left: 76%; transform: translateX(-50%); z-index: 3;
+  position: absolute; top: -70px; left: 76%; transform: translateX(-50%) rotate(180deg); z-index: 3;
   display: flex; align-items: flex-start;
   pointer-events: none;
 }
