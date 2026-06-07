@@ -38,9 +38,12 @@
 .card-grid .card.picked { outline: 3px solid var(--accent); box-shadow: 0 0 16px var(--accent); }
 .pick-count { color: var(--accent-soft); font-weight: 700; }
 
-/* Target banner */
+/* Target banner — anchored to the BOTTOM over the player's own area, where their
+   attention sits while choosing cards. Centred on the board column (the 290px right
+   sidebar is excluded, so it sits over the player's cards rather than the whole
+   window). Overlapping the player's cards here is intentional. */
 #target-banner {
-  position: fixed; top: 14px; left: 50%; transform: translateX(-50%); z-index: 170;
+  position: fixed; bottom: 170px; left: calc((100vw - 290px) / 2); transform: translateX(-50%); z-index: 170;
   display: none; align-items: center; gap: 14px;
   background: var(--bg-2); border: 1px solid var(--accent); border-radius: 24px; padding: 8px 18px; box-shadow: var(--shadow);
 }
