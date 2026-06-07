@@ -27,10 +27,11 @@
 .card.exhausted { transform: rotate(86deg); }
 .card.fleeting-c { box-shadow: 0 0 0 2px var(--accent), var(--shadow); }
 
-/* Cost badge */
+/* Cost badge. Hand Cost is blue and Reserve Cost orange, matching the gems printed
+   on the cards (blue sampled from the card art's Hand-Cost circle). */
 .cost {
   position: absolute; top: -7px; left: -7px; width: 26px; height: 26px; border-radius: 50%;
-  background: #14181f; color: #fff; display: flex; align-items: center; justify-content: center;
+  background: #4090c8; color: #fff; display: flex; align-items: center; justify-content: center;
   font-weight: 800; font-size: 0.9rem; border: 2px solid #000; z-index: 4;
 }
 .cost.reserve-cost { background: var(--accent); color: #160c04; }
