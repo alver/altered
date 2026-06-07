@@ -5,6 +5,7 @@ const UI = (() => {
   const T = CM.TERRAINS;
   let state = null;
   let pending = null;      // active board-target request {candidates, resolve, ...}
+  let pendingExp = null;   // active expedition-lane pick {card, player, resolve, after}
   let acting = false;      // guards against overlapping human actions
   let autoPassTimer = null;
   let logFont = 0.82;      // rem; adjusted by the +/- steppers in the log header
@@ -69,7 +70,8 @@ const UI = (() => {
 
     sizeZoneFrames();
     applyTargetHighlights();
-    $('board').classList.toggle('locked', !myTurn && !pending);
+    applyExpeditionPick();
+    $('board').classList.toggle('locked', !myTurn && !pending && !pendingExp);
     maybeAutoPass(myTurn);
   }
 
@@ -402,17 +404,17 @@ const UI = (() => {
       }));
     },
     chooseExpedition({ card, player, prompt }) {
+      // Instead of a modal over the board, highlight the two lanes in place and
+      // wait for the human to click one. The overlay is semi-transparent so the
+      // cards, markers, and terrain totals underneath stay readable.
       return new Promise(resolve => {
-        const tot = (w) => E.expeditionTotals(player, w);
-        const fmt = (w) => T.map(t => tot(w)[t]).join('/');
-        $('exp-title').textContent = `Place ${card.name}`;
-        $('exp-prompt').textContent = prompt || '';
-        $('exp-hero-sub').textContent = `now ${fmt('hero')}`;
-        $('exp-comp-sub').textContent = `now ${fmt('companion')}`;
-        show('exp-modal');
-        const done = (w) => { hide('exp-modal'); resolve(w); };
-        $('exp-hero').onclick = () => done('hero');
-        $('exp-comp').onclick = () => done('companion');
+        // Resulting terrain totals if this Character lands in lane `w`.
+        const after = (w) => T.map(t => E.expeditionTotals(player, w)[t] + (card[t] || 0));
+        pendingExp = { card, player, resolve, after };
+        $('target-text').textContent = (prompt || `Place ${card.name}`) + ' — click a lane';
+        $('target-cancel').style.display = 'none';
+        $('target-banner').style.display = 'flex';
+        render();
       });
     },
     confirm({ prompt }) {
@@ -495,6 +497,30 @@ const UI = (() => {
   function applyTargetHighlights() {
     const set = new Set(pending ? pending.candidates.map(c => c.uid) : []);
     document.querySelectorAll('#board .card').forEach(n => n.classList.toggle('targetable', set.has(+n.dataset.uid)));
+  }
+
+  // ─── EXPEDITION LANE PICK (overlay on the two own lanes) ────────
+  function applyExpeditionPick() {
+    document.querySelectorAll('.exp-pick-overlay').forEach(n => n.remove());
+    if (!pendingExp) return;
+    const add = (zoneId, which, name) => {
+      const zone = $(zoneId); if (!zone) return;
+      const ov = document.createElement('div');
+      ov.className = 'exp-pick-overlay';
+      ov.innerHTML = `<span class="epo-name">${name}</span>` +
+        `<span class="epo-tot">→ ${pendingExp.after(which).join(' / ')}</span>`;
+      ov.onclick = (e) => { e.stopPropagation(); resolveExpedition(which); };
+      zone.appendChild(ov);
+    };
+    add('you-hero-exp', 'hero', 'Hero Expedition');
+    add('you-comp-exp', 'companion', 'Companion Expedition');
+  }
+  function resolveExpedition(which) {
+    const p = pendingExp; pendingExp = null;
+    $('target-banner').style.display = 'none';
+    document.querySelectorAll('.exp-pick-overlay').forEach(n => n.remove());
+    render();
+    if (p) p.resolve(which);
   }
 
   // ─── DISCARD VIEWER ─────────────────────────────────────────────
