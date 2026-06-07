@@ -84,16 +84,7 @@ body {
    Expedition bands instead of spilling onto the cards. The track-stack is centred
    on the track, so shrinking these rows pulls the bot orbs down and the player orbs
    up (both toward the track), keeping a small gap to the Expeditions on either side. */
-.center-mana { position: relative; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px; min-height: 20px; }
-/* Faint "MANA POOL" caption framing each orb row on its outer side (below the player's
-   orbs, above the opponent's — mirrored), no layout cost so it never squeezes the band. */
-.center-mana::after {
-  content: 'MANA POOL'; position: absolute; left: 0; right: 0; text-align: center;
-  font-size: 0.5rem; font-weight: 700; letter-spacing: 0.2em;
-  color: rgba(233, 230, 223, 0.2); pointer-events: none;
-}
-.center-mana.you::after { top: 100%; margin-top: 1px; }
-.center-mana.opp::after { bottom: 100%; margin-bottom: 1px; }
+.center-mana { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px; min-height: 20px; }
 .orb {
   width: 20px; height: 20px; border-radius: 50%; overflow: hidden;
   border: 2px solid #888; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6); flex: 0 0 auto;
