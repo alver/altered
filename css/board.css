@@ -6,7 +6,7 @@
 body {
   background:
     linear-gradient(rgba(8, 12, 20, 0.45), rgba(8, 12, 20, 0.62)),
-    url('../assets/background.jpg') center center / cover no-repeat fixed;
+    url('../assets/backgrounds/game_background.jpg') center center / cover no-repeat fixed;
 }
 
 #board { position: relative; display: flex; flex-direction: column; min-width: 0; height: 100vh; overflow: hidden; }
