@@ -54,6 +54,7 @@ const UI = (() => {
     renderExp('you-comp-exp', you.compExp, you, myTurn, you.heroExp.filter(gig));
     renderExp('opp-hero-exp', opp.heroExp, opp, false, opp.compExp.filter(gig));
     renderExp('opp-comp-exp', opp.compExp, opp, false, opp.heroExp.filter(gig));
+    renderTerrain('you', you); renderTerrain('opp', opp);
     renderReserve('you', you, myTurn); renderReserve('opp', opp, false);
     renderLandmarks('you', you); renderLandmarks('opp', opp);
     renderMana('you', you); renderMana('opp', opp);
@@ -68,18 +69,10 @@ const UI = (() => {
     $('btn-pass').disabled = !myTurn;
     $('btn-afteryou').style.display = (myTurn && E.canAfterYou()) ? '' : 'none';
 
-    sizeZoneFrames();
     applyTargetHighlights();
     applyExpeditionPick();
     $('board').classList.toggle('locked', !myTurn && !pending && !pendingExp);
     maybeAutoPass(myTurn);
-  }
-
-  // The bracket frame leaves a gap for the label; tell CSS how wide each label is.
-  function sizeZoneFrames() {
-    document.querySelectorAll('#board .zone.framed > .zone-label').forEach(lbl => {
-      lbl.parentElement.style.setProperty('--lw', `${Math.round(lbl.getBoundingClientRect().width)}px`);
-    });
   }
 
   // The quick-action bar: exhaust/support abilities the human may take before
@@ -128,24 +121,26 @@ const UI = (() => {
   function renderExp(id, list, ownerP, interactive, ghosts) {
     const el = $(id);
     const label = el.querySelector('.zone-label').outerHTML;
-    const which = el.dataset.exp === 'companion' ? 'companion' : 'hero';
+    // Cards only; the terrain totals now live in the shared central column.
     const cards = list.map(cs => charFace(cs, ownerP)).join('')
       + (ghosts || []).map(cs => charFace(cs, ownerP, true)).join('');
-    // Terrain totals live inside the framed lane, hugging its OUTER edge
-    // (companion lane = right). So the frame's corner wraps past the sums.
-    const totals = totalsHTML(ownerP, which);
-    el.innerHTML = label + (which === 'companion' ? cards + totals : totals + cards);
+    el.innerHTML = label + cards;
   }
 
-  // Terrain totals (Forest / Mountain / Water) for one Expedition lane.
-  // Matches expeditionTotals() at Dusk (incl. Gigantic echoes from the other lane).
-  function totalsHTML(p, which) {
-    const tot = E.expeditionTotals(p, which);
-    const rows = T.map(t => {
-      const v = tot[t];
-      return `<div class="tt-row"><img src="assets/markers/${t}.png" alt="${t}"><span class="tt-num ${v ? '' : 'zero'}">${v}</span></div>`;
+  // Central terrain totals (Forest / Mountain / Water): one shared icon per
+  // terrain, the Hero-lane sum on its left and the Companion-lane sum on its
+  // right, so both Expeditions can be compared in one place. Matches
+  // expeditionTotals() at Dusk (incl. Gigantic echoes from the other lane).
+  function renderTerrain(side, p) {
+    const hero = E.expeditionTotals(p, 'hero');
+    const comp = E.expeditionTotals(p, 'companion');
+    $(`${side}-terrain`).innerHTML = T.map(t => {
+      const h = hero[t], c = comp[t];
+      return `<div class="tc-row">`
+        + `<span class="tc-num hero ${h ? '' : 'zero'}">${h}</span>`
+        + `<img src="assets/markers/${t}.png" alt="${t}">`
+        + `<span class="tc-num comp ${c ? '' : 'zero'}">${c}</span></div>`;
     }).join('');
-    return `<div class="terrain-totals ${which === 'companion' ? 'comp' : 'hero'}">${rows}</div>`;
   }
 
   function charFace(cs, ownerP, ghost) {

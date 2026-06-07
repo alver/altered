@@ -18,18 +18,21 @@
     <!-- ════════ OPPONENT ════════ -->
     <section class="player-area opp-area">
       <div class="res-band">
-        <div class="zone reserve framed" id="opp-reserve"><span class="zone-label">Reserve</span></div>
-        <div class="zone landmarks framed label-right" id="opp-landmarks"><span class="zone-label">Landmarks</span></div>
-        <div class="zone piles">
-          <div class="pile" id="opp-deck"><span>Deck</span><span class="pile-count" id="opp-deck-count">0</span></div>
-          <div class="pile info-pile" id="opp-hand-pile"><span>Hand</span><span class="pile-count" id="opp-hand-count">0</span></div>
-          <div class="pile" id="opp-discard"><span>Discard</span><span class="pile-count" id="opp-discard-count">0</span></div>
+        <div class="zone reserve" id="opp-reserve"><span class="zone-label">Reserve</span></div>
+        <div class="hero-slot" id="opp-hero"></div>
+        <div class="res-right">
+          <div class="zone landmarks" id="opp-landmarks"><span class="zone-label">Landmarks</span></div>
+          <div class="zone piles">
+            <div class="pile" id="opp-deck"><span>Deck</span><span class="pile-count" id="opp-deck-count">0</span></div>
+            <div class="pile info-pile" id="opp-hand-pile"><span>Hand</span><span class="pile-count" id="opp-hand-count">0</span></div>
+            <div class="pile" id="opp-discard"><span>Discard</span><span class="pile-count" id="opp-discard-count">0</span></div>
+          </div>
         </div>
       </div>
       <div class="exp-band">
-        <div class="zone expedition framed" id="opp-hero-exp" data-exp="hero"><span class="zone-label">Expedition · Hero</span></div>
-        <div class="hero-slot" id="opp-hero"></div>
-        <div class="zone expedition framed label-right" id="opp-comp-exp" data-exp="companion"><span class="zone-label">Expedition · Companion</span></div>
+        <div class="zone expedition hero-lane" id="opp-hero-exp" data-exp="hero"><span class="zone-label">Hero Expedition</span></div>
+        <div class="terrain-center" id="opp-terrain"></div>
+        <div class="zone expedition comp-lane" id="opp-comp-exp" data-exp="companion"><span class="zone-label">Companion Expedition</span></div>
       </div>
     </section>
 
@@ -54,17 +57,20 @@
     <!-- ════════ YOU ════════ -->
     <section class="player-area you-area">
       <div class="exp-band">
-        <div class="zone expedition framed" id="you-hero-exp" data-exp="hero"><span class="zone-label">Expedition · Hero</span></div>
-        <div class="hero-slot" id="you-hero"></div>
-        <div class="zone expedition framed label-right" id="you-comp-exp" data-exp="companion"><span class="zone-label">Expedition · Companion</span></div>
+        <div class="zone expedition hero-lane" id="you-hero-exp" data-exp="hero"><span class="zone-label">Hero Expedition</span></div>
+        <div class="terrain-center" id="you-terrain"></div>
+        <div class="zone expedition comp-lane" id="you-comp-exp" data-exp="companion"><span class="zone-label">Companion Expedition</span></div>
       </div>
       <div class="res-band">
-        <div class="zone reserve framed" id="you-reserve"><span class="zone-label">Reserve</span></div>
-        <div class="zone landmarks framed label-right" id="you-landmarks"><span class="zone-label">Landmarks</span></div>
-        <div class="zone piles">
-          <div class="pile" id="you-deck"><span>Deck</span><span class="pile-count" id="you-deck-count">0</span></div>
-          <div class="pile info-pile" id="you-hand-pile"><span>Hand</span><span class="pile-count" id="you-hand-count">0</span></div>
-          <div class="pile" id="you-discard"><span>Discard</span><span class="pile-count" id="you-discard-count">0</span></div>
+        <div class="zone reserve" id="you-reserve"><span class="zone-label">Reserve</span></div>
+        <div class="hero-slot" id="you-hero"></div>
+        <div class="res-right">
+          <div class="zone landmarks" id="you-landmarks"><span class="zone-label">Landmarks</span></div>
+          <div class="zone piles">
+            <div class="pile" id="you-deck"><span>Deck</span><span class="pile-count" id="you-deck-count">0</span></div>
+            <div class="pile info-pile" id="you-hand-pile"><span>Hand</span><span class="pile-count" id="you-hand-count">0</span></div>
+            <div class="pile" id="you-discard"><span>Discard</span><span class="pile-count" id="you-discard-count">0</span></div>
+          </div>
         </div>
       </div>
     </section>
