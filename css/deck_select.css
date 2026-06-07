@@ -24,6 +24,10 @@ body { background: #07090d; }
   position: absolute; inset: -8%;
   background-size: cover; background-position: center;
   transform-origin: center; will-change: transform;
+  /* Color-grade + soft focus so the art reads as a backdrop, not foreground.
+     A regular filter rasterizes with the layer (once per image), so unlike
+     backdrop-filter it does NOT recompute every animation frame. */
+  filter: brightness(0.72) contrast(1.05) saturate(1.12) blur(3px);
 }
 
 @keyframes kb1 { from { transform: scale(1.00) translate(0, 0); }      to { transform: scale(1.13) translate(-3%, -2%); } }
@@ -55,8 +59,8 @@ body { background: #07090d; }
 /* ---- Branding ------------------------------------------------------- */
 .brand { display: flex; flex-direction: column; align-items: center; gap: 12px; }
 .brand-logo {
-  height: 25vh; max-height: 320px; max-width: 90%; object-fit: contain;
-  filter: drop-shadow(0 8px 28px rgba(0, 0, 0, 0.55));
+  height: 27vh; max-height: 380px; max-width: 94%; object-fit: contain;
+  filter: drop-shadow(0 8px 30px rgba(0, 0, 0, 0.6));
 }
 .brand-by {
   display: inline-flex; align-items: center; gap: 10px;
