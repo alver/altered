@@ -9,7 +9,9 @@
 /* Sizes per zone */
 .card.hand { width: 96px; height: 134px; transition: transform 0.13s, box-shadow 0.13s; }
 .card.hand.playable { cursor: pointer; }
-.card.hand.playable:hover { box-shadow: 0 6px 18px rgba(0, 0, 0, 0.55); z-index: 6; }
+/* A click on an actionable card *is* the play, so the card itself reads as the
+   button: it lifts and grows a touch under the cursor (no hover menu to aim at). */
+.card.hand.playable:hover { transform: translateY(-7px) scale(1.07); box-shadow: 0 0 0 2px var(--accent), 0 12px 26px rgba(0, 0, 0, 0.6); z-index: 8; }
 .card.hand:not(.playable) { filter: brightness(0.82); }
 /* Play-area cards sit permanently at the (former hover) size — no grow on hover. */
 .card.char { width: 92px; height: 129px; }
@@ -21,6 +23,9 @@
 .card.mini { width: 60px; height: 84px; }
 
 .card.actionable { cursor: pointer; box-shadow: 0 0 0 2px var(--accent), var(--shadow); }
+/* Actionable Reserve cards lift under the cursor the same way hand cards do. */
+.card.reserve.actionable { transition: transform 0.13s, box-shadow 0.13s; }
+.card.reserve.actionable:hover { transform: translateY(-7px) scale(1.07); box-shadow: 0 0 0 2px var(--accent), 0 12px 26px rgba(0, 0, 0, 0.6); z-index: 8; }
 /* Selected in an in-board pick (Setup's 3-of-6 Mana choice): no border — just shade
    the card down (like an exhausted/spent card) to read as "set aside as Mana". */
 .card.picked { filter: brightness(0.48) grayscale(0.3); box-shadow: var(--shadow); }

@@ -9,8 +9,6 @@ const UI = (() => {
   let pendingMana = null;  // active Morning "add a Mana Orb" pick {hand, resolve}
   let acting = false;      // guards against overlapping human actions
   let autoPassTimer = null;
-  let hoverMenuUid = null; // card uid the hover action-menu is currently open for
-  let menuHideTimer = null;// grace timer so the cursor can travel card → menu
   let logFont = 0.82;      // rem; adjusted by the +/- steppers in the log header
 
   const $ = (id) => document.getElementById(id);
@@ -362,11 +360,6 @@ const UI = (() => {
     const hidePreview = () => { $('card-preview').style.display = 'none'; };
     $('board').addEventListener('mouseover', onHover);
     $('board').addEventListener('mouseout', hidePreview);
-    // The hover action-menu stays open while the cursor is on it, and closes once
-    // the cursor leaves both the card and the menu (a short grace timer bridges the gap).
-    $('board').addEventListener('mouseleave', scheduleMenuClose);
-    $('context-menu').addEventListener('mouseenter', cancelMenuClose);
-    $('context-menu').addEventListener('mouseleave', scheduleMenuClose);
     // Show the same hover preview when scanning cards inside a dock-left dialog.
     document.querySelectorAll('.modal-overlay.dock-left').forEach(ov => {
       ov.addEventListener('mouseover', onHover);
@@ -408,37 +401,7 @@ const UI = (() => {
     const img = (data && data.image) || el.querySelector('img')?.getAttribute('src');
     if (!img) { prev.style.display = 'none'; }
     else { prev.innerHTML = `<img src="${img}" alt="">`; prev.style.display = 'block'; }
-    handleHoverMenu(e);
   }
-
-  // Open the play menu on hover (so the player doesn't have to click a card first,
-  // then pick an action). Same menu as a click; it lingers while the cursor is on a
-  // hand/Reserve card or on the menu itself, and closes shortly after leaving both.
-  function handleHoverMenu(e) {
-    if (acting) return;
-    const myTurn = state && state.phase === 'afternoon' && state.current === state.you && state.awaitingHuman && !state.busy;
-    const cardEl = !pending && !pendingExp && !pendingMana && myTurn ? e.target.closest('.card') : null;
-    const kind = cardEl && cardEl.dataset.kind;
-    // Only auto-open for a card that actually has a playable action (`actionable` =
-    // affordable). Unaffordable cards just show the zoom; a click still pops their
-    // disabled menu for inspection.
-    if (cardEl && (kind === 'hand' || kind === 'reserve') && cardEl.classList.contains('actionable')) {
-      cancelMenuClose();
-      const uid = +cardEl.dataset.uid;
-      if (hoverMenuUid === uid) return;                       // already open for this card
-      const fromReserve = kind === 'reserve';
-      const card = (fromReserve ? state.you.reserve : state.you.hand).find(c => c.uid === uid);
-      if (card) { openPlayMenu(card, cardEl, fromReserve); hoverMenuUid = uid; }
-    } else {
-      scheduleMenuClose();                                    // hovering empty space / a board card
-    }
-  }
-  function scheduleMenuClose() {
-    if (hoverMenuUid === null) return;
-    clearTimeout(menuHideTimer);
-    menuHideTimer = setTimeout(closeMenu, 240);
-  }
-  function cancelMenuClose() { clearTimeout(menuHideTimer); menuHideTimer = null; }
 
   function onBoardClick(e) {
     const cardEl = e.target.closest('.card');
@@ -481,6 +444,11 @@ const UI = (() => {
       disabled: !affordable,
       fn: async () => { acting = true; await E.playerPlay(card, fromReserve); acting = false; },
     }];
+    // With a single available action, skip the menu entirely: the card click *is*
+    // the action. The menu only appears when there's a real choice to make, or to
+    // show a disabled option (e.g. an unaffordable card) for inspection.
+    const enabled = opts.filter(o => !o.disabled);
+    if (opts.length === 1 && enabled.length === 1) { closeMenu(); enabled[0].fn(); return; }
     showMenu(anchorEl, opts);
   }
 
@@ -498,7 +466,7 @@ const UI = (() => {
     let top = r.top - mh - 8; if (top < 8) top = r.bottom + 8;
     menu.style.left = `${left}px`; menu.style.top = `${top}px`;
   }
-  function closeMenu() { $('context-menu').style.display = 'none'; hoverMenuUid = null; cancelMenuClose(); }
+  function closeMenu() { $('context-menu').style.display = 'none'; }
 
   // ─── HUMAN AGENT ────────────────────────────────────────────────
   const humanAgent = {
