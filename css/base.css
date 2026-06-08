@@ -26,6 +26,8 @@
   --frame: rgba(255, 255, 255, 0.72);    /* playmat zone-frame lines */
   /* Faction hues (deck chips + the per-faction UI accent) */
   --AX: #bd853f; --BR: #cf4b3c; --LY: #cf5f9e; --MU: #4faa5b; --OR: #3f86c9; --YZ: #8d63c6;
+  /* Brighter "neon" variants — used only for the Hero/Companion track-token rings */
+  --AX-neon: #ffb74d; --BR-neon: #ff5a47; --LY-neon: #ff79c6; --MU-neon: #5fe072; --OR-neon: #54a8ff; --YZ-neon: #b07cff;
   font-size: 14px;
 }
 

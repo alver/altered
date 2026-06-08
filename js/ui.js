@@ -338,7 +338,7 @@ const UI = (() => {
     if (!slot) return '';
     const img = `assets/markers/exp_${pl.faction}_${role}.png`;
     const title = `${pl === state.you ? 'Your' : pl.name + "'s"} ${role === 'hero' ? 'Hero' : 'Companion'} Expedition`;
-    const style = `left:${Math.round(slot.x + dx)}px;top:${Math.round(slot.y + dy)}px;--fac:var(--${pl.faction})`;
+    const style = `left:${Math.round(slot.x + dx)}px;top:${Math.round(slot.y + dy)}px;--fac:var(--${pl.faction}-neon)`;
     return `<span class="trk-marker ${side} ${meet ? 'meet' : ''}" style="${style}" title="${title}"><img src="${img}" alt="${role}"></span>`;
   }
 
