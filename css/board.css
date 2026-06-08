@@ -179,7 +179,10 @@ body {
 /* ── Hand ─────────────────────────────────────────────────────── */
 .hand-zone {
   flex: 0 0 auto; display: flex; gap: 6px; justify-content: center; align-items: flex-end;
-  padding: 6px 12px 10px; min-height: 150px; overflow-x: auto;
+  /* overflow-x:auto makes the browser clip the *top* too, so a card that lifts on
+     hover would get its top cut. Reserve headroom up top (padding-top > the hover
+     lift) so the enlarged card stays inside the scrollport. */
+  padding: 16px 12px 4px; min-height: 154px; overflow-x: auto;
 }
 /* Opponent's hand: face-down card backs fanned out and peeking from the top edge.
    Absolutely placed over the board (no layout height); the board's overflow:hidden
