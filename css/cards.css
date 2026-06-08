@@ -49,8 +49,8 @@
 .badge.boost-tok .boost-count { position: absolute; bottom: -5px; right: -5px; background: #160c04; color: #fff; border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 8px; font-size: 0.6rem; padding: 0 3px; line-height: 1.35; }
 /* Status chips shown with the real punch-board markers (image, no pill background) */
 .badge.fleeting { bottom: -8px; right: -8px; width: 24px; height: 24px; min-width: 0; padding: 0; border: none; background: none; border-radius: 50%; }
-.badge.anchored { bottom: -8px; left: -8px; width: 24px; height: 24px; min-width: 0; padding: 0; border: none; background: none; border-radius: 50%; }
-.badge.asleep { top: -8px; left: -8px; width: 24px; height: 24px; min-width: 0; padding: 0; border: none; background: none; border-radius: 50%; }
+.badge.anchored { bottom: -8px; left: -8px; width: 26px; height: 26px; min-width: 0; padding: 0; border: none; background: none; border-radius: 50%; }
+.badge.asleep { top: -8px; left: -8px; width: 26px; height: 26px; min-width: 0; padding: 0; border: none; background: none; border-radius: 50%; }
 .badge.fleeting img, .badge.anchored img, .badge.asleep img { width: 100%; height: 100%; display: block; filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.75)); }
 .badge.type-tag {
   bottom: 3px; left: 50%; transform: translateX(-50%); background: rgba(0, 0, 0, 0.75);
