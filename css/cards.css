@@ -81,6 +81,13 @@
 /* Hover preview — large image, fixed right of board (over the sidebar). */
 #card-preview { position: fixed; right: 310px; top: 50%; transform: translateY(-50%); display: none; width: 380px; z-index: 200; pointer-events: none; filter: drop-shadow(0 10px 26px rgba(0, 0, 0, 0.7)); }
 #card-preview img { width: 100%; display: block; border-radius: 16px; border: 2px solid var(--accent); box-sizing: border-box; }
+/* Previewing a bot card → border in the opponent's faction accent. */
+#card-preview.opp img { border-color: var(--accent-opp); }
+/* Re-scope every accent inside the opponent's board (and its Discard viewer) to the
+   bot's faction, so reserve-cost badges, rings, etc. read as the bot — not as you. */
+.opp-area, #discard-viewer.disc-opp {
+  --accent: var(--accent-opp); --accent-soft: var(--accent-opp-soft); --accent-glow: var(--accent-opp-glow);
+}
 
 /* Context menu */
 #context-menu { position: fixed; display: none; flex-direction: column; gap: 2px; background: var(--bg-2); border: 1px solid var(--accent); border-radius: 9px; padding: 5px; z-index: 150; box-shadow: var(--shadow); }

@@ -29,13 +29,15 @@ const UI = (() => {
     OR: { accent: '#3f86c9', soft: '#74aade', glow: '63, 134, 201' },  // Ordis — blue
     YZ: { accent: '#8d63c6', soft: '#b18bda', glow: '141, 99, 198' },  // Yzmir — purple
   };
-  function applyFactionTheme(faction) {
+  // Set an accent trio under `prefix`. `--accent*` is the human theme (whole UI);
+  // `--accent-opp*` themes the opponent's board area + its card-preview popup.
+  function applyFactionTheme(faction, prefix = '--accent') {
     const t = FACTION_THEME[faction];
     if (!t) return;
     const root = document.documentElement.style;
-    root.setProperty('--accent', t.accent);
-    root.setProperty('--accent-soft', t.soft);
-    root.setProperty('--accent-glow', t.glow);
+    root.setProperty(prefix, t.accent);
+    root.setProperty(prefix + '-soft', t.soft);
+    root.setProperty(prefix + '-glow', t.glow);
   }
 
   // ─── INIT ──────────────────────────────────────────────────────
@@ -55,7 +57,8 @@ const UI = (() => {
       humanDeckFile: hd.file, botDeckFile: bd.file,
       humanAgent, botAgent: BotAI.agent,
     });
-    applyFactionTheme(state.you.faction);   // theme the whole UI to your Hero's colour
+    applyFactionTheme(state.you.faction);                     // whole UI → your Hero's colour
+    applyFactionTheme(state.opp.faction, '--accent-opp');     // opponent area/popup → bot's colour
     wireHandlers();
     if (params.get('auto')) { state.you.isHuman = false; state.you.agent = BotAI.agent; }  // headless self-test
     await E.startGame();
@@ -391,6 +394,10 @@ const UI = (() => {
     const el = e.target.closest('[data-id],[data-advimg]');
     const prev = $('card-preview');
     if (!el) { prev.style.display = 'none'; return; }
+    // Border the popup in the owner's faction colour: bot cards (opponent board, or
+    // the opponent's Discard viewer) get the bot accent; everything else stays yours.
+    prev.classList.toggle('opp', !el.dataset.advimg &&
+      (!!el.closest('.opp-area') || !!el.closest('#discard-viewer.disc-opp')));
     if (el.dataset.advimg) {                       // an Adventure card on the track
       prev.innerHTML = `<img src="${el.dataset.advimg}" alt="">`;
       prev.style.display = 'block'; return;
@@ -650,6 +657,7 @@ const UI = (() => {
     if (p.discard.length === 0) return;
     $('discard-title').textContent = `${p === state.you ? 'Your' : p.name} Discard (${p.discard.length})`;
     $('discard-grid').innerHTML = p.discard.map(c => cardImg(c, 'face')).join('');
+    $('discard-viewer').classList.toggle('disc-opp', p !== state.you);   // tint popup → bot accent
     show('discard-viewer');
   }
 

@@ -14,6 +14,9 @@
   --accent: #ef7d34;          /* playmat orange */
   --accent-soft: #f4a266;
   --accent-glow: 239, 125, 52;
+  /* Opponent accent (bot's faction); ui.js overrides. The .opp-area re-scopes
+     --accent* to these so every accent inside the opponent's board reads as the bot. */
+  --accent-opp: #ef7d34; --accent-opp-soft: #f4a266; --accent-opp-glow: 239, 125, 52;
   --good: #5fcf80;
   --bad: #ff6b6b;
   --forest: #4aa758;
