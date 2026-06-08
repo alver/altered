@@ -14,7 +14,7 @@
       const sel = human === d.id ? 'sel-you' : bot === d.id ? 'sel-opp' : '';
       const badge = human === d.id ? '<span class="pick-badge">You</span>'
         : bot === d.id ? '<span class="pick-badge">Opponent</span>' : '';
-      return `<div class="deck-tile ${sel}" data-id="${d.id}">
+      return `<div class="deck-tile ${sel}" data-id="${d.id}" style="--fac:var(--${d.faction})">
         ${badge}
         <img src="${heroArt(d)}" alt="${esc(d.factionName)}">
         <div class="info">

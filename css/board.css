@@ -123,7 +123,7 @@ body {
   position: relative;
   flex: 1 1 auto; display: flex; flex-direction: row; align-items: center; justify-content: center;
   gap: 14px; padding: 4px 14px; min-height: 0;
-  background: radial-gradient(600px 150px at 45% 50%, rgba(239, 125, 52, 0.06), transparent 70%);
+  background: radial-gradient(600px 150px at 45% 50%, rgba(var(--accent-glow), 0.08), transparent 70%);
 }
 /* Game info on the LEFT of the centre band: the Day title and the phase list,
    with the current phase highlighted. Taken out of flow so the track-stack stays

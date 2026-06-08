@@ -16,6 +16,28 @@ const UI = (() => {
   const $ = (id) => document.getElementById(id);
   const esc = (s) => (s || '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
+  // Per-faction UI accent: the whole interface (buttons, the help banner, menu
+  // borders, lane/target highlights, ambient glow) takes the human Hero's colour.
+  // `soft` is the lighter hover/text tint; `glow` is an "r,g,b" triple for rgba()
+  // shadows. The green "playable" ring (--good) stays universal so it never blends
+  // with MUNA's own green. Default orange lives in base.css (deck_select, fallback).
+  const FACTION_THEME = {
+    AX: { accent: '#bd853f', soft: '#dcab6e', glow: '189, 133, 63' },  // Axiom — copper/brown
+    BR: { accent: '#cf4b3c', soft: '#e8796b', glow: '207, 75, 60' },   // Bravos — red
+    LY: { accent: '#cf5f9e', soft: '#e895c2', glow: '207, 95, 158' },  // Lyra — pink/magenta
+    MU: { accent: '#4faa5b', soft: '#82cd8c', glow: '79, 170, 91' },   // Muna — green
+    OR: { accent: '#3f86c9', soft: '#74aade', glow: '63, 134, 201' },  // Ordis — blue
+    YZ: { accent: '#8d63c6', soft: '#b18bda', glow: '141, 99, 198' },  // Yzmir — purple
+  };
+  function applyFactionTheme(faction) {
+    const t = FACTION_THEME[faction];
+    if (!t) return;
+    const root = document.documentElement.style;
+    root.setProperty('--accent', t.accent);
+    root.setProperty('--accent-soft', t.soft);
+    root.setProperty('--accent-glow', t.glow);
+  }
+
   // ─── INIT ──────────────────────────────────────────────────────
   async function init() {
     const params = new URLSearchParams(location.search);
@@ -33,6 +55,7 @@ const UI = (() => {
       humanDeckFile: hd.file, botDeckFile: bd.file,
       humanAgent, botAgent: BotAI.agent,
     });
+    applyFactionTheme(state.you.faction);   // theme the whole UI to your Hero's colour
     wireHandlers();
     if (params.get('auto')) { state.you.isHuman = false; state.you.agent = BotAI.agent; }  // headless self-test
     await E.startGame();
