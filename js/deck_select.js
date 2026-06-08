@@ -11,9 +11,12 @@
 
   function render() {
     $('deck-grid').innerHTML = decks.map(d => {
-      const sel = human === d.id ? 'sel-you' : bot === d.id ? 'sel-opp' : '';
-      const badge = human === d.id ? '<span class="pick-badge">You</span>'
-        : bot === d.id ? '<span class="pick-badge">Opponent</span>' : '';
+      const isYou = human === d.id, isOpp = bot === d.id;
+      const sel = isYou && isOpp ? 'sel-you sel-opp sel-both'
+        : isYou ? 'sel-you' : isOpp ? 'sel-opp' : '';
+      const badge = isYou && isOpp ? '<span class="pick-badge">You + Opp</span>'
+        : isYou ? '<span class="pick-badge">You</span>'
+        : isOpp ? '<span class="pick-badge">Opponent</span>' : '';
       return `<div class="deck-tile ${sel}" data-id="${d.id}" style="--fac:var(--${d.faction})">
         ${badge}
         <img src="${heroArt(d)}" alt="${esc(d.factionName)}">

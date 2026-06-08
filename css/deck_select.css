@@ -73,7 +73,7 @@ body { background: #07090d; }
 }
 
 .tagline { color: var(--ink); opacity: 0.86; margin-top: 14px; text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7); }
-.step { margin-top: 14px; font-size: 1.05rem; text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7); }
+.step { margin: 0; font-size: 1.5rem; font-weight: 700; }
 .step b { color: var(--accent-soft); }
 
 /* ---- Faction grid (glass tiles over the art) ------------------------ */
@@ -96,6 +96,8 @@ body { background: #07090d; }
   position: absolute; top: 10px; right: 10px; padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 800; color: #0c0d10;
 }
 .deck-tile.sel-you .pick-badge { background: var(--you); } .deck-tile.sel-opp .pick-badge { background: var(--opp); }
+.deck-tile.sel-both { border-color: var(--you); box-shadow: 0 0 0 2px var(--you), 0 0 0 4px var(--opp), 0 8px 24px rgba(0, 0, 0, 0.45); }
+.deck-tile.sel-both .pick-badge { background: linear-gradient(90deg, var(--you), var(--opp)); }
 
 /* ---- Footer --------------------------------------------------------- */
 footer {
@@ -104,6 +106,7 @@ footer {
   background: rgba(16, 18, 24, 0.82);
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
-.chosen { color: var(--muted); }
+.footer-text { display: flex; flex-direction: column; gap: 8px; text-align: left; }
+.chosen { color: var(--muted); font-size: 1.05rem; }
 .chosen b { color: var(--ink); }
-.actions { display: flex; gap: 10px; }
+.actions { display: flex; gap: 10px; flex-shrink: 0; }
