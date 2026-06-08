@@ -300,9 +300,9 @@ const UI = (() => {
     const out = [];
     for (const [pl, side] of [[state.you, 'you'], [state.opp, 'opp']]) {
       const hp = E.heroPos(pl), cp = E.compPos(pl), meet = hp === cp;
-      const dy = side === 'you' ? 19 : -19;
-      out.push(markerChip(slot[hp], side, 'hero', pl, meet, -9, dy));
-      out.push(markerChip(slot[cp], side, 'comp', pl, meet, 9, dy));
+      const dy = side === 'you' ? 26 : -26;
+      out.push(markerChip(slot[hp], side, 'hero', pl, meet, -13, dy));
+      out.push(markerChip(slot[cp], side, 'comp', pl, meet, 13, dy));
     }
     layer.innerHTML = out.join('');
   }
