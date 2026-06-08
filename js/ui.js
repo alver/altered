@@ -301,8 +301,11 @@ const UI = (() => {
     for (const [pl, side] of [[state.you, 'you'], [state.opp, 'opp']]) {
       const hp = E.heroPos(pl), cp = E.compPos(pl), meet = hp === cp;
       const dy = side === 'you' ? 26 : -26;
-      out.push(markerChip(slot[hp], side, 'hero', pl, meet, -13, dy));
-      out.push(markerChip(slot[cp], side, 'comp', pl, meet, 13, dy));
+      // Sit exactly on the half-centre (slots are at 25%/75% of a Tumult card);
+      // only spread Hero/Companion apart when they share one slot (the meet frame).
+      const sep = meet ? 13 : 0;
+      out.push(markerChip(slot[hp], side, 'hero', pl, meet, -sep, dy));
+      out.push(markerChip(slot[cp], side, 'comp', pl, meet, sep, dy));
     }
     layer.innerHTML = out.join('');
   }
