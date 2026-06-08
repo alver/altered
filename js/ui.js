@@ -332,13 +332,14 @@ const UI = (() => {
     }
     layer.innerHTML = out.join('');
   }
-  // Real punch-board Expedition marker for the player's faction, with a blue
-  // (you) / red (opponent) ring so you can always tell whose marker it is.
+  // Real punch-board Expedition marker, ringed in that player's faction colour
+  // (--fac) so each Hero/Companion token matches its faction theme.
   function markerChip(slot, side, role, pl, meet, dx, dy) {
     if (!slot) return '';
     const img = `assets/markers/exp_${pl.faction}_${role}.png`;
     const title = `${pl === state.you ? 'Your' : pl.name + "'s"} ${role === 'hero' ? 'Hero' : 'Companion'} Expedition`;
-    return `<span class="trk-marker ${side} ${meet ? 'meet' : ''}" style="left:${Math.round(slot.x + dx)}px;top:${Math.round(slot.y + dy)}px" title="${title}"><img src="${img}" alt="${role}"></span>`;
+    const style = `left:${Math.round(slot.x + dx)}px;top:${Math.round(slot.y + dy)}px;--fac:var(--${pl.faction})`;
+    return `<span class="trk-marker ${side} ${meet ? 'meet' : ''}" style="${style}" title="${title}"><img src="${img}" alt="${role}"></span>`;
   }
 
   // ─── EVENT WIRING ───────────────────────────────────────────────

@@ -171,9 +171,9 @@ body {
   border: 3px solid; background: #0c0d10; overflow: hidden; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7); z-index: 3;
 }
 .trk-marker img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 50%; }
-/* Neon rings so each marker pops off the busy track art. */
-.trk-marker.you { border-color: #2ee6ff; box-shadow: 0 0 8px 1px #2ee6ff, 0 2px 5px rgba(0, 0, 0, 0.7); }
-.trk-marker.opp { border-color: #ff3b3b; box-shadow: 0 0 8px 1px #ff3b3b, 0 2px 5px rgba(0, 0, 0, 0.7); }
+/* Faction-coloured ring + glow (--fac is set per marker to its player's hue),
+   so each Hero/Companion token matches its faction and pops off the track art. */
+.trk-marker { border-color: var(--fac, var(--accent)); box-shadow: 0 0 8px 1px var(--fac, var(--accent)), 0 2px 5px rgba(0, 0, 0, 0.7); }
 .trk-marker.meet { box-shadow: 0 0 0 2px #fff, 0 0 11px var(--accent); }
 
 /* ── Hand ─────────────────────────────────────────────────────── */
