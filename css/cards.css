@@ -26,6 +26,13 @@
 /* Actionable Reserve cards lift under the cursor the same way hand cards do. */
 .card.reserve.actionable { transition: transform 0.13s, box-shadow 0.13s; }
 .card.reserve.actionable:hover { transform: translateY(-7px) scale(1.07); box-shadow: 0 0 0 2px var(--accent), 0 12px 26px rgba(0, 0, 0, 0.6); z-index: 8; }
+/* A card whose play is mid-resolution (a Character waiting for a lane pick) stays
+   lifted and pulsing in its hand/Reserve slot so it's clearly the one being placed. */
+.card.placing { cursor: default; transform: translateY(-7px) scale(1.07); z-index: 7; animation: placepulse 0.85s infinite alternate; }
+@keyframes placepulse {
+  from { box-shadow: 0 0 0 3px var(--accent), 0 12px 26px rgba(0, 0, 0, 0.6); }
+  to { box-shadow: 0 0 0 3px var(--accent), 0 0 16px var(--accent), 0 12px 26px rgba(0, 0, 0, 0.6); }
+}
 /* Selected in an in-board pick (Setup's 3-of-6 Mana choice): no border — just shade
    the card down (like an exhausted/spent card) to read as "set aside as Mana". */
 .card.picked { filter: brightness(0.48) grayscale(0.3); box-shadow: var(--shadow); }

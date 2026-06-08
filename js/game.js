@@ -744,7 +744,13 @@ const GameEngine = (() => {
   async function playCard(p, card, fromReserve) {
     const why = canPlay(p, card, fromReserve);
     if (why) return { error: why };
-    remove(fromReserve ? p.reserve : p.hand, card);          // pull the card out first (so its own Reserve copy isn't a discount source)
+    // Characters need a lane. Ask *before* pulling the card out of hand/Reserve so it
+    // stays visible in its slot while the player picks an Expedition (the UI keeps it
+    // highlighted there until a lane is clicked).
+    let which = null;
+    if (card.type === 'character')
+      which = await p.agent.chooseExpedition({ card, player: p, fromReserve, prompt: `Place ${card.name} in which Expedition?` });
+    remove(fromReserve ? p.reserve : p.hand, card);          // pull the card out (so its own Reserve copy isn't a discount source)
     let cost = CM.playCost(card, fromReserve);
     cost = Math.max(0, cost - transientCostDiscount(card, p)); // Support "next … costs less"
     p.pendingMods = p.pendingMods.filter(m => !(m.kind === 'cost' && m.match(card)));   // consume cost mods
@@ -754,7 +760,6 @@ const GameEngine = (() => {
     addLog(`${verb(p, 'play')} ${card.name} (${cost} mana${fromReserve ? ', from Reserve' : ''}).`, 'play');
 
     if (card.type === 'character') {
-      const which = await p.agent.chooseExpedition({ card, player: p, prompt: `Place ${card.name} in which Expedition?` });
       const cs = makeChar(card, { expedition: which || 'hero', fleeting: fromReserve });
       (cs.expedition === 'companion' ? p.compExp : p.heroExp).push(cs);
       // Hero passive: the first Character played each Afternoon gains boost(s)

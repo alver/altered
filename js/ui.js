@@ -212,8 +212,12 @@ const UI = (() => {
   function renderReserve(side, p, interactive) {
     const el = $(`${side}-reserve`);
     const label = el.querySelector('.zone-label').outerHTML;
+    // A Character mid-play (lane being chosen) stays in its slot, highlighted, and
+    // the rest of the row is frozen until a lane is picked.
+    const placing = pendingExp ? pendingExp.card : null;
     el.innerHTML = label + p.reserve.map(c => {
-      const playable = interactive && E.canAfford(c, p, true);
+      if (c === placing) return cardImg(c, 'reserve', { reserveCost: true, kind: 'reserve', placing: true });
+      const playable = interactive && !placing && E.canAfford(c, p, true);
       return cardImg(c, 'reserve', { reserveCost: true, actionable: playable, kind: 'reserve' });
     }).join('');
   }
@@ -258,11 +262,15 @@ const UI = (() => {
   }
 
   function renderHand(p, myTurn, manaPick) {
+    // A Character mid-play (lane being chosen) stays in its hand slot, highlighted,
+    // and the rest of the hand is frozen until a lane is picked.
+    const placing = pendingExp ? pendingExp.card : null;
     $('you-hand').innerHTML = p.hand.map(c => {
       // In-board Mana pick (Setup or Morning): every hand card is selectable; Setup's
       // multi-select shows the chosen cards with a 'picked' ring.
       if (manaPick) return cardImg(c, 'hand', { playable: true, actionable: true, kind: 'mana', picked: pendingMana.selected.has(c.uid) });
-      const playable = myTurn && E.canAfford(c, p, false);
+      if (c === placing) return cardImg(c, 'hand', { kind: 'hand', placing: true });
+      const playable = myTurn && !placing && E.canAfford(c, p, false);
       return cardImg(c, 'hand', { playable, actionable: playable, kind: 'hand' });
     }).join('');
   }
@@ -271,6 +279,7 @@ const UI = (() => {
     const cls = ['card', 'face', sizeCls];
     if (opts.playable) cls.push('playable');
     if (opts.actionable) cls.push('actionable');
+    if (opts.placing) cls.push('placing');
     if (opts.picked) cls.push('picked');
     const cost = opts.reserveCost ? card.reserveCost : card.handCost;
     const costCls = opts.reserveCost ? 'cost reserve-cost' : 'cost';
