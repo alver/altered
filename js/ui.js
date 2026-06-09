@@ -181,24 +181,21 @@ const UI = (() => {
     const previewSide = (side === 'you' && pendingExp && expHover) ? expHover : null;
     const proj = previewSide ? pendingExp.after(previewSide) : null;   // [F, M, W] projected
     $(`${side}-terrain`).innerHTML = T.map((t, i) => {
-      const cell = (which, sums, cls) => {
+      // `lane` is the pick key ('hero'|'companion'); `cls` is the CSS side class.
+      const cell = (lane, sums, cls) => {
         const orig = sums[t];
-        const on = previewSide === which;
+        const on = previewSide === lane;
         const v = on ? proj[i] : orig;       // projected total if this side is previewed
-        const up = on && v > orig;           // this terrain actually grows
         const c = ['tc-num', cls];
         if (!v) c.push('zero');
         if (on) c.push('preview');
-        if (up) c.push('up');
-        const delta = up ? `<span class="tc-delta">+${v - orig}</span>` : '';
-        // Hero numbers sit left of the icon (delta outside), Companion to the right.
-        const body = which === 'hero' ? delta + v : v + delta;
-        return `<span class="${c.join(' ')}">${body}</span>`;
+        if (on && v > orig) c.push('up');    // this terrain actually grows
+        return `<span class="${c.join(' ')}">${v}</span>`;
       };
       return `<div class="tc-row">`
         + cell('hero', hero, 'hero')
         + `<img src="assets/markers/${t}.png" alt="${t}">`
-        + cell('comp', comp, 'comp') + `</div>`;
+        + cell('companion', comp, 'comp') + `</div>`;
     }).join('');
   }
 
