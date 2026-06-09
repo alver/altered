@@ -62,6 +62,11 @@ body {
 .tc-num.hero { text-align: right; }
 .tc-num.comp { text-align: left; }
 .tc-num.zero { opacity: 0.3; }
+/* Lane-pick preview: the hovered side recolours to the player's faction accent and
+   the growing terrains brighten + glow, showing the total they'd reach. */
+.tc-num.preview { color: var(--accent); transition: color 0.12s, text-shadow 0.12s; }
+.tc-num.preview.up { color: var(--accent-soft); text-shadow: 0 0 11px rgba(var(--accent-glow), 0.85); }
+.tc-delta { font-size: 0.72rem; font-weight: 800; vertical-align: super; margin: 0 2px; }
 
 /* ── Resource row: [Reserve] [Hero card] [Landmarks + piles] ────── */
 .res-band { display: grid; grid-template-columns: 1fr 120px 1fr; gap: 10px; align-items: stretch; min-height: 142px; }
