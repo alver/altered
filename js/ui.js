@@ -175,9 +175,11 @@ const UI = (() => {
     const hero = E.expeditionTotals(p, 'hero');
     const comp = E.expeditionTotals(p, 'companion');
     // During a lane pick, hovering one of MY own lanes previews that side's totals:
-    // the shared central counter shows the projected sum (accent-coloured, with the
-    // delta) for the hovered lane. It reuses pendingExp.after() so these numbers
-    // always match the `→ F / M / W` shown on the lane overlay itself.
+    // the shared central counter shows the projected sum (accent-coloured) for the
+    // hovered lane. It reuses pendingExp.after() so these numbers always match the
+    // `→ F / M / W` shown on the lane overlay itself. The number spans carry
+    // data-lane/data-ti so hover can update them in place (see applyTerrainPreview)
+    // without rebuilding — and thus reflowing — the terrain <img> icons.
     const previewSide = (side === 'you' && pendingExp && expHover) ? expHover : null;
     const proj = previewSide ? pendingExp.after(previewSide) : null;   // [F, M, W] projected
     $(`${side}-terrain`).innerHTML = T.map((t, i) => {
@@ -190,13 +192,32 @@ const UI = (() => {
         if (!v) c.push('zero');
         if (on) c.push('preview');
         if (on && v > orig) c.push('up');    // this terrain actually grows
-        return `<span class="${c.join(' ')}">${v}</span>`;
+        return `<span class="${c.join(' ')}" data-lane="${lane}" data-ti="${i}">${v}</span>`;
       };
       return `<div class="tc-row">`
         + cell('hero', hero, 'hero')
         + `<img src="assets/markers/${t}.png" alt="${t}">`
         + cell('companion', comp, 'comp') + `</div>`;
     }).join('');
+  }
+
+  // Lane-pick hover: update just the number spans (text + preview classes) in place,
+  // leaving the terrain icons untouched, so the counters don't repaint/jitter.
+  function applyTerrainPreview() {
+    const col = $('you-terrain'); if (!col || !state) return;
+    const sums = { hero: E.expeditionTotals(state.you, 'hero'), companion: E.expeditionTotals(state.you, 'companion') };
+    const previewSide = (pendingExp && expHover) ? expHover : null;
+    const proj = previewSide ? pendingExp.after(previewSide) : null;
+    col.querySelectorAll('.tc-num').forEach(span => {
+      const lane = span.dataset.lane, i = +span.dataset.ti;
+      const orig = sums[lane][T[i]];
+      const on = previewSide === lane;
+      const v = on ? proj[i] : orig;
+      span.textContent = v;
+      span.classList.toggle('zero', !v);
+      span.classList.toggle('preview', on);
+      span.classList.toggle('up', on && v > orig);
+    });
   }
 
   function charFace(cs, ownerP, ghost) {
@@ -625,10 +646,10 @@ const UI = (() => {
         `<span class="epo-tot">→ ${pendingExp.after(which).join(' / ')}</span>`;
       ov.onclick = (e) => { e.stopPropagation(); resolveExpedition(which); };
       // Hovering a lane previews its projected totals on the central counters. Only
-      // the terrain column is re-rendered (no full render) so the overlays — and
-      // their click handlers — stay put and there's no flicker.
-      ov.onmouseenter = () => { expHover = which; renderTerrain('you', state.you); };
-      ov.onmouseleave = () => { expHover = null; renderTerrain('you', state.you); };
+      // the number spans are touched (not the icons), so the overlays keep their
+      // click handlers and the counters don't jitter.
+      ov.onmouseenter = () => { expHover = which; applyTerrainPreview(); };
+      ov.onmouseleave = () => { expHover = null; applyTerrainPreview(); };
       zone.appendChild(ov);
     };
     add('you-hero-exp', 'hero', 'Hero Expedition');
